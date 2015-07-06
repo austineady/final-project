@@ -12,17 +12,9 @@ var Router = Backbone.Router.extend({
     '': 'landing',
     'users/create': 'newUser',
     'users/login': 'UserLogin',
-    'users/:username': 'userHome'
   },
 
   initialize: function() {
-  this.collection = new ProductCollection([
-    {
-      title: 'Harry Potter and the Half-Blood Prince',
-      url: 'http://www.amazon.com/Harry-Potter-Half-Blood-Prince-Book/dp/0439785960',
-      picture: 'http://img2.wikia.nocookie.net/__cb20130719035646/harrypotter/images/7/7f/Hbp_15_anniversary.jpg'
-    }
-  ]);
   Parse.initialize("yNYDA6j04da33mB4EYKTeTGUrYBQf6PogxbTZvJO", "ui0H1gJk4r8HFVPQjsUVgwifyiMWNy4ZB5LEgYSg");
   },
 
@@ -46,9 +38,8 @@ var Router = Backbone.Router.extend({
   },
 
   userHome: function(username) {
-    $('#app').prepend(JST.header);
     var view = new UserHomeView();
-    $('.app-header').append(view.el);
+    $('#app').html(view.el);
   }
 });
 

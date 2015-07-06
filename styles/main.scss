@@ -16,6 +16,10 @@ $light-green: rgba(54, 242, 123, 1);
 $base-font-color: $dark-gray;
 $base-background-color: $very-light-gray;
 
+/* * {
+  border: 1px solid maroon;
+} */
+
 body {
   font-family: $base-font-family;
   background-color: $base-background-color;
@@ -23,7 +27,7 @@ body {
 }
 
 ::-webkit-input-placeholder {
-  color: white;
+  color: $green;
 }
 
 button {
@@ -50,12 +54,26 @@ li {
 }
 
 .app-header {
-  position: absolute;
-  z-index: 2;
-  top: 0;
   width: 410px;
-  height: 80px;
-  border-bottom: 3px solid black;
+  height: 65px;
+  //border-bottom: 2px solid white;
+  color: white;
+  padding-left: 5px;
+}
+
+.app-title {
+  width: 255px;
+  float: left;
+}
+
+.app-title-icon {
+  font-size: 35px;
+}
+
+.app-user {
+  width: 140px;
+  line-height: 30px;
+  float: left;
 }
 
 .landing-form {
@@ -135,9 +153,10 @@ li {
   height: 40px;
   background-color: rgba(255, 255, 255, 0);
   padding: 10px;
-  border: 1px solid white;
-  margin-left: 57px;
-  margin-top: 100px;
+  border: 0;
+  border-bottom: 2px solid $green;
+  margin-left: 10px;
+  margin-top: 50px;
 }
 
 .home-footer {
@@ -164,5 +183,128 @@ li {
 }
 
 .home-plus {
+  float: right;
+}
+
+.accordion-container {
+  width: 407px;
+  height: 650px;
+}
+
+.home-accordion {
+  text-align: center;
+  width: 408px;
+  height: 730px;
+  color: white;
+  outline: none;
+}
+
+.accordion-header {
+  font-size: 20px;
+  outline: none;
+  margin-bottom: 0;
+  //border-left: 5px solid white;
+  //border-right: 5px solid white;
+}
+
+.ui-accordion-header-active {
+  background-color: white;
+  color: $green;
+  transition: 1s;
+}
+
+.search-box {
+  height: 500px;
+  background-color: white;
+  color: $green;
+}
+
+.list-box {
+  background-color: white;
+  color: $green;
+  height: 500px;
+}
+
+.plus-box {
+  height: 535px;
+  color: $green;
+  background-color: white;
+}
+
+.plus-input {
+  width: 350px;
+  height: 40px;
+  border: 2px solid $green;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 15px;
+}
+
+.plus-url {
+  margin-bottom: 30px;
+}
+
+.plus-description {
+  height: 100px;
+}
+
+.plus-submit {
+  width: 200px;
+  height: 40px;
+  background-color: $green;
+  color: white;
+  margin-top: 80px;
+  font-size: 20px;
+  text-shadow: 0 -1px 7px rgba(16, 113, 81, 1);
+}
+
+.accordion-box {
+  overflow-y: scroll;
+}
+
+.item-title {
+  outline: none;
+  padding-right: 13px;
+  border-left: 5px solid $green;
+  border-right: 5px solid $green;
+}
+
+.ui-item-title-active {
+  background-color: $green;
+  color: white;
+  border-left: 5px solid white;
+  border-right: 5px solid white;
+}
+
+.item-picture-box {
+  width: 150px;
+  height: 200px;
+  overflow: hidden;
+  float: left;
+}
+
+.item-description {
+  float: left;
+}
+
+.list-item-link-icon {
+  float: left;
+  color: $green;
+  font-size: 20px;
+}
+
+.item-picture {
+  width: 150px;
+  height: 200px;
+}
+
+.item-information {
+  height: 430px;
+  overflow-y: scroll;
+  padding: 10px;
+  color: black;
+}
+
+.list-item-header-price {
   float: right;
 }

@@ -17,8 +17,7 @@ export default Backbone.View.extend({
     this.$el.html(this.template());
   },
 
-  login: function(e) {
-    e.preventDefault();
+  login: function() {
     var username = this.$('.user-username').val();
     var password = this.$('.user-password').val();
     console.log(username, password);
@@ -26,7 +25,7 @@ export default Backbone.View.extend({
       success: function(user) {
         console.log(user);
         Parse.User.become(user.sessionToken).then(function(user) {
-          router.navigate('/users/'+user.username);
+          router.navigate('');
         });
       },
       error: function(user) {

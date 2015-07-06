@@ -1,8 +1,31 @@
-<section class="home-menu">
+<header class="app-header">
+  <h1 class="app-title"><i class="fa fa-square-o app-title-icon"></i> StoreSquare</h1>
+  <h4 class="app-user"><i class="fa fa-user"></i> {{this.attributes.username}}</h4>
+</header>
+{{log this}}
+<section class="accordion-container">
+<div id="accordion" class="home-accordion">
+  <h3 class="accordion-header header-search"><i class="fa fa-search"></i></h3>
+  <div class="search-box accordion-box">
   <form class="home-search-form">
     <input type=text class="home-search-bar" placeholder="Search for products">
   </form>
-  <footer class="home-footer">
+  </div>
+  <h3 class="accordion-header header-list"><i class="fa fa-list-ul"></i></h3>
+  <div class="list-box accordion-box">
+    <div class="user-list"></div>
+  </div>
+  <h3 class="accordion-header header-plus"><i class="fa fa-plus"></i></h3>
+  <div class="plus-box accordion-box">
+    <form class="plus-form">
+      <input type="url" class="plus-input plus-url" placeholder="What is the url?">
+      <input type="text" class="plus-input plus-name" placeholder="What do you want to call it?">
+      <textarea class="plus-input plus-description" placeholder="Any notes you want to leave?"></textarea>
+      <input type="file" class="plus-input plus-picture" placeholder="You can add pictures if you want">
+      <input type="submit" class="plus-input plus-submit" value="Save">
+    </form>
+  </div>
+  <!--<footer class="home-footer">
     <i class="fa fa-list-ul home-icon home-list"></i><i class="fa fa-plus home-icon home-plus"></i>
-  </footer>
+  </footer>-->
 </section>
