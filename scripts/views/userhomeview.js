@@ -3,6 +3,9 @@ export default Backbone.View.extend({
 
   initialize: function() {
     this.render();
+    this.$(".home-footer").draggable({
+      axis: 'y'
+    });
   },
 
   render: function() {
