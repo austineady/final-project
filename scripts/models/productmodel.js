@@ -1,8 +1,16 @@
 var Product = Backbone.Model.extend({
   defaults: {
-    title: '',
+    name: '',
+    color: '',
+    customerReviewAverage: '',
     url: '',
-    picture: ''
+    image: '',
+    features: [],
+    manufacturer: '',
+    shortDescription: '',
+    salePrice: null,
+    label: '',
+    sku: null,
   }
 });
 
