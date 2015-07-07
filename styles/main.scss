@@ -346,15 +346,16 @@ li {
   border-right: 5px solid white;
 }
 
-.item-picture-box {
+/* .item-picture-box {
   width: 150px;
   height: 200px;
   overflow: hidden;
   float: left;
-}
+} */
 
 .item-description {
   float: left;
+  font-size: 13px;
 }
 
 .list-item-link-icon {
@@ -363,10 +364,10 @@ li {
   font-size: 20px;
 }
 
-.item-picture {
+/* .item-picture {
   width: 150px;
   height: 200px;
-}
+} */
 
 .item-information {
   height: 430px;
@@ -377,4 +378,10 @@ li {
 
 .list-item-header-price {
   float: right;
+}
+
+.item-single-feature {
+  list-style: circle;
+  font-size: 12px;
+  text-align: left;
 }

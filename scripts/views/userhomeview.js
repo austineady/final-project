@@ -11,35 +11,39 @@ export default Backbone.View.extend({
 
   initialize: function() {
     this.model = Parse.User.current();
-    console.log(this.model);
-    this.render();
+    var Product = Parse.Object.extend('Product');
+    var product = new Product();
+    product.fetch().then(function(data) {
+      var list = _.where(data.attributes.results, {owner: this.model.attributes.username});
+      this.render(list);
+      this.$("#accordion").accordion({
+        active: 1,
+        animate: 200,
+        heightStyle: "content",
+        collapsible: true,
+      });
+      this.$('.user-list').accordion({
+        active: 2,
+        animate: 200,
+        heightStyle: 'content',
+        collapsible: true,
+      });
+    }.bind(this));
     /*this.$('.home-search-bar').autocomplete({
       source: this.model.attributes.list,
       position: { my: "left top", at: "left bottom", collision: "none" }
     });*/
-    this.$("#accordion").accordion({
-      active: 1,
-      animate: 200,
-      heightStyle: "content",
-      collapsible: true,
-    });
-    this.$('.user-list').accordion({
-      active: 2,
-      animate: 200,
-      heightStyle: 'content',
-      collapsible: true,
-    });
   },
 
-  render: function() {
+  render: function(list) {
     this.$el.html(this.template(this.model));
-    this.renderChildren();
+    this.renderChildren(list);
   },
 
-  renderChildren: function(){
+  renderChildren: function(list){
     _.invoke(this.children || [], 'remove');
 
-    this.children = this.model.attributes.list.map(function(child) {
+    this.children = list.map(function(child) {
       var view = new ListItemView({
         model: child
       });
