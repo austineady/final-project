@@ -1,33 +1,36 @@
-<header class="app-header">
-  <h1 class="app-title"><i class="fa fa-square-o app-title-icon"></i> StoreSquare</h1>
-  <h4 class="app-user"><i class="fa fa-user"></i> {{this.attributes.username}}</h4>
-</header>
+<paper-shadow z="3">
+  <header class="app-header">
+    <h1 class="app-title"><i class="fa fa-square-o app-title-icon"></i> StoreSquare</h1>
+    <paper-fab mini icon="account-circle" class="app-title-user"></paper-fab>
+  </header>
+</paper-shadow>
 {{log this}}
 <section class="accordion-container">
 <div id="accordion" class="home-accordion">
-  <h3 class="accordion-header header-search"><i class="fa fa-search"></i></h3>
+  <paper-shadow z="2"><h3 class="accordion-header header-search"><i class="fa fa-search accordion-search"></i></h3></paper-shadow>
   <div class="search-box accordion-box">
   <form class="home-search-form">
     <input type=text class="home-search-bar" placeholder="Search for products">
   </form>
     <section class="search-results">
-      
+
     </section>
   </div>
-  <h3 class="accordion-header header-list"><i class="fa fa-list-ul"></i></h3>
+  <paper-shadow z="2"><h3 class="accordion-header header-list"><i class="fa fa-list-ul"></i></h3></paper-shadow>
   <div class="list-box accordion-box">
     <div class="user-list"></div>
   </div>
-  <h3 class="accordion-header header-plus"><i class="fa fa-plus"></i></h3>
+  <paper-shadow z="2"><h3 class="accordion-header header-plus"><i class="fa fa-plus"></i></h3></paper-shadow>
   <div class="plus-box accordion-box">
     <form class="plus-form">
-      <input type="url" class="plus-input plus-url" placeholder="What is the url?">
-      <input type="text" class="plus-input plus-name" placeholder="What do you want to call it?">
-      <textarea class="plus-input plus-description" placeholder="Any notes you want to leave?"></textarea>
+      <paper-input type="url" class="plus-input plus-url" floatingLabel=true label="What is the url?"></paper-input>
+      <paper-input type="text" class="plus-input plus-name" floatingLabel=true label="What do you want to call it?"></paper-input>
+      <paper-autogrow-textarea><textarea class="plus-input plus-description" placeholder="Any notes you want to leave?"></textarea></paper-autogrow-textarea>
       <input type="file" class="plus-input plus-picture" placeholder="You can add pictures if you want">
-      <input type="submit" class="plus-input plus-submit" value="Save">
+      <paper-button raised class="plus-input plus-submit">Save</paper-button>
     </form>
   </div>
+</div>
   <!--<footer class="home-footer">
     <i class="fa fa-list-ul home-icon home-list"></i><i class="fa fa-plus home-icon home-plus"></i>
   </footer>-->

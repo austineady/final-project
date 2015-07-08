@@ -6,6 +6,14 @@ $base-font-family: $helvetica;
 
 // Colors
 $blue: #477dca;
+$black: rgba(51, 51, 51, 1);
+$red: rgba(217, 81, 82, 1);
+$blue: rgba(52, 123, 178, 1);
+$dark-blue: rgba(47, 112, 155, 1);
+$orange: rgba(255, 100, 40, 1);
+$light-orange: rgba(243, 116, 69, 1);
+$dark-orange: rgba(198, 127, 60, 1);
+$yellow: rgba(240, 219, 79, 1);
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #ddd;
@@ -46,6 +54,10 @@ li {
   list-style: none;
 }
 
+paper-shadow {
+  outline: none;
+}
+
 #app {
   max-width: 414px;
   height: 736px;
@@ -64,10 +76,18 @@ li {
 .app-title {
   width: 255px;
   float: left;
+  margin-top: 10px;
 }
 
 .app-title-icon {
-  font-size: 35px;
+  font-size: 40px;
+}
+
+.app-title-user {
+  background-color: $light-orange;
+  float: right;
+  margin-top: 12px;
+  margin-right: 20px;
 }
 
 .app-user {
@@ -156,7 +176,7 @@ li {
 
 .search-item-list-add {
   border: 0;
-  background-color: inherit;
+  background-color: $red;
   font-size: 15px;
 }
 
@@ -218,6 +238,11 @@ li {
   margin-left: 57px;
 }
 
+.accordion-search {
+  margin-right: 130px;
+  margin-left: 135px;
+}
+
 .home-search-bar {
   width: 300px;
   height: 40px;
@@ -273,6 +298,9 @@ li {
   font-size: 20px;
   outline: none;
   margin-bottom: 0;
+  margin-top: 0;
+  height: 53px;
+  line-height: 52px;
   //border-left: 5px solid white;
   //border-right: 5px solid white;
 }
@@ -301,14 +329,14 @@ li {
   background-color: white;
 }
 
-.plus-input {
+/* .plus-input {
   width: 350px;
   height: 40px;
   border: 2px solid $green;
   border-radius: 10px;
   padding: 5px;
   margin-top: 15px;
-}
+} */
 
 .plus-url {
   margin-bottom: 30px;
@@ -334,9 +362,9 @@ li {
 
 .item-title {
   outline: none;
-  padding-right: 13px;
-  border-left: 5px solid $green;
-  border-right: 5px solid $green;
+  padding: 7px;
+  margin: 0;
+  margin-top: 5px;
 }
 
 .ui-item-title-active {
@@ -365,8 +393,8 @@ li {
 }
 
 /* .item-picture {
-  width: 150px;
-  height: 200px;
+  width: 380px;
+  height: 68px;
 } */
 
 .item-information {
