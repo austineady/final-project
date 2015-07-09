@@ -5,6 +5,8 @@ export default Backbone.View.extend({
   template: JST.home,
 
   events: {
+    'click .item-list-add': 'listAdd',
+    'click .app-title-user': 'search',
     'submit .plus-form': 'saveEntry',
     'submit .home-search-form': 'showResults'
   },
@@ -23,6 +25,7 @@ export default Backbone.View.extend({
         collapsible: true,
       });
       this.$('.user-list').accordion({
+        header: "paper-shadow",
         active: 2,
         animate: 200,
         heightStyle: 'content',
@@ -57,6 +60,18 @@ export default Backbone.View.extend({
   remove: function(){
     _.invoke(this.children || [], 'remove');
     Backbone.View.prototype.remove.apply(this, arguments);
+  },
+
+  listAdd: function() {
+    this.$("#accordion").accordion({
+      active: 2,
+    });
+  },
+
+  search: function() {
+    this.$("#accordion").accordion({
+      active: 0,
+    });
   },
 
   saveEntry: function() {

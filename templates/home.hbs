@@ -1,37 +1,52 @@
-<paper-shadow z="3">
-  <header class="app-header">
-    <h1 class="app-title"><i class="fa fa-square-o app-title-icon"></i> StoreSquare</h1>
-    <paper-fab mini icon="account-circle" class="app-title-user"></paper-fab>
-  </header>
-</paper-shadow>
-{{log this}}
-<section class="accordion-container">
-<div id="accordion" class="home-accordion">
-  <paper-shadow z="2"><h3 class="accordion-header header-search"><i class="fa fa-search accordion-search"></i></h3></paper-shadow>
-  <div class="search-box accordion-box">
-  <form class="home-search-form">
-    <input type=text class="home-search-bar" placeholder="Search for products">
-  </form>
-    <section class="search-results">
+<core-drawer-panel drawerWidth="300px">
+  <core-header-panel drawer class="drawer-panel">
+    <core-toolbar>
+    </core-toolbar>
+    <div class="drawer-content">
+      <paper-shadow z="1"><div class="drawer-menu">
+        <h5 class="drawer-user-email">{{this.attributes.email}}</h5>
+        <h5 class="drawer-user">{{this.attributes.username}}</h5>{{log this}}
+      </div></paper-shadow>
+    </div>
+  </core-header-panel>
+  <core-header-panel main>
+    <paper-shadow z="3">
+      <header class="app-header">
+        <paper-icon-button icon="menu" class="menu-drawer-icon" core-drawer-toggle></paper-icon-button><h1 class="app-title"><i class="fa fa-square-o app-title-icon"></i> StoreSquare</h1>
+        <paper-fab mini icon="search" class="app-title-user"></paper-fab>
+      </header>
+    </paper-shadow>
+    {{log this}}
+    <section class="accordion-container">
+    <div id="accordion" class="home-accordion">
+      <h3 class="accordion-header header-search"></h3>
+      <div class="search-box accordion-box">
+      <form class="home-search-form">
+        <input type=text class="home-search-bar" placeholder="Search for products">
+      </form>
+        <section class="search-results">
 
+        </section>
+      </div>
+      <paper-shadow z="2"><h3 class="accordion-header header-list"><i class="fa fa-list-ul"></i></h3></paper-shadow>
+      <div class="list-box accordion-box">
+        <div class="user-list"></div>
+        <paper-fab icon="add" class="item-list-add"></paper-fab>
+      </div>
+      <paper-shadow z="2"><h3 class="accordion-header header-plus"></h3></paper-shadow>
+      <div class="plus-box accordion-box">
+        <form class="plus-form">
+          <paper-input type="url" class="plus-input plus-url" floatingLabel=true label="What is the url?"></paper-input>
+          <paper-input type="text" class="plus-input plus-name" floatingLabel=true label="What do you want to call it?"></paper-input>
+          <paper-autogrow-textarea><textarea class="plus-input plus-description" placeholder="Any notes you want to leave?"></textarea></paper-autogrow-textarea>
+          <input type="file" class="plus-input plus-picture" placeholder="You can add pictures if you want">
+          <paper-button raised class="plus-input plus-submit">Save</paper-button>
+        </form>
+      </div>
+    </div>
+      <!--<footer class="home-footer">
+        <i class="fa fa-list-ul home-icon home-list"></i><i class="fa fa-plus home-icon home-plus"></i>
+      </footer>-->
     </section>
-  </div>
-  <paper-shadow z="2"><h3 class="accordion-header header-list"><i class="fa fa-list-ul"></i></h3></paper-shadow>
-  <div class="list-box accordion-box">
-    <div class="user-list"></div>
-  </div>
-  <paper-shadow z="2"><h3 class="accordion-header header-plus"><i class="fa fa-plus"></i></h3></paper-shadow>
-  <div class="plus-box accordion-box">
-    <form class="plus-form">
-      <paper-input type="url" class="plus-input plus-url" floatingLabel=true label="What is the url?"></paper-input>
-      <paper-input type="text" class="plus-input plus-name" floatingLabel=true label="What do you want to call it?"></paper-input>
-      <paper-autogrow-textarea><textarea class="plus-input plus-description" placeholder="Any notes you want to leave?"></textarea></paper-autogrow-textarea>
-      <input type="file" class="plus-input plus-picture" placeholder="You can add pictures if you want">
-      <paper-button raised class="plus-input plus-submit">Save</paper-button>
-    </form>
-  </div>
-</div>
-  <!--<footer class="home-footer">
-    <i class="fa fa-list-ul home-icon home-list"></i><i class="fa fa-plus home-icon home-plus"></i>
-  </footer>-->
-</section>
+  </core-header-panel>
+</core-drawer-panel>
