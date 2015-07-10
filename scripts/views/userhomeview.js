@@ -19,13 +19,13 @@ export default Backbone.View.extend({
       var list = _.where(data.attributes.results, {owner: this.model.attributes.username});
       this.render(list);
       this.$("#accordion").accordion({
+        header: 'h3',
         active: 1,
         animate: 200,
         heightStyle: "content",
         collapsible: true,
       });
       this.$('.user-list').accordion({
-        header: "paper-shadow",
         active: 2,
         animate: 200,
         heightStyle: 'content',
@@ -36,6 +36,7 @@ export default Backbone.View.extend({
       source: this.model.attributes.list,
       position: { my: "left top", at: "left bottom", collision: "none" }
     });*/
+    this.listenTo(product, 'update', this.render);
   },
 
   render: function(list) {

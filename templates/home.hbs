@@ -7,19 +7,26 @@
         <h5 class="drawer-user-email">{{this.attributes.email}}</h5>
         <h5 class="drawer-user">{{this.attributes.username}}</h5>{{log this}}
       </div></paper-shadow>
+      <h3 class="drawer-option drawer-title"><core-icon icon="view-list"></core-icon>My List</h3>
+      <div class="drawer-option drawer-friends">
+        <core-icon icon="social:people"></core-icon> Friends:
+        {{#each this.attributes.friends}}
+          <h5 class="drawer-friend"><core-icon icon="social:person"></core-icon>{{this}}</h5>
+        {{/each}}
+      </div>
     </div>
   </core-header-panel>
   <core-header-panel main>
     <paper-shadow z="3">
       <header class="app-header">
-        <paper-icon-button icon="menu" class="menu-drawer-icon" core-drawer-toggle></paper-icon-button><h1 class="app-title"><i class="fa fa-square-o app-title-icon"></i> StoreSquare</h1>
+        <paper-icon-button icon="menu" class="menu-drawer-icon" core-drawer-toggle></paper-icon-button><h2 class="app-title"><i class="fa fa-square-o app-title-icon"></i> StoreSquare</h2>
         <paper-icon-button  icon="search" class="app-title-user"></paper-icon-button>
       </header>
     </paper-shadow>
     {{log this}}
     <section class="accordion-container">
     <div id="accordion" class="home-accordion">
-      <h3 class="accordion-header header-search"><core-icon icon="search"></core-icon></h3>
+      <h3 class="accordion-header header-search"><core-icon icon="search" class="search-header-icon"></core-icon></h3>
       <div class="search-box accordion-box">
       <form class="home-search-form">
         <input type=text class="home-search-bar" placeholder="Search for products">
@@ -28,12 +35,12 @@
 
         </section>
       </div>
-      <paper-shadow z="2"><h3 class="accordion-header header-list"><core-icon icon="list"></core-icon></paper-shadow>
+      <h3 class="accordion-header header-list"><core-icon icon="list"></core-icon></h3>
       <div class="list-box accordion-box">
         <div class="user-list"></div>
         <paper-fab icon="add" class="item-list-add"></paper-fab>
       </div>
-      <paper-shadow z="2"><h3 class="accordion-header header-plus"></h3></paper-shadow>
+      <h3 class="accordion-header header-plus"><core-icon icon="add"></core-icon></h3>
       <div class="plus-box accordion-box">
         <form class="plus-form">
           <paper-input type="url" class="plus-input plus-url" floatingLabel=true label="What is the url?"></paper-input>
