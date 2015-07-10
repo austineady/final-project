@@ -13,13 +13,13 @@
     <paper-shadow z="3">
       <header class="app-header">
         <paper-icon-button icon="menu" class="menu-drawer-icon" core-drawer-toggle></paper-icon-button><h1 class="app-title"><i class="fa fa-square-o app-title-icon"></i> StoreSquare</h1>
-        <paper-fab mini icon="search" class="app-title-user"></paper-fab>
+        <paper-icon-button  icon="search" class="app-title-user"></paper-icon-button>
       </header>
     </paper-shadow>
     {{log this}}
     <section class="accordion-container">
     <div id="accordion" class="home-accordion">
-      <h3 class="accordion-header header-search"></h3>
+      <h3 class="accordion-header header-search"><core-icon icon="search"></core-icon></h3>
       <div class="search-box accordion-box">
       <form class="home-search-form">
         <input type=text class="home-search-bar" placeholder="Search for products">
@@ -28,7 +28,7 @@
 
         </section>
       </div>
-      <paper-shadow z="2"><h3 class="accordion-header header-list"><i class="fa fa-list-ul"></i></h3></paper-shadow>
+      <paper-shadow z="2"><h3 class="accordion-header header-list"><core-icon icon="list"></core-icon></paper-shadow>
       <div class="list-box accordion-box">
         <div class="user-list"></div>
         <paper-fab icon="add" class="item-list-add"></paper-fab>

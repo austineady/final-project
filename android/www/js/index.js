@@ -16,6 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+ import router from './router';
+
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -40,6 +43,7 @@ var app = {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
+        Backbone.history.start();
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');

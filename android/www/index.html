@@ -28,21 +28,34 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://www.parsecdn.com http://maxcdn.bootstrapcdn.com data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' http://maxcdn.bootstrapcdn.com; media-src *">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <!--<link rel="stylesheet" type="text/css" href="css/index.css">-->
+        <link rel="stylesheet" href="./../../bower_components/normalize.css/normalize.css">
+        <link href="./../../bower_components/core-icons/core-icons.html" rel="import">
+        <link rel="import" href="./../../bower_components/core-drawer-panel/core-drawer-panel.html">
+        <link rel="import" href="./../../bower_components/paper-elements/paper-elements.html">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/index.css" type="text/css">
+        <script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+        <script src="./../../bower_components/modernizr/modernizr.js"></script>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
+        <div id="app"></div>
+
+        <script src="./../../bower_components/commonjs-require/commonjs-require.js"></script>
+        <script src="./../../bower_components/jquery/dist/jquery.js"></script>
+        <script src="./../../bower_components/underscore/underscore.js"></script>
+        <script src="./../../bower_components/backbone/backbone.js"></script>
+        <script src="./../../bower_components/jquery-ui/jquery-ui.js"></script>
+        <script src="./../../bower_components/handlebars/handlebars.js"></script>
+
+
+
+        <script src="dist/scripts/templates.js"></script>
+        <script src="dist/scripts/app.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
