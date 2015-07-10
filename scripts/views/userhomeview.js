@@ -1,5 +1,6 @@
 import ListItemView from './listitemview';
 import SearchView from './searchview';
+import SearchWebView from './searchwebview';
 
 export default Backbone.View.extend({
   template: JST.home,
@@ -8,7 +9,8 @@ export default Backbone.View.extend({
     'click .item-list-add': 'listAdd',
     'click .app-title-user': 'search',
     'submit .plus-form': 'saveEntry',
-    'submit .home-search-form': 'showResults'
+    'submit .home-search-form': 'showResults',
+    'submit .web-search-form': 'searchResults'
   },
 
   initialize: function() {
@@ -90,7 +92,23 @@ export default Backbone.View.extend({
     $.ajax({
       url: "http://api.remix.bestbuy.com/v1/products((search="+search+"))?show=name,sku,salePrice,image,features.feature,shortDescription,color,customerReviewAverage,manufacturer&format=json&apiKey=e25cp4dyr5m785e27wke6rt3",
       success: function (data) {
-        var view = new SearchView({collection: data});
+        var view = new SearchWebView({collection: data});
+        this.$('.search-results').html(view.el);
+      }.bind(this),
+       error: function(){
+        alert('No search results were found, please try again');
+      }
+    });
+  },
+
+  searchResults: function(e) {
+    e.preventDefault();
+    var query = this.$('.home-search-bar').val();
+    var search = query.replace(' ', '&search=');
+    $.ajax({
+      url: "http://api.remix.bestbuy.com/v1/products((search="+search+"))?show=name,sku,salePrice,image,features.feature,shortDescription,color,customerReviewAverage,manufacturer&format=json&apiKey=e25cp4dyr5m785e27wke6rt3",
+      success: function (data) {
+        var view = new SearchWebView({collection: data});
         this.$('.search-results').html(view.el);
       }.bind(this),
        error: function(){

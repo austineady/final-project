@@ -23,7 +23,6 @@ var Router = Backbone.Router.extend({
   landing: function() {
     if (Parse.User.current()) {
       this.userHome();
-      console.log('hi');
     } else {
       var users = new UserCollection();
       var view = new LandingView({collection: users});

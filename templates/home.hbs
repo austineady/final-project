@@ -1,3 +1,31 @@
+<core-scaffold drawerWidth="350px" class="scaffold">
+  <core-header-panel navigation flex mode="waterfall">
+    <core-toolbar class="app-sidebar">
+      <h4 class="toolbar-user-usernmae">{{this.attributes.username}}</h4>
+    </core-toolbar>
+    <core-menu class="top-panel">
+      <core-item icon="settings" label="item1"></core-item>
+      <core-item icon="settings" label="item2"></core-item>
+      <h1>hi</h1>
+    </core-menu>
+  </core-header-panel>
+  <div tool class="app-toolbar">
+    <h1>hi</h1>
+  </div>
+  <div fit class="app-main">
+    <div class="web-accordion-box">
+    <form class="web-search-form">
+      <input type=text class="home-search-bar" placeholder="Search for products">
+    </form>
+      <section class="search-results">
+
+      </section>
+    </div>
+  </div>
+</core-scaffold>
+
+
+<core-media-query query="max-width: 1500px" queryMatches="{{phoneScreen}}">
 <core-drawer-panel drawerWidth="300px">
   <core-header-panel drawer class="drawer-panel">
     <core-toolbar>
@@ -57,3 +85,4 @@
     </section>
   </core-header-panel>
 </core-drawer-panel>
+</core-media-query>
