@@ -74,12 +74,10 @@ core-scaffold::shadow core-toolbar {
 }
 
 .card {
-  @include span-columns(2.5);
-  height: 220px;
+  @include span-columns(12);
   border-radius: 5px;
   text-align: center;
-  margin-top: 10px;
-  margin-left: 10px;
+
   background-color: white;
 }
 
@@ -91,30 +89,114 @@ core-scaffold::shadow core-toolbar {
 }
 
 .card-bottom {
-  height: 75px;
+  @include span-columns(12);
+  height: 100px;
   overflow-y: scroll;
-  padding: 5px;
+}
+
+.card-title {
+  padding: 10px;
 }
 
 .card-url {
   margin-top: 20px;
 }
 
-.web-accordion-box {
-  height: 90vh;
-}
-
-.web-results-box {
-  height: 90vh;
-  background-color: rgba(238, 238, 238, 1);
-}
-
 .search-results {
   background-color: rgba(238, 238, 238, 1);
 }
 
+.search-results-box {
+  padding-bottom: 10px;
+}
 
+.search-item {
+  display: inline-block;
+  width: 200px;
+  height: 230px;
+  padding: 5px;
+  border-radius: 5px;
+}
 
+.app-title {
+  @include span-columns(12);
+}
+
+.app-icon {
+  @include span-columns(12);
+  float: right;
+  border: 1px solid red;
+  margin-right: 0;
+  margin: 0;
+}
+
+.drawer-user-email {
+  @include span-columns(12);
+}
+
+.search-item-information {
+  @include span-columns(12);
+  position: relative;
+  z-index: 4;
+  padding-left: 5px;
+  background-color: rgba(238, 238, 238, 1);
+  color: black;
+  padding-bottom: 10px;
+  padding-top: 5px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0px;
+  width: 75vw;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.search-dialog {
+  padding: 10px;
+  text-align: center;
+}
+
+.list-item-edit {
+  color: $black;
+}
+
+.list-item-edit-input {
+  @include span-columns(8);
+  @include shift(2);
+  margin-top: 10px;
+}
+
+.list-item-edit-save {
+  @include span-columns(3);
+  @include shift(4.5);
+}
+
+.list-item-edit-cancel {
+  @include span-columns(3);
+  @include shift(4.5);
+}
+
+.edit-description {
+  height: 100px;
+}
+
+.list-item-delete {
+  color: $red;
+}
+
+.review-container {
+  @include span-columns(11);
+  @include shift(.5);
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid $black;
+}
+
+.search-disabled {
+  color: grey;
+}
 
 
 
@@ -134,9 +216,10 @@ core-drawer-panel {
 }
 
 .drawer-menu {
-  height: 200px;
+  height: 109px;
   background-image: url('https://download.unsplash.com/photo-1429000263672-1b8b4008d2f7');
   background-size: contain;
+  background-repeat: no-repeat;
   padding-top: 90px;
   padding-left: 10px;
   font-size: 20px;
@@ -169,7 +252,7 @@ core-drawer-panel {
   font-size: 40px;
 }
 
-.app-title-user {
+.app-search-toggle {
   float: right;
   margin-top: 16px;
   margin-right: 30px;
@@ -251,13 +334,13 @@ core-drawer-panel {
   outline: none;
 }
 
-.search-item-information {
+/* .search-item-information {
   padding-left: 5px;
   background-color: rgba(238, 238, 238, 1);
   color: black;
   padding-bottom: 10px;
   padding-top: 5px;
-}
+} */
 
 .search-result-name {
   font-size: 13px;
@@ -477,6 +560,8 @@ core-drawer-panel {
   position: absolute;
   bottom: 50px;
   right: 20px;
+  height: 25px;
+  width: 25px;
 }
 
 .user-list {
@@ -539,4 +624,25 @@ core-drawer-panel {
   list-style: circle;
   font-size: 12px;
   text-align: left;
+}
+
+.trending-item {
+  @include span-columns(11.6);
+  @include shift(.2);
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: white;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.trending-item-list-add {
+  height: 25px;
+  width: 25px;
+}
+
+.drawer-friends {
+  border-bottom: 1px solid silver;
+  overflow-y: scroll;
 }

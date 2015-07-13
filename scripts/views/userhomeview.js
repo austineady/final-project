@@ -5,12 +5,15 @@ import SearchWebView from './searchwebview';
 export default Backbone.View.extend({
   template: JST.home,
 
+  currentPage: 1,
+
   events: {
     'click .item-list-add': 'listAdd',
     'click .app-title-user': 'search',
     'submit .plus-form': 'saveEntry',
     'submit .home-search-form': 'showResults',
-    'submit .web-search-form': 'searchResults'
+    'click .search-backwards': 'pageBackward',
+    'click .search-forwards': 'pageForward'
   },
 
   initialize: function() {
@@ -28,7 +31,7 @@ export default Backbone.View.extend({
         collapsible: true,
       });
       this.$('.user-list').accordion({
-        active: 2,
+        active: false,
         animate: 200,
         heightStyle: 'content',
         collapsible: true,
@@ -48,6 +51,8 @@ export default Backbone.View.extend({
 
   renderChildren: function(list){
     _.invoke(this.children || [], 'remove');
+
+    console.log(list);
 
     this.children = list.map(function(child) {
       var view = new ListItemView({
@@ -90,10 +95,13 @@ export default Backbone.View.extend({
     var query = this.$('.home-search-bar').val();
     var search = query.replace(' ', '&search=');
     $.ajax({
-      url: "http://api.remix.bestbuy.com/v1/products((search="+search+"))?show=name,sku,salePrice,image,features.feature,shortDescription,color,customerReviewAverage,manufacturer&format=json&apiKey=e25cp4dyr5m785e27wke6rt3",
+      url: "http://api.remix.bestbuy.com/v1/products((search="+search+"))?show=name,sku,salePrice,url,image,backViewImage,leftViewImage,rightViewImage,thumbnailImage,topViewImage,features.feature,shortDescription,color,customerReviewAverage,manufacturer&format=json&apiKey=e25cp4dyr5m785e27wke6rt3&page="+this.currentPage,
       success: function (data) {
-        var view = new SearchWebView({collection: data});
+        var view = new SearchView({collection: data});
         this.$('.search-results').html(view.el);
+        if(data.currentPage === 1) {
+          this.$('.search-backwards').removeClass('search-backwards');
+        }
       }.bind(this),
        error: function(){
         alert('No search results were found, please try again');
@@ -101,19 +109,15 @@ export default Backbone.View.extend({
     });
   },
 
-  searchResults: function(e) {
-    e.preventDefault();
-    var query = this.$('.home-search-bar').val();
-    var search = query.replace(' ', '&search=');
-    $.ajax({
-      url: "http://api.remix.bestbuy.com/v1/products((search="+search+"))?show=name,sku,salePrice,image,features.feature,shortDescription,color,customerReviewAverage,manufacturer&format=json&apiKey=e25cp4dyr5m785e27wke6rt3",
-      success: function (data) {
-        var view = new SearchWebView({collection: data});
-        this.$('.search-results').html(view.el);
-      }.bind(this),
-       error: function(){
-        alert('No search results were found, please try again');
-      }
-    });
+  pageForward: function(e) {
+    var currentPageNumber = this.currentPage;
+    this.currentPage = currentPageNumber + 1;
+    this.showResults(e);
+  },
+
+  pageBackward: function(e) {
+    var currentPageNumber = this.currentPage;
+    this.currentPage = currentPageNumber - 1;
+    this.showResults(e);
   }
 });

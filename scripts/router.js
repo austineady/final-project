@@ -1,6 +1,7 @@
 import LandingView from './views/landingview';
 import CreateUserView from './views/create-user-view';
 import UserHomeView from './views/userhomeview';
+import TrendingView from './views/trendingview';
 
 import {ProductCollection} from './models/productmodel';
 import {User} from './models/usermodel';
@@ -41,6 +42,19 @@ var Router = Backbone.Router.extend({
   userHome: function(username) {
     var view = new UserHomeView();
     $('#app').html(view.el);
+    $.ajax({
+      url: "https://jsonp.afeld.me/?callback=?&url=http://api.bestbuy.com/beta/products/mostViewed?apiKey=e25cp4dyr5m785e27wke6rt3",
+      dataType: 'jsonp',
+      success: function (data) {
+        console.log(data.results);
+        var trending = new TrendingView({collection: data.results});
+        $('.trending-list').html(trending.el);
+      },
+       error: function(object, error){
+        console.log(object, error);
+        console.log('No search results were found, please try again');
+      }
+    });
   }
 });
 

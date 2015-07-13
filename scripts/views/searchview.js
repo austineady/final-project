@@ -8,12 +8,13 @@ export default Backbone.View.extend({
   initialize: function() {
     console.log(this.collection);
     this.render();
-    this.$('.search-results-box').accordion({
+    /*this.$('.search-results-box').accordion({
+      header: '.card',
       active: false,
       animate: 200,
       heightStyle: 'content',
       collapsible: true,
-    });
+    }); */
   },
 
   render: function() {
@@ -28,7 +29,7 @@ export default Backbone.View.extend({
       var view = new SearchItemView({
         model: child
       });
-      this.$('.search-results-box').append(view.el);
+      this.$('.search-results-box').prepend(view.el);
       return view;
     }.bind(this));
 

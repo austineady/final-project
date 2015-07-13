@@ -1,40 +1,66 @@
-<core-scaffold drawerWidth="350px" class="scaffold">
+<!-- <core-scaffold drawerWidth="300px" class="scaffold">
   <core-header-panel navigation flex mode="waterfall">
     <core-toolbar class="app-sidebar">
-      <h4 class="toolbar-user-usernmae">{{this.attributes.username}}</h4>
+      <h2 class="app-title"><i class="fa fa-square-o app-title-icon"></i> StoreSquare</h2>
     </core-toolbar>
     <core-menu class="top-panel">
-      <core-item icon="settings" label="item1"></core-item>
-      <core-item icon="settings" label="item2"></core-item>
-      <h1>hi</h1>
+      <div class="drawer-option drawer-friends">
+        <h5 class="drawer-user-email">{{this.attributes.email}}</h5>
+        <h5 class="drawer-user">{{this.attributes.username}}</h5>{{log this}}
+        <core-icon icon="social:people"></core-icon> Friends:
+        {{#each this.attributes.friends}}
+          <h5 class="drawer-friend"><core-icon icon="social:person"></core-icon>{{this}}</h5>
+        {{/each}}
+      </div>
     </core-menu>
   </core-header-panel>
   <div tool class="app-toolbar">
-    <h1>hi</h1>
+    <paper-icon-button  icon="search" class="app-search-toggle"></paper-icon-button>
   </div>
   <div fit class="app-main">
-    <div class="web-accordion-box">
-    <form class="web-search-form">
+  <section class="accordion-container">
+  <div id="accordion" class="home-accordion">
+    <h3 class="accordion-header header-search"><core-icon icon="search" class="search-header-icon"></core-icon></h3>
+    <div class="search-box accordion-box">
+    <form class="home-search-form">
       <input type=text class="home-search-bar" placeholder="Search for products">
     </form>
       <section class="search-results">
 
       </section>
     </div>
+    <h3 class="accordion-header header-list"><core-icon icon="list"></core-icon></h3>
+    <div class="list-box accordion-box">
+      <div class="user-list"></div>
+      <paper-fab icon="add" class="item-list-add"></paper-fab>
+    </div>
+    <h3 class="accordion-header header-plus"><core-icon icon="add"></core-icon></h3>
+    <div class="plus-box accordion-box">
+      <form class="plus-form">
+        <paper-input type="url" class="plus-input plus-url" floatingLabel=true label="What is the url?"></paper-input>
+        <paper-input type="text" class="plus-input plus-name" floatingLabel=true label="What do you want to call it?"></paper-input>
+        <paper-autogrow-textarea><textarea class="plus-input plus-description" placeholder="Any notes you want to leave?"></textarea></paper-autogrow-textarea>
+        <input type="file" class="plus-input plus-picture" placeholder="You can add pictures if you want">
+        <paper-button raised class="plus-input plus-submit">Save</paper-button>
+      </form>
+    </div>
   </div>
-</core-scaffold>
+  </section>
+  </div>
+</core-scaffold> -->
 
 
-<core-media-query query="max-width: 1500px" queryMatches="{{phoneScreen}}">
-<core-drawer-panel drawerWidth="300px">
+<!-- <core-media-query query="max-width: 1500px" queryMatches="{{phoneScreen}}">
+ --> <core-drawer-panel drawerWidth="300px">
   <core-header-panel drawer class="drawer-panel">
-    <core-toolbar>
-    </core-toolbar>
+    <!-- <core-toolbar>
+    </core-toolbar> -->
     <div class="drawer-content">
       <paper-shadow z="1"><div class="drawer-menu">
-        <h5 class="drawer-user-email">{{this.attributes.email}}</h5>
-        <h5 class="drawer-user">{{this.attributes.username}}</h5>{{log this}}
+        <h2 class="app-title"><i class="fa fa-square-o app-title-icon"></i> StoreSquare</h2>
       </div></paper-shadow>
+      <h5 class="drawer-user-email">{{this.attributes.email}}</h5>
+      <h5 class="drawer-user">{{this.attributes.username}}</h5>{{log this}}
       <h3 class="drawer-option drawer-title"><core-icon icon="view-list"></core-icon>My List</h3>
       <div class="drawer-option drawer-friends">
         <core-icon icon="social:people"></core-icon> Friends:
@@ -42,12 +68,16 @@
           <h5 class="drawer-friend"><core-icon icon="social:person"></core-icon>{{this}}</h5>
         {{/each}}
       </div>
+      <h3 class="trending-header"><core-icon icon="social:whatshot"></core-icon> Trending</h3>
+      <div class="drawer-option trending-list">
+
+      </div>
     </div>
   </core-header-panel>
   <core-header-panel main>
     <paper-shadow z="3">
       <header class="app-header">
-        <paper-icon-button icon="menu" class="menu-drawer-icon" core-drawer-toggle></paper-icon-button><h2 class="app-title"><i class="fa fa-square-o app-title-icon"></i> StoreSquare</h2>
+        <paper-icon-button icon="menu" class="menu-drawer-icon" core-drawer-toggle></paper-icon-button>
         <paper-icon-button  icon="search" class="app-title-user"></paper-icon-button>
       </header>
     </paper-shadow>
@@ -68,7 +98,7 @@
         <div class="user-list"></div>
         <paper-fab icon="add" class="item-list-add"></paper-fab>
       </div>
-      <h3 class="accordion-header header-plus"><core-icon icon="add"></core-icon></h3>
+      <h3 class="accordion-header header-social"><core-icon icon="social:person"></core-icon></h3>
       <div class="plus-box accordion-box">
         <form class="plus-form">
           <paper-input type="url" class="plus-input plus-url" floatingLabel=true label="What is the url?"></paper-input>
@@ -85,4 +115,5 @@
     </section>
   </core-header-panel>
 </core-drawer-panel>
-</core-media-query>
+<!-- </core-media-query>
+ -->
