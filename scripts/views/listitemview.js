@@ -13,7 +13,7 @@ export default Backbone.View.extend({
   },
 
   tagName: 'li',
-  className: '.list-item',
+  className: 'list-item',
 
   isEditing: false,
 

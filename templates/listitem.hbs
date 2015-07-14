@@ -1,4 +1,4 @@
-<paper-shadow z="1" class="list-item-header"><h4 class="item-title"><span class="list-item-header-name">{{name}}</span></h4><!--<paper-button><core-icon icon="assignment" class="list-item-edit"></core-icon></paper-button><paper-button><core-icon icon="delete" class="list-item-delete"></core-icon></paper-button>--></paper-shadow>
+<paper-shadow z="1" class="list-item-header"><img src="{{image}}" class="list-item-thumbnail"><h4 class="item-title"><span class="list-item-header-name">{{name}}</span></h4><!--<paper-button><core-icon icon="assignment" class="list-item-edit"></core-icon></paper-button><paper-button><core-icon icon="delete" class="list-item-delete"></core-icon></paper-button>--></paper-shadow>
 {{#if isEditing}}
 <div class="item-information">
   <div class="item-picture-box">
@@ -16,10 +16,10 @@
 
 {{else}}
 <div class="item-information">
-  <div class="item-picture-box">
+  {{!-- <div class="item-picture-box">
     <img src="{{image}}" class="item-picture">
   </div>
-  <h4 class="item-title-information">{{name}}</h4>
+  <h4 class="item-title-information">{{name}}</h4> --}}
   <h4 class="item-price">Price: ${{salePrice}}</h4>
   {{#if color}}
   <h5 class="item-color">Color: {{color}}</h5>

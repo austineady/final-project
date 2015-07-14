@@ -9,7 +9,11 @@ $blue: #477dca;
 $black: rgba(51, 51, 51, 1);
 $red: rgba(217, 81, 82, 1);
 $blue: rgba(52, 123, 178, 1);
-$dark-blue: rgba(47, 112, 155, 1);
+$dark-blue: rgba(13, 32, 40, 1);
+$blue-silver: rgba(35, 48, 56, 1);
+$deep-blue: rgba(17, 40, 52, 1);
+$light-blue: rgba(28, 63, 83, 1);
+$white: rgba(238, 240, 246, 1);
 $orange: rgba(255, 100, 40, 1);
 $light-orange: rgba(243, 116, 69, 1);
 $dark-orange: rgba(198, 127, 60, 1);
@@ -25,12 +29,13 @@ $light-green: rgba(54, 242, 123, 1);
 $base-font-color: $dark-gray;
 $base-background-color: $very-light-gray;
 
-/* * {
-  border: 1px solid maroon;
-} */
+ * {
+   font-family: 'Roboto', sans-serif;
+   font-weight: 300;
+  //border: 1px solid maroon;
+}
 
 body {
-  font-family: $base-font-family;
   background-color: $base-background-color;
   color: $base-font-color;
 }
@@ -62,9 +67,7 @@ paper-shadow {
 #app {
   @include outer-container(100vw);
   height: 100vh;
-  background-color: $green;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+  background-color: $blue-silver;
 }
 
 .app-sidebar {
@@ -124,7 +127,10 @@ core-scaffold::shadow core-toolbar {
 }
 
 .app-title {
-  @include span-columns(12);
+  @include span-columns(8);
+  @include shift(1);
+  text-align: center;
+  font-weight: 300;
 }
 
 .app-icon {
@@ -228,7 +234,7 @@ core-scaffold::shadow core-toolbar {
 
 .friend-profile {
   @include span-columns(12);
-  height: 90vh;
+  height: 94vh;
   background-color: rgba(240, 240, 240, 1);
   overflow-y: scroll;
 }
@@ -236,15 +242,35 @@ core-scaffold::shadow core-toolbar {
 .friend-profile-item {
   @include span-columns(11.6);
   @include shift(.1);
-  padding: 10px;
+  height: auto;
   background-color: rgba(250, 250, 250, 1);
   border-radius: 5px;
   margin-top: 5px;
 }
 
-.friend-item-image {
-  margin-right: 10px;
+.friend-item-image-box {
+  @include span-columns(3 of 12);
+  height: 100%;
+  padding: 10px;
+  background-color: white;
   float: left;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.friend-item-image {
+  @include span-columns(6);
+  @include shift(3);
+  margin-right: 10px;
+}
+
+.friend-item-information {
+  @include span-columns(8.55 of 12);
+  padding: 5px;
+  float: left;
+  border: 1px solid red;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .friend-item-price {
@@ -306,6 +332,30 @@ core-scaffold::shadow core-toolbar {
   margin-right: 5px;
 }
 
+.list-item-header {
+  background-color: rgba(255, 250, 250, 1);
+  width: 220px;
+  min-height: 150px;
+  margin: 5px;
+  margin-bottom: 3px;
+  border-radius: 3px;
+  padding: 5px;
+  padding-top: 15px;
+  text-align: center;
+  transition: 1s;
+}
+
+.list-item-thumbnail {
+  max-width: 220px;
+}
+
+.list-item {
+  max-width: 220px;
+  min-height: 150px;
+  display: inline-block;
+  margin: 5px;
+}
+
 
 
 //mobile styles
@@ -317,6 +367,7 @@ core-drawer-panel {
 .drawer-panel {
   @include span-columns(12);
   background-color: rgba(240, 240, 240, 1);
+  box-shadow: 2px 0 10px 7px rgba(0, 0, 0, .2);
 }
 
 .drawer-content {
@@ -344,16 +395,11 @@ core-drawer-panel {
 }
 
 .app-header {
-  height: 65px;
+  height: 82px;
   //border-bottom: 2px solid white;
   color: white;
   padding-left: 5px;
-}
-
-.app-title {
-  width: 214px;
-  float: left;
-  margin-top: 10px;
+  text-align: center;
 }
 
 .app-title-icon {
@@ -369,6 +415,7 @@ core-drawer-panel {
 
 .accordion-container {
   @include span-columns(12);
+  background-color: rgba(240, 240, 240, 1);
 }
 
 .home-accordion {
@@ -379,8 +426,6 @@ core-drawer-panel {
 }
 
 .accordion-header {
-  @include span-columns(11.8);
-  @include shift(.1);
   font-size: 20px;
   outline: none;
   margin-top: 0;
@@ -390,8 +435,10 @@ core-drawer-panel {
 }
 
 .ui-accordion-header-active {
+  @include span-columns(11.6);
+  @include shift(.1);
   background-color: white;
-  color: $green;
+  color: $light-blue;
   transition: 1s;
 }
 
@@ -399,7 +446,9 @@ core-drawer-panel {
   overflow-y: scroll;
   @include span-columns(11.8);
   @include shift(.1);
-  height: 90vh;
+  height: 93vh;
+  $gutter: 0;
+  display: inline-block;
 }
 
 .app-user {
@@ -608,8 +657,9 @@ core-drawer-panel {
 
 .list-box {
   background-color: rgba(240, 240, 240, 1);
-  color: $green;
+  color: $light-blue;
   overflow-y: scroll;
+  display: inline-block;
 }
 
 .plus-box {
@@ -668,19 +718,6 @@ core-drawer-panel {
   width: 25px;
 }
 
-.user-list {
-  padding: 5px;
-}
-
-.list-item-header {
-  background-color: rgba(250, 250, 250, 1);
-  @include span-columns(11.6);
-  @include shift(.1);
-  border-radius: 5px;
-  padding: 5px;
-  margin-top: 5px;
-}
-
 .ui-item-title-active {
   background-color: $green;
   color: white;
@@ -717,7 +754,8 @@ core-drawer-panel {
   @include shift(.2);
   overflow-y: scroll;
   padding: 10px;
-  color: black;
+  color: $dark-blue;
+  text-align: center;
 }
 
 .list-item-header-price {
