@@ -18,7 +18,6 @@ export default Backbone.View.extend({
   isEditing: false,
 
   initialize: function() {
-    console.log(this.model);
     this.render();
   },
 
@@ -30,7 +29,6 @@ export default Backbone.View.extend({
     $.ajax({
       url: "http://api.remix.bestbuy.com/v1/reviews(sku="+this.model.sku+")?format=json&apiKey=e25cp4dyr5m785e27wke6rt3&show=id,sku,comment,reviewer.name,submissionTime,title,rating",
       success: function (data) {
-        console.log(data);
         var view = new ReviewView({model: data});
         this.$('.review-box').html(view.el);
       }.bind(this),

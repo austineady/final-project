@@ -3,13 +3,13 @@ import SearchView from './searchview';
 export default Backbone.View.extend({
   template: JST.rendersearch,
 
+  currentPage: 1,
+
   events: {
     'submit .home-search-form': 'showResults',
     'click .search-backwards': 'pageBackward',
     'click .search-forwards': 'pageForward'
   },
-
-  currentPage: 1,
 
   initialize: function() {
     this.render();

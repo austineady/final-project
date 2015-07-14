@@ -1,0 +1,11 @@
+{{log this}}
+<paper-shadow z="1" class="friend-profile-item">
+  <img src="{{this.attributes.image}}" class="friend-item-image">
+  <h3 class="friend-item-name">{{this.attributes.name}}</h3>
+  <h3 class="friend-item-price">{{this.attributes.salePrice}}</h3>
+  {{#if this.attributes.shortDescription}}
+  <p class="friend-item-description">{{this.attributes.shortDescription}}</p>
+  {{/if}}
+  <paper-button class="friend-item-link"><core-icon icon="link"></core-icon>Link</paper-button>
+  <paper-fab icon="add" class="friend-item-add"></paper-fab>
+</paper-shadow>

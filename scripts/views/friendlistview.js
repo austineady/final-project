@@ -4,6 +4,7 @@ export default Backbone.View.extend({
   template: JST.friendlist,
 
   initialize: function() {
+    console.log(this.collection);
     this.render();
   },
 

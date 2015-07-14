@@ -17,7 +17,6 @@ export default Backbone.View.extend({
     var user = Parse.User.current();
     var Product = Parse.Object.extend('Product');
     var product = new Product();
-    console.log(product);
     product.save({
       color: '',
       features: [],
@@ -36,7 +35,6 @@ export default Backbone.View.extend({
       sku: Number(this.model.sku),
       owner: user.attributes.username
     });
-    console.log(user);
     document.location.reload(true);
     /*user.attributes.list.push(this.model);
     console.log(user.attributes.list);

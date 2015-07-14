@@ -8,8 +8,8 @@ export default Backbone.View.extend({
 
   events: {
     'click .app-title-user': 'search',
-    'click .render-list': 'renderList',
-    'click .drawer-friend': 'showFriend'
+    'click .render-list': 'renderList'
+    //'click .drawer-friend': 'showFriend'
   },
 
   initialize: function() {
@@ -36,11 +36,12 @@ export default Backbone.View.extend({
   renderList: function() {
     var view = new ListView();
     this.$('.accordion-container').html(view.el);
-  },
-
-  showFriend: function() {
-    var view = new FriendView();
-    this.$('.accordion-container').html(view.el);
   }
+
+  // showFriend: function(e) {
+  //   console.log(e.target.html);
+  //   // var view = new FriendView();
+  //   // this.$('.accordion-container').html(view.el);
+  // }
 
 });
