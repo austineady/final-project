@@ -6,7 +6,6 @@ import TrendingView from './views/trendingview';
 import {ProductCollection} from './models/productmodel';
 import {User} from './models/usermodel';
 import {UserCollection} from './models/usermodel';
-//import ajaxconfig from './ajax-config';
 
 //best buy: e25cp4dyr5m785e27wke6rt3
 
@@ -46,7 +45,7 @@ var Router = Backbone.Router.extend({
       url: "https://jsonp.afeld.me/?callback=?&url=http://api.bestbuy.com/beta/products/mostViewed?apiKey=e25cp4dyr5m785e27wke6rt3",
       dataType: 'jsonp',
       success: function (data) {
-        console.log(data.results);
+        console.log(data);
         var trending = new TrendingView({collection: data.results});
         $('.trending-list').html(trending.el);
       },
