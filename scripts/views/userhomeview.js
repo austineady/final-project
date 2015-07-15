@@ -2,13 +2,17 @@ import RenderSearchView from './rendersearchview';
 import ListView from './listview';
 import FriendListView from './friendlistview';
 import FriendView from './friendview';
+import CreateView from './createview';
 
 export default Backbone.View.extend({
   template: JST.home,
 
   events: {
     'click .app-title-user': 'search',
-    'click .render-list': 'renderList'
+    'click .show-search': 'search',
+    'click .show-list': 'renderList',
+    'click .render-list': 'renderList',
+    'click .show-create': 'createItem'
     //'click .drawer-friend': 'showFriend'
   },
 
@@ -36,12 +40,10 @@ export default Backbone.View.extend({
   renderList: function() {
     var view = new ListView();
     this.$('.accordion-container').html(view.el);
+  },
+
+  createItem: function() {
+    var view = new CreateView();
+    this.$('.accordion-container').html(view.el);
   }
-
-  // showFriend: function(e) {
-  //   console.log(e.target.html);
-  //   // var view = new FriendView();
-  //   // this.$('.accordion-container').html(view.el);
-  // }
-
 });

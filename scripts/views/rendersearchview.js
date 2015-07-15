@@ -13,15 +13,16 @@ export default Backbone.View.extend({
 
   initialize: function() {
     this.render();
-    this.disableModal();
   },
 
   render: function() {
     this.$el.html(this.template());
+    this.activeNav();
   },
 
-  disableModal: function() {
-    this.$('.search-item-modal').addClass('search-modal-disabled');
+  activeNav: function() {
+    this.$('.side-nav').removeClass('side-nav-active');
+    this.$('.show-search').addClass('side-nav-active');
   },
 
   showResults: function(e) {

@@ -64,10 +64,14 @@ paper-shadow {
   outline: none;
 }
 
+img {
+  max-width: 100%;
+}
+
 #app {
   @include outer-container(100vw);
   height: 100vh;
-  background-color: $blue-silver;
+  background: linear-gradient($blue-silver, $light-blue);
 }
 
 .app-sidebar {
@@ -82,8 +86,29 @@ core-scaffold::shadow core-toolbar {
   @include span-columns(12);
   border-radius: 5px;
   text-align: center;
-
   background-color: white;
+}
+
+.list-item {
+  width: 220px;
+  min-height: 150px;
+  padding: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 0;
+  display: block;
+  float: left;
+}
+
+.list-card {
+  background-color: rgba(255, 255, 255, 1);
+  @include span-columns(12);
+  border-radius: 3px;
+  padding: 5px;
+  padding-top: 15px;
+  text-align: center;
+  transition: 1s;
+  float: left;
 }
 
 .card-top {
@@ -93,9 +118,14 @@ core-scaffold::shadow core-toolbar {
   margin-bottom: 10px;
 }
 
+.list-card-top {
+  margin: 0;
+}
+
 .card-bottom {
   @include span-columns(12);
   height: 100px;
+  padding-top: 10px;
   overflow-y: scroll;
 }
 
@@ -126,9 +156,8 @@ core-scaffold::shadow core-toolbar {
 }
 
 .app-title {
-  @include span-columns(8);
-  @include shift(1);
-  text-align: center;
+  @include span-columns(6);
+  text-align: right;
   font-weight: 300;
 }
 
@@ -340,10 +369,6 @@ core-scaffold::shadow core-toolbar {
   margin: 5px;
 }
 
-.list-item-thumbnail {
-  max-width: 220px;
-}
-
 .render-container {
   @include span-columns(5.5 of 12);
   @include omega();
@@ -358,12 +383,14 @@ core-scaffold::shadow core-toolbar {
 
 .user-list {
   display: block;
+  overflow-y: scroll;
 }
 
 .item-modal {
   position: fixed;
   @include span-columns(8);
   @include shift(2);
+  top: 20%;
   z-index: 30;
   height: 500px;
   background-color: rgba(245, 245, 245, 1);
@@ -379,13 +406,10 @@ core-scaffold::shadow core-toolbar {
   background-color: rgba(245, 245, 245, 1);
   border-radius: 5px;
   top: 20%;
+  padding-bottom: 20px;
 }
 
 .search-modal-disabled {
-  z-index: -30;
-}
-
-.modal-disabled {
   z-index: -30;
 }
 
@@ -442,6 +466,7 @@ core-drawer-panel {
 
 .app-header {
   height: 82px;
+  background: linear-gradient($blue-silver, $light-blue);
   //border-bottom: 2px solid white;
   color: white;
   padding-left: 5px;
@@ -462,6 +487,7 @@ core-drawer-panel {
 .accordion-container {
   @include span-columns(12);
   background-color: rgba(240, 240, 240, 1);
+  border-left: 1px solid silver;
 }
 
 .home-accordion {
@@ -488,12 +514,19 @@ core-drawer-panel {
   transition: 1s;
 }
 
+.app-side-nav {
+  @include span-columns(1.05);
+  @include omega();
+  height: 93vh;
+}
+
 .accordion-box {
   overflow-y: scroll;
-  @include span-columns(12);
-  // @include span-columns(11);
-  // @include shift(.5);
+  @include span-columns(10.8);
+  $gutter: 0;
   height: 93vh;
+  border-right: 1px solid silver;
+  border-left: 1px solid silver;
 }
 
 .app-user {
@@ -518,7 +551,7 @@ core-drawer-panel {
 
 .search-results {
   background-color: white;
-  color: $green;
+  color: $dark-blue;
 }
 
 .results-box {
@@ -574,9 +607,14 @@ core-drawer-panel {
 }
 
 .search-item-list-add {
+  position: absolute;
+  bottom: -25px;
+  left: 47%;
   border: 0;
   background-color: $red;
   font-size: 15px;
+  height: 25px;
+  width: 25px;
 }
 
 .landing-input {
@@ -617,13 +655,13 @@ core-drawer-panel {
 
 .landing-button:hover {
   background-color: white;
-  color: $green;
+  color: $dark-blue;
   transition: 1s;
 }
 
 .new-user-create-button:hover {
   background-color: white;
-  color: $green;
+  color: $dark-blue;
   transition: 1s;
 }
 
@@ -652,19 +690,19 @@ core-drawer-panel {
   margin-bottom: 10px;
 }
 
-.home-footer {
-  position: absolute;
-  background-color: $green;
-  top: 460px;
-  width: 410px;
-  height: 650px;
-  color: white;
-  border-top: 2px solid black;
-  text-align: center;
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-left: 10px;
-}
+// .home-footer {
+//   position: absolute;
+//   background-color: $green;
+//   top: 460px;
+//   width: 410px;
+//   height: 650px;
+//   color: white;
+//   border-top: 2px solid black;
+//   text-align: center;
+//   padding-top: 10px;
+//   padding-right: 10px;
+//   padding-left: 10px;
+// }
 
 .home-menu {
   height: 100vh;
@@ -696,18 +734,13 @@ core-drawer-panel {
 
 .search-box {
   background-color: white;
-  color: $green;
+  color: $dark-blue;
 }
 
 .list-box {
   background-color: rgba(240, 240, 240, 1);
   color: $light-blue;
   overflow-y: scroll;
-}
-
-.plus-box {
-  color: $green;
-  background-color: white;
 }
 
 /* .plus-input {
@@ -755,14 +788,14 @@ core-drawer-panel {
 
 .item-list-add {
   position: absolute;
-  bottom: 50px;
-  right: 20px;
+  bottom: 40%;
+  right: 1.3%;
   height: 25px;
   width: 25px;
 }
 
 .ui-item-title-active {
-  background-color: $green;
+  background-color: $light-blue;
   color: white;
   border-left: 5px solid white;
   border-right: 5px solid white;
@@ -782,7 +815,7 @@ core-drawer-panel {
 
 .list-item-link-icon {
   float: left;
-  color: $green;
+  color: $blue-silver;
   font-size: 20px;
 }
 
@@ -791,12 +824,25 @@ core-drawer-panel {
   height: 68px;
 } */
 
+.side-nav {
+  margin-top: 20px;
+  color: $light-blue;
+  transition: 1s;
+}
+
+.side-nav-active {
+  background-color: $deep-blue;
+  color: rgba(250, 250, 250, 1);
+  transition: 1s;
+}
+
 .item-information {
-  height: 370px;
   @include span-columns(11.6);
   @include shift(.2);
+  height: 450px;
   overflow-y: scroll;
   padding: 10px;
+  padding-top: 40px;
   color: $dark-blue;
   text-align: center;
 }
@@ -830,4 +876,8 @@ core-drawer-panel {
 .drawer-friends {
   border-bottom: 1px solid silver;
   overflow-y: scroll;
+}
+
+.modal-disabled {
+  z-index: -30;
 }

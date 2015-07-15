@@ -5,7 +5,7 @@ export default Backbone.View.extend({
   template: JST.listitem,
 
   events: {
-    'click .list-item-header': 'showModel'
+    'click .list-card': 'showModel'
   },
 
   tagName: 'li',

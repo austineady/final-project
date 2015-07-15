@@ -7,6 +7,7 @@ export default Backbone.View.extend({
 
   events: {
     'click .close-modal': 'close',
+    'click .modal-background': 'close',
     'click .reviews': 'renderReviews',
     'click .list-item-edit': 'editItem',
     'submit .list-item-edit-form': 'findItem',
@@ -16,6 +17,7 @@ export default Backbone.View.extend({
   },
 
   initialize: function() {
+    $('.modal-background').removeClass('modal-disabled');
     $('.item-modal').removeClass('modal-disabled');
     this.render();
   },
@@ -75,6 +77,7 @@ export default Backbone.View.extend({
     });
       console.log(product);
       this.close();
+      document.location.reload(true);
   },
 
   deleteItem: function() {
