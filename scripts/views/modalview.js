@@ -93,6 +93,7 @@ export default Backbone.View.extend({
       }
     });
     this.close();
+    document.location.reload(true);
     }
   },
 

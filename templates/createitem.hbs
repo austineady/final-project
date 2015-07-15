@@ -1,10 +1,17 @@
 <div class="app-side-nav">
-  <paper-button class="side-nav show-search"><core-icon icon="search"></core-icon></paper-button>
-  <paper-button class="side-nav show-list"><core-icon icon="list"></core-icon></paper-button>
-  <paper-button class="side-nav show-create"><core-icon icon="create"></core-icon></paper-button>
+  <div class="side-nav show-search"><core-icon icon="search" class="side-nav-icon"></core-icon></div>
+  <div class="side-nav show-list"><core-icon icon="list" class="side-nav-icon"></core-icon></div>
+  <div class="side-nav show-create"><core-icon icon="create" class="side-nav-icon"></core-icon></div>
 </div>
 <div class="accordion-box">
   <form class="create-item">
-    
+    <paper-input class="create-item-input create-name" floatingLabel=true label="What is your item's name?" value=""></paper-input>
+    <paper-input class="create-item-input create-color" floatingLabel=true label="What color is your item?" value=""></paper-input>
+    <paper-input class="create-item-input create-manufacturer" floatingLabel=true label="Who made your item?" value=""></paper-input>
+    <paper-input class="create-item-input create-price" floatingLabel=true label="What is your item worth?" value=""></paper-input>
+    <paper-input class="create-item-input create-features" floatingLabel=true label="What are the item's features? Separate each with a comma" value=""></paper-input>
+    <input class="create-item-file create-image" type="url" placeholder="Choose an image that best represents your item" value="http://avasportcentral.com/wp-content/themes/micron/images/placeholders/placeholder_large_dark.jpg">
+    <textarea class="create-item-textarea create-description" placeholder="How would you describe your item?" value=""></textarea>
+    <paper-button class="create-item-save" raised><core-icon icon="save"></core-icon></paper-button>
   </form>
 </div>

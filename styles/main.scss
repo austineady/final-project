@@ -426,6 +426,33 @@ core-scaffold::shadow core-toolbar {
   padding-bottom: 10px;
 }
 
+.create-item-input {
+  @include span-columns(8);
+  @include shift(2);
+}
+
+.create-item-textarea {
+  @include span-columns(8);
+  @include shift(2);
+  padding: 10px;
+  border: 1px solid $blue-silver;
+  background-color: rgba(245, 245, 245, 1);
+  height: 50px;
+}
+
+.create-item-file {
+  @include span-columns(4);
+  @include shift(4);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.create-item-save {
+  @include span-columns(1);
+  @include shift(5.5);
+  margin-top: 20px;
+}
+
 
 
 //mobile styles
@@ -527,6 +554,7 @@ core-drawer-panel {
   height: 93vh;
   border-right: 1px solid silver;
   border-left: 1px solid silver;
+  transition: 2s;
 }
 
 .app-user {
@@ -825,6 +853,8 @@ core-drawer-panel {
 } */
 
 .side-nav {
+  @include span-columns(12);
+  height: 70px;
   margin-top: 20px;
   color: $light-blue;
   transition: 1s;
@@ -834,6 +864,12 @@ core-drawer-panel {
   background-color: $deep-blue;
   color: rgba(250, 250, 250, 1);
   transition: 1s;
+}
+
+.side-nav-icon {
+  @include span-columns(12);
+  height: 30px;
+  margin-top: 20px;
 }
 
 .item-information {
