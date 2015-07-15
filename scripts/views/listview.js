@@ -10,13 +10,13 @@ export default Backbone.View.extend({
     product.fetch().then(function(data) {
       var list = _.where(data.attributes.results, {owner: this.model.attributes.username});
       this.render(list);
-
-      this.$('.user-list').accordion({
-        active: false,
-        animate: 200,
-        heightStyle: 'content',
-        collapsible: true,
-      });
+      this.$('.item-modal').addClass('modal-disabled');
+    //   this.$('.user-list').accordion({
+    //     active: false,
+    //     animate: 200,
+    //     heightStyle: 'content',
+    //     collapsible: true,
+    //   });
     }.bind(this));
   },
 

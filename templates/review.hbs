@@ -1,3 +1,4 @@
+{{#if reviews}}
 {{#each reviews}}
 <div class="review-container">
   <h4 class="review-date"><core-icon icon="today"></core-icon> {{this.submissionTime}}</h4>
@@ -7,3 +8,6 @@
   <p class="review-content">{{this.comment}}</p>
 </div>
 {{/each}}
+{{else}}
+<h4 class="review-error">There are currently no reviews for this product</h4>
+{{/if}}

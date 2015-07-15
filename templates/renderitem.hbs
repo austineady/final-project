@@ -1,0 +1,14 @@
+<div class="search-item-information">
+    <div class="search-item-image-box"><img src="{{this.image}}" class="search-result-image"></div>
+    <h5 class="search-item-price">Price: ${{this.salePrice}}</h5>
+    <h5 class="search-item-color">Color: {{this.color}}</h5>
+    <p class="search-item-description">Description: {{this.shortDescription}}</p>
+    {{#if this.features}}
+    <ul class="search-item-features">
+      {{#each this.features}}
+        <li class="search-item-single-feature">{{feature}}</li>
+      {{/each}}
+    </ul>
+    {{/if}}
+    <paper-fab mini icon="add" class="search-item-list-add"></paper-fab>
+</div>

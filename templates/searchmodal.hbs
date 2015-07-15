@@ -1,0 +1,27 @@
+<paper-button class="close-modal"><core-icon icon="close"></core-icon></paper-button>
+<div class="item-information">
+  <div class="item-picture-box">
+    <img src="{{image}}" class="item-picture">
+  </div>
+  <h4 class="item-title-information">{{name}}</h4>
+  <h4 class="item-price">Price: ${{salePrice}}</h4>
+  {{#if color}}
+  <h5 class="item-color">Color: {{color}}</h5>
+  {{/if}}
+  {{#if customerReviewAverage}}
+  <h4 class="item-average-review">Average Review Score: {{customerReviewAverage}}</h4>
+  {{/if}}
+  {{#if shortDescription}}
+  <p class="item-description">Description: {{shortDescription}}</p>
+  {{/if}}
+  {{#if features}}
+  <ul class="item-features">
+    {{#each features}}
+      <li class="item-single-feature">{{feature}}</li>
+    {{/each}}
+  </ul>
+  {{/if}}
+  <paper-button class="reviews"><core-icon icon="maps:rate-review"></core-icon> Reviews</paper-button>
+  <div class="review-box"></div>
+  <paper-button><a href="{{url}}"><core-icon icon="link"></core-icon></a>Link</paper-button>
+</div>

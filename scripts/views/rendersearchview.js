@@ -13,10 +13,15 @@ export default Backbone.View.extend({
 
   initialize: function() {
     this.render();
+    this.disableModal();
   },
 
   render: function() {
     this.$el.html(this.template());
+  },
+
+  disableModal: function() {
+    this.$('.search-item-modal').addClass('search-modal-disabled');
   },
 
   showResults: function(e) {

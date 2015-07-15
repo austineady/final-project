@@ -1,8 +1,11 @@
+import SearchModalView from './searchmodalview';
+
 export default Backbone.View.extend({
   template: JST.searchitem,
 
   events: {
     'click .search-item-list-add': 'addToList',
+    'click .card': 'showItem'
   },
 
   opened: false,
@@ -13,7 +16,6 @@ export default Backbone.View.extend({
 
   initialize: function() {
     this.render();
-    this.showOverlay();
   },
 
   render: function() {
@@ -42,33 +44,13 @@ export default Backbone.View.extend({
       owner: user.attributes.username
     });
     console.log(user);
-    document.location.reload(true);
-    /*user.attributes.list.push(this.model);
-    console.log(user.attributes.list);
-    user.save();*/
+
   },
 
-  showOverlay: function() {
-    this.$('.overlay-'+this.model.sku).dialog({
-      autoOpen: false,
-      modal: false,
-      position: { my: "center-top", at: "center-top", of: '.search-results' },
-      dialogClass: 'search-dialog',
-      buttons: [
-        {
-          text: "Add to List",
-          click: function() {
-            this.addToList();
-            $('.overlay-'+this.model.sku).dialog('close');
-          }.bind(this),
-        }
-      ],
-      width: 800
-    });
-
-    this.$('.opener').click(function(e) {
-      $('.overlay-'+this.model.sku).dialog('open');
-    }.bind(this));
+  showItem: function() {
+    console.log('hi');
+    var view = new SearchModalView({model: this.model});
+    $('.search-item-modal').html(view.el);
   }
 
 });
