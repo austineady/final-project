@@ -3,6 +3,7 @@ import CreateUserView from './views/create-user-view';
 import UserHomeView from './views/userhomeview';
 import TrendingView from './views/trendingview';
 
+
 import {ProductCollection} from './models/productmodel';
 import {User} from './models/usermodel';
 import {UserCollection} from './models/usermodel';
@@ -18,6 +19,9 @@ var Router = Backbone.Router.extend({
 
   initialize: function() {
   Parse.initialize("yNYDA6j04da33mB4EYKTeTGUrYBQf6PogxbTZvJO", "ui0H1gJk4r8HFVPQjsUVgwifyiMWNy4ZB5LEgYSg");
+  Handlebars.registerHelper('moment', function(date) {
+    return moment(date).fromNow();
+  });
   },
 
   landing: function() {
@@ -26,8 +30,7 @@ var Router = Backbone.Router.extend({
     } else {
       var users = new UserCollection();
       var view = new LandingView({collection: users});
-      $('#app').prepend(JST.header);
-      $('.app-header').append(view.el);
+      $('#app').html(view.el);
     }
   },
 
@@ -54,7 +57,7 @@ var Router = Backbone.Router.extend({
         console.log('No search results were found, please try again');
       }
     });
-  }
+  },
 });
 
 var router = new Router();

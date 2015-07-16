@@ -22,7 +22,6 @@ export default Backbone.View.extend({
   },
 
   showItem: function() {
-    console.log('hi');
     var view = new SearchModalView({model: this.model});
     $('.search-item-modal').html(view.el);
   }

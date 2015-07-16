@@ -1,8 +1,10 @@
-import RenderSearchView from './rendersearchview';
 import ListView from './listview';
 import FriendListView from './friendlistview';
 import FriendView from './friendview';
 import CreateView from './createview';
+import GiftView from './giftview';
+import RenderSearchView from './rendersearchview';
+
 
 export default Backbone.View.extend({
   template: JST.home,
@@ -12,12 +14,13 @@ export default Backbone.View.extend({
     'click .show-search': 'search',
     'click .show-list': 'renderList',
     'click .render-list': 'renderList',
-    'click .show-create': 'createItem'
-    //'click .drawer-friend': 'showFriend'
+    'click .show-create': 'createItem',
+    'click .show-gifts': 'renderGifts'
   },
 
   initialize: function() {
     this.model = Parse.User.current();
+    console.log(this.model);
     this.render();
   },
 
@@ -44,6 +47,11 @@ export default Backbone.View.extend({
 
   createItem: function() {
     var view = new CreateView();
+    this.$('.accordion-container').html(view.el);
+  },
+
+  renderGifts: function() {
+    var view = new GiftView();
     this.$('.accordion-container').html(view.el);
   }
 });

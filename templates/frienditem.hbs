@@ -5,11 +5,12 @@
   </div>
   <div class="friend-item-information">
     <h3 class="friend-item-name">{{this.attributes.name}}</h3>
-    <h3 class="friend-item-price">{{this.attributes.salePrice}}</h3>
     {{#if this.attributes.shortDescription}}
     <p class="friend-item-description">{{this.attributes.shortDescription}}</p>
     {{/if}}
+    <h3 class="friend-item-price">${{this.attributes.salePrice}}</h3>
+    <paper-button raised class="friend-item-gift"><i class="fa fa-gift"></i></paper-button>
     <paper-button class="friend-item-link"><core-icon icon="link"></core-icon>Link</paper-button>
-    <paper-fab icon="add" class="friend-item-add"></paper-fab>
+    <paper-button raised class="friend-item-add">Add to My List</paper-button>
   </div>
 </paper-shadow>

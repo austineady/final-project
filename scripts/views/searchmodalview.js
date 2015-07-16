@@ -5,6 +5,8 @@ export default Backbone.View.extend({
 
   isEditing: false,
 
+  isUser: true,
+
   events: {
     'click .search-item-list-add': 'addToList',
     'click .close-modal': 'close',

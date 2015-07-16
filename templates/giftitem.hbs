@@ -1,0 +1,20 @@
+<div class="gift-item">
+  <div class="gift-item-image-box">
+    <img class="gift-image" src="{{this.item.[0].image}}">
+  </div>
+  <div class="gift-information">
+    <div class="gift-owner-information">
+      <h3 class="gift-date">{{moment createdAt}}</h3>
+      <h3 class="gift-owner">{{this.oppositeUser}}</h3>
+    </div>
+    <h3 class="gift-name">{{this.item.[0].name}}</h3>
+    {{#if this.item.[0].shortDescription}}
+    <h3 class="gift-name">{{this.item.[0].shortDescription}}</h3>
+    {{/if}}
+    <h3 class="gift-price">${{this.item.[0].salePrice}}</h3>
+  </div>
+  <div class="gift-options">
+    <!--<a href="{{this.item.[0].url}}"><paper-button raised><core-icon icon="launch"></core-icon></paper-button></a>-->
+    <paper-button class="delete-gift" raised>Delete Item</paper-button>
+  </div>
+</div>

@@ -2,7 +2,8 @@ export default Backbone.View.extend({
   template: JST.frienditem,
 
   events: {
-    'click .friend-item-add': 'addToList'
+    'click .friend-item-add': 'addToList',
+    'click .friend-item-gift': 'giftItem'
   },
 
   initialize: function() {
@@ -38,5 +39,19 @@ export default Backbone.View.extend({
     /*user.attributes.list.push(this.model);
     console.log(user.attributes.list);
     user.save();*/
+  },
+
+  giftItem: function() {
+    var user = Parse.User.current();
+    var Activity = Parse.Object.extend('Activity');
+    var activity = new Activity();
+    var owner = this.model.attributes.owner;
+    var item = [this.model.attributes];
+    activity.save({
+      user: user.attributes.username,
+      oppositeUser: owner,
+      item: item
+    });
+    console.log(activity);
   }
 })

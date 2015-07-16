@@ -5,17 +5,13 @@ export default Backbone.View.extend({
 
   initialize: function() {
     this.model = Parse.User.current();
+    console.log(this.model);
     var Product = Parse.Object.extend('Product');
     var product = new Product();
     product.fetch().then(function(data) {
+      console.log(data);
       var list = _.where(data.attributes.results, {owner: this.model.attributes.username});
       this.render(list);
-    //   this.$('.user-list').accordion({
-    //     active: false,
-    //     animate: 200,
-    //     heightStyle: 'content',
-    //     collapsible: true,
-    //   });
     }.bind(this));
   },
 
