@@ -610,27 +610,68 @@ core-drawer-panel {
 
 .library-box {
   overflow-y: scroll;
-  @include span-columns(10.8);
+  @include span-columns(11.2);
   height: 93vh;
   border-left: 1px solid silver;
   transition: 2s;
-  padding-left: 10px;
-  background-color: $light-blue;
+  background-image: url('https://download.unsplash.com/45/tkLOe7nnQ7mnMsiuijBy_hm.jpg');
+  background-size: cover;
   display: block;
 }
 
 .library-nav {
+  @include span-columns(12);
+  background-color: rgba(20, 20, 20, .9);
   height: 93vh;
+  padding: 15px;
+}
+
+.subcat-box {
+  @include span-columns(3);
+  @include omega();
+  height: 93vh;
+  overflow-y: scroll;
+  color: white;
+}
+
+.subcat-product-box {
+  @include span-columns(6);
+  @include omega();
+  height: 93vh;
+  overflow-y: scroll;
+  color: white;
+  text-align: center;
+  display: block;
+}
+
+.subcat-active {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.category-product {
+  width: 220px;
+  height: 200px;
+  overflow-y: scroll;
+  border: 1px solid white;
+  padding: 15px;
+  float: left;
+  margin: 3px;
+  background-color: white;
+  color: $light-blue;
+}
+
+.category-list {
+  @include span-columns(3);
+  @include omega();
+  border-left: 1px solid rgba(250, 250, 250, 1);
+  padding-left: 10px;
 }
 
 .library-category {
-  width: 300px;
-  height: 200px;
-  margin: 5px;
-  float: left;
-  background-color: rgba(250, 250, 250, .8);
-  text-align: center;
-  line-height: 200px;
+  color: rgba(250, 250, 250, 1);
+  margin-bottom: 25px;
+  font-size: 20px;
 }
 
 .landing-search-box {
@@ -931,6 +972,7 @@ core-drawer-panel {
   transition: 1s;
   text-align: center;
 }
+
 
 .side-nav-active {
   background-color: $light-blue;

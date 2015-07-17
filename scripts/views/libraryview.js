@@ -1,8 +1,10 @@
+import SubCatView from './subcatview';
+
 export default Backbone.View.extend({
   template: JST.library,
 
   events: {
-    'click .category-game': 'showCategory'
+    'click .library-category': 'showCategory'
   },
 
   initialize: function() {
@@ -19,11 +21,15 @@ export default Backbone.View.extend({
     this.$('.show-library').addClass('side-nav-active');
   },
 
-  showCategory: function() {
+  showCategory: function(e) {
+    var category = e.target.textContent;
+    $(e.target).addClass('subcat-active');
+    var search = category.replace(' ', '%20');
     $.ajax({
-      url: 'http://api.remix.bestbuy.com/v1/categories(id=pcmcat311300050017)?format=json&apiKey=e25cp4dyr5m785e27wke6rt3&show=subCategories',
+      url: 'http://api.remix.bestbuy.com/v1/categories(name='+search+')?format=json&apiKey=e25cp4dyr5m785e27wke6rt3&show=subCategories',
       success: function (data) {
-        console.log(data);
+        var view = new SubCatView({collection: data});
+        this.$('.subcat-box').html(view.el);
       }.bind(this),
        error: function(){
         alert('No search results were found, please try again');
