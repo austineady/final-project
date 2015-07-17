@@ -28,14 +28,18 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://img.bbystatic.com https://download.unsplash.com http://www.parsecdn.com http://maxcdn.bootstrapcdn.com data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline' http://maxcdn.bootstrapcdn.com; media-src *; connect-src 'self' https://api.parse.com http://api.remix.bestbuy.com">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://fonts.googleapis.com http://img.bbystatic.com https://download.unsplash.com http://www.parsecdn.com http://maxcdn.bootstrapcdn.com data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline' http://maxcdn.bootstrapcdn.com; media-src *; font-src 'self' 'unsafe-inline' http://fonts.googleapis.com *; connect-src 'self' http://api.bestbuy.com https://jsonp.afeld.me/ https://api.parse.com http://api.remix.bestbuy.com">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" href="js/bower_components/normalize.css/normalize.css">
+        <link href="http://fonts.googleapis.com/css?family=Roboto:400,100,700,500,300" rel="stylesheet" type="text/css">
         <link href="js/bower_components/core-icons/core-icons.html" rel="import">
         <link rel="import" href="js/bower_components/core-drawer-panel/core-drawer-panel.html">
+        <link rel="import" href="js/bower_components/core-scaffold/core-scaffold.html">
         <link rel="import" href="js/bower_components/paper-elements/paper-elements.html">
+        <link rel="import" href="js/bower_components/paper-button/paper-button.html">
+        <link rel="import" href="js/bower_components/paper-shadow/paper-shadow.html">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Hello World</title>
     </head>
@@ -48,62 +52,10 @@
                 <p class="event received">Device is Ready</p>
             </div>
 
-
-            <!--<core-drawer-panel drawerWidth="300px">-->
-                <!--<core-header-panel drawer class="drawer-panel">-->
-                    <!--<core-toolbar>-->
-                    <!--</core-toolbar>-->
-                    <!--<div class="drawer-content">-->
-                        <!--<paper-shadow z="1"><div class="drawer-menu">-->
-                            <!--<h5 class="drawer-user-email">austineady@gmail.com</h5>-->
-                            <!--<h5 class="drawer-user">austineady</h5>-->
-                        <!--</div></paper-shadow>-->
-                    <!--</div>-->
-                <!--</core-header-panel>-->
-                <!--<core-header-panel main>-->
-                    <!--<paper-shadow z="3">-->
-                        <!--<header class="app-header">-->
-                            <!--<paper-icon-button icon="menu" class="menu-drawer-icon" core-drawer-toggle></paper-icon-button>-->
-                            <!--<paper-icon-button icon="search" class="app-title-user" circle></paper-icon-button>-->
-                        <!--</header>-->
-                    <!--</paper-shadow>-->
-                    <!--<section class="accordion-container">-->
-                        <!--<div id="accordion" class="home-accordion">-->
-                            <!--<h3 class="accordion-header header-search"></h3>-->
-                            <!--<div class="search-box accordion-box">-->
-                                <!--<form class="home-search-form">-->
-                                    <!--<input type=text class="home-search-bar" placeholder="Search for products">-->
-                                <!--</form>-->
-                                <!--<section class="search-results">-->
-
-                                <!--</section>-->
-                            <!--</div>-->
-                            <!--<paper-shadow z="2"><h3 class="accordion-header header-list"><i class="fa fa-list-ul"></i></h3></paper-shadow>-->
-                            <!--<div class="list-box accordion-box">-->
-                                <!--<div class="user-list"></div>-->
-                                <!--<paper-fab icon="add" class="item-list-add"></paper-fab>-->
-                            <!--</div>-->
-                            <!--<paper-shadow z="2"><h3 class="accordion-header header-plus"></h3></paper-shadow>-->
-                            <!--<div class="plus-box accordion-box">-->
-                                <!--<form class="plus-form">-->
-                                    <!--<paper-input type="url" class="plus-input plus-url" floatingLabel=true label="What is the url?"></paper-input>-->
-                                    <!--<paper-input type="text" class="plus-input plus-name" floatingLabel=true label="What do you want to call it?"></paper-input>-->
-                                    <!--<paper-autogrow-textarea><textarea class="plus-input plus-description" placeholder="Any notes you want to leave?"></textarea></paper-autogrow-textarea>-->
-                                    <!--<input type="file" class="plus-input plus-picture" placeholder="You can add pictures if you want">-->
-                                    <!--<paper-button raised class="plus-input plus-submit">Save</paper-button>-->
-                                <!--</form>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--&lt;!&ndash;<footer class="home-footer">-->
-                          <!--<i class="fa fa-list-ul home-icon home-list"></i><i class="fa fa-plus home-icon home-plus"></i>-->
-                        <!--</footer>&ndash;&gt;-->
-                    <!--</section>-->
-                <!--</core-header-panel>-->
-            <!--</core-drawer-panel>-->
-
         </div>
         <script src="js/parse-1.4.2.min.js"></script>
         <script src="js/bower_components/commonjs-require/commonjs-require.js"></script>
+        <script src="js/bower_components/moment/moment.js"></script>
         <script src="js/bower_components/jquery/dist/jquery.js"></script>
         <script src="js/bower_components/underscore/underscore.js"></script>
         <script src="js/bower_components/backbone/backbone.js"></script>
