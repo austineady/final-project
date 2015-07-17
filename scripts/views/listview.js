@@ -20,6 +20,7 @@ export default Backbone.View.extend({
     this.renderChildren(list);
     $('.side-nav').removeClass('side-nav-active');
     $('.show-list').addClass('side-nav-active');
+    this.activateGrid();
   },
 
   renderChildren: function(list){
@@ -41,5 +42,14 @@ export default Backbone.View.extend({
   remove: function(){
     _.invoke(this.children || [], 'remove');
     Backbone.View.prototype.remove.apply(this, arguments);
+  },
+
+  activateGrid: function() {
+    $('.grid').masonry({
+      itemSelector: '.grid-item',
+      columnWidth: 230,
+      gutter: 20,
+      percentPosition: true
+    });
   }
 })

@@ -91,28 +91,33 @@ core-scaffold::shadow core-toolbar {
   background-color: white;
 }
 
-.list-item {
+// .list-item {
+//   width: 220px;
+//   padding: 5px;
+//   // margin-top: 0;
+//   // margin-left: 3px;
+//   // margin-right: 3px;
+//   // margin-bottom: 0;
+//   //display: block;
+//   // float: left;
+//   transition: 1s;
+// }
+
+.grid-item {
   width: 220px;
-  min-height: 150px;
-  padding: 5px;
-  margin-top: 0;
-  margin-left: 3px;
-  margin-right: 3px;
-  margin-bottom: 0;
-  display: block;
   float: left;
-  transition: 1s;
+  margin-top: 20px;
+  padding: 5px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, .2);
 }
 
 .list-card {
   background-color: rgba(255, 255, 255, 1);
-  @include span-columns(12);
   border-radius: 3px;
   padding: 5px;
   padding-top: 15px;
   text-align: center;
   transition: 1s;
-  float: left;
 }
 
 .card-top {
@@ -127,14 +132,14 @@ core-scaffold::shadow core-toolbar {
 }
 
 .card-bottom {
-  @include span-columns(12);
   height: 100px;
   padding-top: 10px;
-  overflow-y: scroll;
 }
 
 .card-title {
   padding: 10px;
+  height: 30px;
+  overflow-y: hidden;
 }
 
 .card-url {
@@ -171,19 +176,6 @@ core-scaffold::shadow core-toolbar {
   background-color: rgba(238, 238, 238, 1);
   color: black;
   padding: 5px;
-}
-
-.overlay {
-  position: absolute;
-  top: 0px;
-  width: 75vw;
-  height: 400px;
-  overflow-y: scroll;
-}
-
-.search-dialog {
-  padding: 10px;
-  text-align: center;
 }
 
 .list-item-edit {
@@ -365,18 +357,6 @@ core-scaffold::shadow core-toolbar {
   margin-right: 5px;
 }
 
-.list-item-header {
-  background-color: rgba(255, 250, 250, 1);
-  @include span-columns(2.5);
-  min-height: 150px;
-  border-radius: 3px;
-  padding: 5px;
-  padding-top: 15px;
-  text-align: center;
-  transition: 1s;
-  margin: 5px;
-}
-
 .render-container {
   @include span-columns(5.5 of 12);
   @include omega();
@@ -390,8 +370,17 @@ core-scaffold::shadow core-toolbar {
 }
 
 .user-list {
-  display: block;
   overflow-y: scroll;
+}
+
+.grid {
+  @include span-columns(12);
+}
+
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
 }
 
 .item-modal {
@@ -613,18 +602,41 @@ core-drawer-panel {
 .accordion-box {
   overflow-y: scroll;
   @include span-columns(10.8);
-  $gutter: 0;
   height: 93vh;
-  border-right: 1px solid silver;
   border-left: 1px solid silver;
   transition: 2s;
+  padding-left: 10px;
+}
+
+.library-box {
+  overflow-y: scroll;
+  @include span-columns(10.8);
+  height: 93vh;
+  border-left: 1px solid silver;
+  transition: 2s;
+  padding-left: 10px;
+  background-color: $light-blue;
+  display: block;
+}
+
+.library-nav {
+  height: 93vh;
+}
+
+.library-category {
+  width: 300px;
+  height: 200px;
+  margin: 5px;
+  float: left;
+  background-color: rgba(250, 250, 250, .8);
+  text-align: center;
+  line-height: 200px;
 }
 
 .landing-search-box {
   overflow-y: scroll;
   @include span-columns(11);
   @include shift(.5);
-  $gutter: 0;
   border-right: 1px solid silver;
   border-left: 1px solid silver;
   transition: 2s;
@@ -831,20 +843,6 @@ core-drawer-panel {
   margin-bottom: 10px;
 }
 
-// .home-footer {
-//   position: absolute;
-//   background-color: $green;
-//   top: 460px;
-//   width: 410px;
-//   height: 650px;
-//   color: white;
-//   border-top: 2px solid black;
-//   text-align: center;
-//   padding-top: 10px;
-//   padding-right: 10px;
-//   padding-left: 10px;
-// }
-
 .home-menu {
   height: 100vh;
   overflow-y: hidden;
@@ -854,9 +852,6 @@ core-drawer-panel {
   font-size: 25px;
 }
 
-.home-plus {
-  float: right;
-}
 
 .fa-list-ul {
   margin-right: 60px;
@@ -881,43 +876,6 @@ core-drawer-panel {
 .list-box {
   background-color: rgba(240, 240, 240, 1);
   color: $light-blue;
-  overflow-y: scroll;
-}
-
-/* .plus-input {
-  width: 350px;
-  height: 40px;
-  border: 2px solid $green;
-  border-radius: 10px;
-  padding: 5px;
-  margin-top: 15px;
-} */
-
-.plus-url {
-  margin-bottom: 30px;
-}
-
-.plus-description {
-  height: 100px;
-}
-
-.plus-submit {
-  width: 200px;
-  height: 40px;
-  background-color: $green;
-  color: white;
-  margin-top: 80px;
-  font-size: 20px;
-  text-shadow: 0 -1px 7px rgba(16, 113, 81, 1);
-}
-
-.accordion-search-header {
-  height: 0;
-  padding-bottom: 7px;
-}
-
-.search-item-accordion-tag {
-
 }
 
 .item-title {
@@ -975,7 +933,7 @@ core-drawer-panel {
 }
 
 .side-nav-active {
-  background-color: $deep-blue;
+  background-color: $light-blue;
   color: rgba(250, 250, 250, 1);
   transition: 1s;
 }

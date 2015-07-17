@@ -58,8 +58,26 @@ export default Backbone.View.extend({
       salePrice: this.model.salePrice,
       shortDescription: this.model.shortDescription,
       sku: this.model.sku,
-      owner: user.attributes.username
+      owner: user.attributes.username,
+      details: this.model.details,
+      alternateViewsImage: this.model.alternateViewsImage,
+      bestSellingRank: this.model.bestSellingRank,
+      customerTopRated: this.model.customerTopRated,
+      freeShipping: this.model.freeShipping,
+      inStoreAvailabilityText: this.model.inStoreAvailabilityText,
+      inStorePickup: this.model.inStorePickup,
+      includedItemList: this.model.includedItemList,
+      onSale: this.model.onSale,
+      onlineAvailabilityText: this.model.onlineAvailabilityText,
+      orderable: this.model.orderable,
+      priceUpdateDate: this.model.priceUpdateDate,
+    }, {
+      success: function(product) {
+        console.log('Successfully Saved', product);
+      },
+      error: function(product, error) {
+        console.log(error, product);
+      }
     });
-    console.log(user);
   },
 });

@@ -8,7 +8,6 @@ export default Backbone.View.extend({
     'click .list-card': 'showModel'
   },
 
-  tagName: 'li',
   className: 'list-item',
 
   isEditing: false,

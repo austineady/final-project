@@ -4,6 +4,7 @@ import FriendView from './friendview';
 import CreateView from './createview';
 import GiftView from './giftview';
 import RenderSearchView from './rendersearchview';
+import LibraryView from './libraryview';
 
 
 export default Backbone.View.extend({
@@ -15,7 +16,8 @@ export default Backbone.View.extend({
     'click .show-list': 'renderList',
     'click .render-list': 'renderList',
     'click .show-create': 'createItem',
-    'click .show-gifts': 'renderGifts'
+    'click .show-gifts': 'renderGifts',
+    'click .show-library': 'renderLibrary'
   },
 
   initialize: function() {
@@ -27,7 +29,7 @@ export default Backbone.View.extend({
   render: function() {
     this.$el.html(this.template(this.model));
     this.renderFriends();
-    this.renderList();
+    this.search();
   },
 
   renderFriends: function() {
@@ -52,6 +54,11 @@ export default Backbone.View.extend({
 
   renderGifts: function() {
     var view = new GiftView();
+    this.$('.accordion-container').html(view.el);
+  },
+
+  renderLibrary: function() {
+    var view = new LibraryView();
     this.$('.accordion-container').html(view.el);
   }
 });
