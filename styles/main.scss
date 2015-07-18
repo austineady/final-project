@@ -405,6 +405,7 @@ core-scaffold::shadow core-toolbar {
   background-color: rgba(245, 245, 245, 1);
   border-radius: 5px;
   top: 20%;
+  left: 0;
   padding-bottom: 20px;
 }
 
@@ -418,6 +419,7 @@ core-scaffold::shadow core-toolbar {
   right: 5;
   z-index: 31;
 }
+
 
 .pagination-nav {
   @include span-columns(12);
@@ -612,19 +614,29 @@ core-drawer-panel {
   overflow-y: scroll;
   @include span-columns(11.2);
   height: 93vh;
-  border-left: 1px solid silver;
   transition: 2s;
   color: $light-blue;
-  background-image: url('https://download.unsplash.com/45/tkLOe7nnQ7mnMsiuijBy_hm.jpg');
+  background-image: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, .9)), url('https://download.unsplash.com/45/tkLOe7nnQ7mnMsiuijBy_hm.jpg');
   background-size: cover;
   display: block;
+  border-left: 1px solid silver;
 }
 
 .library-nav {
   @include span-columns(12);
-  background-color: rgba(255, 255, 255, .9);
+  // background-color: rgba(255, 255, 255, .9);
   height: 93vh;
   padding: 15px;
+}
+
+.category-disabled {
+  display: none;
+  transition: 1s;
+}
+
+.category-enabled {
+  font-weight: 600;
+  transition: 1s;
 }
 
 .subcat-box {
@@ -632,13 +644,21 @@ core-drawer-panel {
   @include omega();
   height: 93vh;
   overflow-y: scroll;
-  border-left: 1px solid $light-blue;
   padding-left: 10px;
 }
 
+.subcat-box-inactive {
+  display: none;
+  transition: 2s;
+}
+
+.subcat-box-active {
+  @include span-columns(1);
+}
+
 .subcat-product-box {
-  @include span-columns(7.5);
-  @include omega();
+  // @include span-columns(7.5);
+  // @include omega();
   height: 93vh;
   overflow-y: scroll;
   text-align: center;
@@ -671,13 +691,16 @@ core-drawer-panel {
 .category-list {
   @include span-columns(2.4);
   @include omega();
-  border-left: 1px solid $light-blue;
   padding-left: 10px;
+}
+
+.category-list-active {
+  @include span-columns(1);
 }
 
 .library-category {
   color: $light-blue;
-  margin-bottom: 25px;
+  margin-bottom: 32px;
   font-size: 17px;
 }
 
@@ -872,7 +895,7 @@ core-drawer-panel {
   border-bottom: 2px solid $dark-blue;
   color: $dark-blue;
   font-size: 30px;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
@@ -956,8 +979,10 @@ core-drawer-panel {
 } */
 
 .item-description {
+  @include span-columns(11.8);
+  @include shift(.1);
   float: left;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .list-item-link-icon {

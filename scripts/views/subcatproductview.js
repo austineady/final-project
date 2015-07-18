@@ -41,7 +41,7 @@ remove: function(){
 loadProducts: function() {
   var id = this.model.id;
   $.ajax({
-    url: 'http://api.remix.bestbuy.com/v1/products(categoryPath.id='+id+')?show=customerReviewAverage,name,image,shortDescription,salePrice,&format=json&apiKey=e25cp4dyr5m785e27wke6rt3&page='+this.currentPage,
+    url: 'http://api.remix.bestbuy.com/v1/products(categoryPath.id='+id+')?show=name,sku,image,salePrice,&format=json&apiKey=e25cp4dyr5m785e27wke6rt3&page='+this.currentPage,
     success: function(data) {
       this.collection = data.products;
       this.render();

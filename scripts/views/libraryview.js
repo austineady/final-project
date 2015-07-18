@@ -1,7 +1,14 @@
 import CategoryItemView from './categoryitemview';
+import LibrarySearchView from './librarysearchview';
 
 export default Backbone.View.extend({
   template: JST.library,
+
+  currentPage: 1,
+
+  events: {
+    'submit .library-search': 'search'
+  },
 
   initialize: function() {
     this.collection = [
@@ -49,5 +56,25 @@ export default Backbone.View.extend({
 remove: function(){
   _.invoke(this.children || [], 'remove');
   Backbone.View.prototype.remove.apply(this, arguments);
-}
+},
+
+  search: function(e) {
+    e.preventDefault();
+    $('.subcat-box').addClass('subcat-box-inactive');
+    var query = this.$('.home-search-bar').val();
+    var search = query.replace(' ', '&search=');
+    $.ajax({
+      url: "http://api.remix.bestbuy.com/v1/products((search="+search+"))?show=name,sku,details.name,includedItemList.includedItem,customerTopRated,bestSellingRank,onSale,priceUpdateDate,freeShipping,inStoreAvailabilityText,onlineAvailabilityText,inStorePickup,orderable,salePrice,url,accessoriesImage,alternateViewsImage,image,backViewImage,leftViewImage,rightViewImage,thumbnailImage,topViewImage,features.feature,shortDescription,color,customerReviewAverage,manufacturer&format=json&apiKey=e25cp4dyr5m785e27wke6rt3&page="+this.currentPage,
+      success: function (data) {
+        var view = new LibrarySearchView({collection: data});
+        this.$('.subcat-product-box').html(view.el);
+        if(data.currentPage === 1) {
+          this.$('.search-backwards').removeClass('search-backwards');
+        }
+      }.bind(this),
+       error: function(){
+        alert('No search results were found, please try again');
+      }
+    });
+  }
 })

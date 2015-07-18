@@ -14,12 +14,28 @@ export default Backbone.View.extend({
   },
 
   initialize: function() {
-    $('.search-item-modal').removeClass('search-modal-disabled');
-    this.render();
+    console.log(this.model);
+    this.findItems();
   },
 
-  render: function() {
-    this.$el.html(this.template(this.model));
+  render: function(item) {
+    this.$el.html(this.template(item));
+  },
+
+  findItems: function() {
+    var sku = this.model.sku;
+    $.ajax({
+      url: "http://api.remix.bestbuy.com/v1/products((sku="+sku+"))?show=name,sku,details.name,includedItemList.includedItem,customerTopRated,bestSellingRank,onSale,priceUpdateDate,freeShipping,inStoreAvailabilityText,onlineAvailabilityText,inStorePickup,orderable,salePrice,url,accessoriesImage,alternateViewsImage,image,backViewImage,leftViewImage,rightViewImage,thumbnailImage,topViewImage,features.feature,shortDescription,color,customerReviewAverage,manufacturer&format=json&apiKey=e25cp4dyr5m785e27wke6rt3",
+      success: function (data) {
+        $('.search-item-modal').removeClass('search-modal-disabled');
+        this.model = data.products[0];
+        console.log(this.model);
+        this.render(this.model);
+      }.bind(this),
+       error: function(){
+        alert('No search results were found, please try again');
+      }
+    });
   },
 
   close: function() {

@@ -4,7 +4,7 @@ export default Backbone.View.extend({
   template: JST.categoryitem,
 
   events: {
-    'click .library-category': 'showCategory'
+    'click .library-category': 'activateCategory'
   },
 
   initialize: function() {
@@ -13,6 +13,25 @@ export default Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template(this.model));
+  },
+
+  activateCategory: function() {
+    $('.subcat-box').removeClass('subcat-box-inactive');
+    var categoryName = this.model.categoryId;
+    var category = this.$('.category-'+categoryName);
+    if(category.hasClass('category-enabled')) {
+      $('.library-category').removeClass('category-disabled');
+      $('.library-category').removeClass('category-enabled');
+      $('.category-list').removeClass('category-list-active');
+      $('.subcat-box').html('');
+      $('.subcat-product-box').html('');
+    } else {
+      $('.library-category').addClass('category-disabled');
+      category.removeClass('category-disabled');
+      category.addClass('category-enabled');
+      $('.category-list').addClass('category-list-active');
+      this.showCategory();
+    }
   },
 
   showCategory: function(e) {
