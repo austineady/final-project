@@ -1,12 +1,39 @@
 <paper-button class="close-modal"><core-icon icon="close"></core-icon></paper-button>
 <div class="item-information">
   <div class="item-picture-box">
+    {{#if largeFrontImage}}
+    <img src="{{largeFrontImage}}" class="item-picture-default">
+    {{else}}
     <img src="{{image}}" class="item-picture">
+    {{/if}}
+  </div>
+  <div class="image-options">
+    {{#if largeImage}}
+    <img src="{{largeImage}}" class="large-view {{largeImage}} image-list" height="50">
+    {{/if}}
+    {{#if largeFrontImage}}
+    <img src="{{largeFrontImage}}" class="front-view {{LargeFrontImage}} image-list" height="50">
+    {{/if}}
+    {{#if backViewImage}}
+    <img src="{{backViewImage}}" class="back-view {{backViewImage}} image-list" height="50">
+    {{/if}}
+    {{#if leftViewImage}}
+    <img src="{{leftViewImage}}" class="left-view {{leftViewImage}} image-list" height="50">
+    {{/if}}
+    {{#if rightViewImage}}
+    <img src="{{rightViewImage}}" class="right-view {{rightViewImage}} image-list" height="50">
+    {{/if}}
+    {{#if topViewImage}}
+    <img src="{{topViewImage}}" class="top-view {{topViewImage}} image-list" height="50">
+    {{/if}}
   </div>
   <h4 class="item-title-information">{{name}}</h4>
   <h4 class="item-price">Price: ${{salePrice}}</h4>
+  {{#if customerTopRated}}
+    <h4 class="item-top-rated">Customer Top Rated: <i class="fa fa-thumbs-up top-rated-icon"></i></h4>
+  {{/if}}
   {{#if color}}
-  <h5 class="item-color">Color: {{color}}</h5>
+  <h4 class="item-color">Color: {{color}}</h4>
   {{/if}}
   {{#if customerReviewAverage}}
   <h4 class="item-average-review">Average Review Score: {{customerReviewAverage}}</h4>
@@ -14,15 +41,10 @@
   {{#if shortDescription}}
   <p class="item-description">Description: {{shortDescription}}</p>
   {{/if}}
-  {{#if features}}
-  <ul class="item-features">
-    {{#each features}}
-      <li class="item-single-feature">{{feature}}</li>
-    {{/each}}
-  </ul>
-  {{/if}}
-  <paper-button class="reviews"><core-icon icon="maps:rate-review"></core-icon> Reviews</paper-button>
-  <div class="review-box"></div>
-  <paper-button raised><a href="{{url}}"><core-icon icon="launch"></core-icon></a>Link</paper-button>
+  <paper-button class="features-head option-head"><core-icon icon="description"></core-icon> Features</paper-button>
+  <paper-button class="shipping option-head"><core-icon icon="maps:local-shipping"></core-icon> Shipping</paper-button>
+  <paper-button class="reviews option-head"><core-icon icon="maps:rate-review"></core-icon> Reviews</paper-button>
+  <div class="option-box"></div>
+  <!--<paper-button raised class="item-launch"><a href="{{url}}"><core-icon icon="launch"></core-icon></a>Link</paper-button>-->
   <paper-fab icon="add" class="search-item-list-add"></paper-fab>
 </div>

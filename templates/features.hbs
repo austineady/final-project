@@ -1,0 +1,9 @@
+{{#if this.model.features}}
+<ul class="item-features">
+  {{#each this.model.features}}
+    <li class="item-single-feature">{{feature}}</li>
+  {{/each}}
+</ul>
+{{else}}
+<h4>There is no data on features for this product</h4>
+{{/if}}

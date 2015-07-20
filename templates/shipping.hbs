@@ -1,0 +1,35 @@
+{{#if this.model.freeShipping}}
+  <h3 class="item-free-shipping shipping-active"><core-icon icon="check" class="free-shipping-check"></core-icon> Free Shipping</h3>
+  {{else}}
+  <h3 class="item-shipping-cost shipping-active">Standard Shipping Cost: ${{this.modelshippingCost}}</h3>
+{{/if}}
+{{#if this.model.inStoreAvailability}}
+  <h3 class="item-store-availability shipping-active"><core-icon icon="check"></core-icon> In Store Availability</h3>
+{{/if}}
+{{#if this.model.onlineAvailability}}
+  <h3 class="item-online shipping-active"><core-icon icon="check"></core-icon> Available Online - {{this.model.onlineAvailabilityText}}</h3>
+{{/if}}
+{{#if this.model.inStorePickup}}
+<h3 class="item-store-pickup shipping-active"><core-icon icon="check"></core-icon> Store Pickup Available</h3>
+{{/if}}
+{{#if this.model.friendsAndFamilyPickup}}
+  <h3 class="item-ffpickup shipping-active"><core-icon icon="check"></core-icon> Friends and Family Pickup Available</h3>
+{{/if}}
+{{#if this.model.homeDelivery}}
+  <h3 class="item-home-delivery shipping-active"><core-icon icon="check"></core-icon> Home Delivery Available</h3>
+{{/if}}
+<h3 class="item-orderable shipping-active"><core-icon icon="check"></core-icon> Ordering Services: {{this.model.orderable}}</h3>
+{{#if this.model.specialOrder}}
+  <h3 class="item-special"><core-icon icon="warning" class="warning-icon"></core-icon> This item requires special handling</h3>
+{{/if}}
+{{#if this.model.shipping}}
+  <div class="price-box">
+    <h2>Prices:</h2>
+    <h3>Ground: ${{this.model.shipping.[0].ground}}</h3>
+    <h3>Next Day: ${{this.model.shipping.[0].nextDay}}</h3>
+    <h3>Second Day: ${{this.model.shipping.[0].secondDay}}</h3>
+    {{#if this.model.shipping.[0].vendorDelivery}}
+    <h3>Vendor Delivery: ${{this.model.shipping.[0].vendorDelivery}}</h3>
+    {{/if}}
+  </div>
+{{/if}}
