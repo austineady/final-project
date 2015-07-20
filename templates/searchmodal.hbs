@@ -8,9 +8,6 @@
     {{/if}}
   </div>
   <div class="image-options">
-    {{#if largeImage}}
-    <img src="{{largeImage}}" class="large-view {{largeImage}} image-list" height="50">
-    {{/if}}
     {{#if largeFrontImage}}
     <img src="{{largeFrontImage}}" class="front-view {{LargeFrontImage}} image-list" height="50">
     {{/if}}
@@ -25,6 +22,15 @@
     {{/if}}
     {{#if topViewImage}}
     <img src="{{topViewImage}}" class="top-view {{topViewImage}} image-list" height="50">
+    {{/if}}
+    {{#if alternateViewsImage}}
+    <img src="{{alternateViewsImage}}" class="alternate-view image-list" height="50">
+    {{/if}}
+    {{#if angleImage}}
+    <img src="{{angleImage}}" class="angle-view image-list" height="50">
+    {{/if}}
+    {{#if spin360Url}}
+    <img src="{{spin360Url}}" class="spin-view image-list" height="50">
     {{/if}}
   </div>
   <h4 class="item-title-information">{{name}}</h4>

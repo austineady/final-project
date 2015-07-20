@@ -7,7 +7,9 @@ export default Backbone.View.extend({
   currentPage: 1,
 
   events: {
-    'submit .library-search': 'search'
+    'submit .library-search': 'search',
+    'click .search-backwards': 'pageBackward',
+    'click .search-forwards': 'pageForward'
   },
 
   initialize: function() {
@@ -64,7 +66,7 @@ remove: function(){
     var query = this.$('.home-search-bar').val();
     var search = query.replace(' ', '&search=');
     $.ajax({
-      url: "http://api.remix.bestbuy.com/v1/products((search="+search+"))?show=name,sku,details.name,includedItemList.includedItem,customerTopRated,bestSellingRank,onSale,priceUpdateDate,freeShipping,inStoreAvailabilityText,onlineAvailabilityText,inStorePickup,orderable,salePrice,url,accessoriesImage,alternateViewsImage,image,backViewImage,leftViewImage,rightViewImage,thumbnailImage,topViewImage,features.feature,shortDescription,color,customerReviewAverage,manufacturer&format=json&apiKey=e25cp4dyr5m785e27wke6rt3&page="+this.currentPage,
+      url: "http://api.remix.bestbuy.com/v1/products((search="+search+"))?show=name,sku,details.name,image&format=json&apiKey=e25cp4dyr5m785e27wke6rt3&page="+this.currentPage,
       success: function (data) {
         var view = new LibrarySearchView({collection: data});
         this.$('.subcat-product-box').html(view.el);
@@ -76,5 +78,17 @@ remove: function(){
         alert('No search results were found, please try again');
       }
     });
-  }
+  },
+
+  pageForward: function(e) {
+    var currentPageNumber = this.currentPage;
+    this.currentPage = currentPageNumber + 1;
+    this.search(e);
+  },
+
+  pageBackward: function(e) {
+    var currentPageNumber = this.currentPage;
+    this.currentPage = currentPageNumber - 1;
+    this.search(e);
+  },
 })

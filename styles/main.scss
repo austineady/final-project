@@ -402,12 +402,12 @@ core-scaffold::shadow core-toolbar {
 
 .item-modal {
   position: fixed;
-  @include span-columns(8);
-  @include shift(2);
-  top: 20%;
+  @include span-columns(10);
+  @include shift(1);
+  top: 15%;
   left: 0;
   z-index: 30;
-  height: 500px;
+  height: 550px;
   background-color: rgba(245, 245, 245, 1);
   border-radius: 5px;
   padding-right: 10px;
@@ -415,13 +415,13 @@ core-scaffold::shadow core-toolbar {
 
 .search-item-modal {
   position: fixed;
-  @include span-columns(8);
-  @include shift(2);
+  @include span-columns(10);
+  @include shift(1);
   z-index: 30;
-  height: 500px;
+  height: 550px;
   background-color: rgba(245, 245, 245, 1);
   border-radius: 5px;
-  top: 20%;
+  top: 15%;
   left: 0;
   padding-bottom: 20px;
   padding-right: 10px;
@@ -974,6 +974,11 @@ core-drawer-panel {
   margin-top: 5px;
 }
 
+.item-title-information {
+  @include span-columns(11);
+  @include shift(.5);
+}
+
 .item-list-add {
   position: absolute;
   bottom: 40%;
@@ -990,8 +995,7 @@ core-drawer-panel {
 }
 
 .item-picture-box {
-  @include span-columns(10);
-  @include shift(1);
+  @include span-columns(12);
   padding: 10px;
   background-color: white;
   margin-bottom: 10px;
@@ -1026,6 +1030,10 @@ core-drawer-panel {
   text-align: left;
   padding: 10px;
   border-radius: 5px;
+}
+
+.image-options {
+  @include span-columns(12);
 }
 
 .item-store-availability {
@@ -1100,7 +1108,7 @@ core-drawer-panel {
 .item-information {
   @include span-columns(11.6);
   @include shift(.2);
-  height: 450px;
+  height: 500px;
   overflow-y: scroll;
   padding: 10px;
   padding-top: 40px;

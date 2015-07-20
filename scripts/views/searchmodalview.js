@@ -29,7 +29,7 @@ export default Backbone.View.extend({
   findItems: function() {
     var sku = this.model.sku;
     $.ajax({
-      url: "http://api.remix.bestbuy.com/v1/products((sku="+sku+"))?show=name,sku,details.name,includedItemList.includedItem,customerTopRated,bestSellingRank,onSale,regularPrice,priceUpdateDate,largeFrontImage,largeImage,freeShipping,inStoreAvailabilityText,onlineAvailabilityText,inStorePickup,orderable,salePrice,url,accessoriesImage,alternateViewsImage,image,backViewImage,leftViewImage,rightViewImage,thumbnailImage,topViewImage,features.feature,shortDescription,color,customerReviewAverage,manufacturer&format=json&apiKey=e25cp4dyr5m785e27wke6rt3",
+      url: "http://api.remix.bestbuy.com/v1/products((sku="+sku+"))?show=name,sku,details.name,includedItemList.includedItem,customerTopRated,bestSellingRank,onSale,regularPrice,priceUpdateDate,alternateViewsImage,angleImage,spin360Url,largeFrontImage,largeImage,freeShipping,inStoreAvailabilityText,onlineAvailabilityText,inStorePickup,orderable,salePrice,url,accessoriesImage,alternateViewsImage,image,backViewImage,leftViewImage,rightViewImage,thumbnailImage,topViewImage,features.feature,shortDescription,color,customerReviewAverage,manufacturer&format=json&apiKey=e25cp4dyr5m785e27wke6rt3",
       success: function (data) {
         $('.search-item-modal').removeClass('search-modal-disabled');
         this.model = data.products[0];
@@ -100,6 +100,9 @@ export default Backbone.View.extend({
       onlineAvailabilityText: this.model.onlineAvailabilityText,
       orderable: this.model.orderable,
       priceUpdateDate: this.model.priceUpdateDate,
+      spin360Url: this.model.spin360Url,
+      largeFrontImage: this.model.largeFrontImage,
+      angleImage: this.model.angleImage
     }, {
       success: function(product) {
         console.log('Successfully Saved', product);
