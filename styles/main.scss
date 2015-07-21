@@ -36,7 +36,6 @@ $base-background-color: $very-light-gray;
 }
 
 body {
-  background-color: $base-background-color;
   color: $base-font-color;
 }
 
@@ -71,8 +70,9 @@ img {
 #app {
   @include outer-container(100vw);
   height: 100vh;
-  background-color: rgba(35, 48, 56, 1);
-  overflow-y: scroll;
+  background-color: rgba(255, 255, 255, 1);
+  overflow-x: hidden;
+  overflow-y: auto;
   padding-bottom: 10px;
 }
 
@@ -109,9 +109,9 @@ core-scaffold::shadow core-toolbar {
   margin-top: 20px;
   padding: 5px;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, .2);
-  @media screen and (min-width: 400px) {
-    margin-left: 50px;
-  }
+  // @media screen and (min-width: 400px) {
+  //   margin-left: 50px;
+  // }
 }
 
 .list-card {
@@ -568,7 +568,7 @@ core-drawer-panel {
 .app-header {
   background: linear-gradient($blue-silver, $light-blue);
   //border-bottom: 2px solid white;
-  color: white;
+  color: $light-blue;
   padding-left: 5px;
   text-align: center;
 }
@@ -579,7 +579,7 @@ core-drawer-panel {
 
 .accordion-container {
   @include span-columns(12);
-  background-color: rgba(240, 240, 240, 1);
+  //background-color: rgba(240, 240, 240, 1);
   border-left: 1px solid silver;
 }
 
@@ -965,7 +965,7 @@ core-drawer-panel {
 }
 
 .list-box {
-  background-color: rgba(240, 240, 240, 1);
+  // background-color: rgba(240, 240, 240, 1);
   color: $light-blue;
 }
 
@@ -1155,7 +1155,9 @@ core-drawer-panel {
   text-align: left;
   padding-top: 10px;
   padding-bottom: 10px;
+  margin-bottom: 10px;
   transition: 2s;
+  border-bottom: 1px solid $light-blue;
   @media screen and (min-width: 400px) {
     height: 350px;
   }
@@ -1185,22 +1187,142 @@ core-drawer-panel {
   }
 }
 
+.hot-popular-header {
+  @include span-columns(12);
+  height: 50px;
+  font-size: 25px;
+  padding: 10px;
+  font-weight: 100;
+}
+
 .hot-picture {
   max-height: 290px;
   transition: 5s;
   margin: 0 auto;
 }
 
+.trending-list {
+  @include span-columns(12);
+}
+
 .trending-item {
-  width: 100px;
+  width: 120px;
   height: 70px;
-  border-radius: 5px;
   background-color: white;
   text-align: center;
   padding: 5px;
   margin: 5px;
   float: left;
   overflow: hidden;
+  border-bottom: 2px solid $light-blue;
+}
+
+.trending-item:hover {
+  height: 80px;
+  transition: 1s;
+  border-bottom: 4px solid $light-blue;
+}
+
+.home-container {
+  @include span-columns(12);
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.connected-home {
+  @include span-columns(12);
+  height: 600px;
+  background-color: silver;
+}
+
+.home-text {
+  @include span-columns(12);
+  height: 300px;
+  background-image: url('https://download.unsplash.com/photo-1417353783325-14cb8f9ba1dd'), linear-gradient(rgba(250, 250, 250, .8), rgba(255, 255, 255, .7));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 -300px;
+  overflow-y: hidden;
+  text-align: center;
+  font-size: 50px;
+  padding-top: 10px;
+  margin-top: 20px;
+  transition: 2s;
+  color: $light-blue;
+}
+
+.adventure-text {
+  @include span-columns(12);
+  height: 300px;
+  background-image: url('https://download.unsplash.com/photo-1429547584745-d8bec594c82e'), linear-gradient(rgba(250, 250, 250, .8), rgba(255, 255, 255, .7));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 -300px;
+  overflow-y: hidden;
+  text-align: center;
+  font-size: 50px;
+  padding-top: 10px;
+  transition: 2s;
+  color: rgba(250, 250, 250, 1);
+}
+
+.adventure-text:hover {
+  background-position: 0 -400px;
+  transition: 2s;
+}
+
+.home-text:hover {
+  background-position: 0 -400px;
+  transition: 2s;
+}
+
+.home-item {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  text-align: center;
+  float: left;
+  margin: 10px;
+  border: 1px solid silver;
+  padding: 5px;
+}
+
+.adventure-item {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  text-align: center;
+  float: left;
+  margin: 10px;
+  border: 1px solid silver;
+  padding: 5px;
+}
+
+.home-list {
+  @include span-columns(10);
+  @include shift(1);
+  position: absolute;
+  height: 400px;
+  margin-top: 100px;
+  background-color: white;
+  display: block;
+}
+
+.adventure-list {
+  @include span-columns(10);
+  @include shift(1);
+  height: 400px;
+  background-color: white;
+  display: block;
+}
+
+.adventure-picture {
+  height: 100px;
+}
+
+.home-picture {
+  height: 100px;
 }
 
 .drawer-friends {
