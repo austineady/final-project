@@ -1,0 +1,8 @@
+<div class="hot-picture-box">
+{{#if this.model.largeFrontImage}}
+<img src="{{this.model.largeFrontImage}}" class="hot-picture">
+{{else}}
+<img src="{{this.model.largeImage}}" class="hot-picture">
+{{/if}}
+</div>
+<div class="hot-picture-text">{{this.model.name}}</div>

@@ -3,7 +3,7 @@ import FriendListView from './friendlistview';
 import FriendView from './friendview';
 import CreateView from './createview';
 import GiftView from './giftview';
-import RenderSearchView from './rendersearchview';
+import RenderFeedView from './renderfeedview';
 import LibraryView from './libraryview';
 
 
@@ -38,7 +38,7 @@ export default Backbone.View.extend({
   },
 
   search: function() {
-    var view = new RenderSearchView();
+    var view = new RenderFeedView();
     this.$('.accordion-container').html(view.el);
   },
 

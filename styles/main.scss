@@ -71,7 +71,7 @@ img {
 #app {
   @include outer-container(100vw);
   height: 100vh;
-  background: linear-gradient($blue-silver, $light-blue);
+  background-color: rgba(35, 48, 56, 1);
   overflow-y: scroll;
   padding-bottom: 10px;
 }
@@ -109,6 +109,9 @@ core-scaffold::shadow core-toolbar {
   margin-top: 20px;
   padding: 5px;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, .2);
+  @media screen and (min-width: 400px) {
+    margin-left: 50px;
+  }
 }
 
 .list-card {
@@ -167,7 +170,17 @@ core-scaffold::shadow core-toolbar {
 .app-title {
   @include span-columns(6);
   text-align: right;
-  font-weight: 300;
+  font-weight: 100;
+  letter-spacing: 2px;
+  font-size: 30px;
+  margin-bottom: 0;
+}
+
+.app-icon {
+  font-size: 30px;
+  height: 50px;
+  width: 50px;
+  margin-top: 0;
 }
 
 .search-item-information {
@@ -238,7 +251,7 @@ core-scaffold::shadow core-toolbar {
 }
 
 .drawer-menu {
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 .friend-info {
@@ -308,25 +321,24 @@ core-scaffold::shadow core-toolbar {
   float: left;
 }
 
-.friend-item-link {
-  @include span-columns(1);
-  position: absolute;
-  bottom: 2%;
-  right: 15%;
-}
 
-.friend-item-gift {
-  @include span-columns(1);
-  position: absolute;
-  bottom: 5%;
-  right: 22%;
+.friend-options {
+  @include span-columns(12);
+  display: block;
+  height: 50px;
+  border: 1px solid red;
 }
 
 .friend-item-add {
-  @include span-columns(2);
-  position: absolute;
-  bottom: 5%;
-  right: .5%;
+  float: right;
+}
+
+.friend-item-gift {
+  float: left;
+}
+
+.friend-item-link {
+  float: left;
 }
 
 .friend-item-description {
@@ -336,6 +348,7 @@ core-scaffold::shadow core-toolbar {
 .drawer-user {
   @include span-columns(4);
   line-height: 70px;
+  margin-bottom: 0;
 }
 
 .drawer-user-picture {
@@ -374,24 +387,13 @@ core-scaffold::shadow core-toolbar {
   margin-right: 5px;
 }
 
-.render-container {
-  @include span-columns(5.5 of 12);
-  @include omega();
-  height: 90vh;
-  border-radius: 5px;
-  padding: 5px;
-  overflow-y: scroll;
-  background-color: white;
-  float: left;
-  margin-top: 10px;
-}
-
 .user-list {
   overflow-y: scroll;
 }
 
 .grid {
   @include span-columns(12);
+  @include shift(.5);
 }
 
 .grid:after {
@@ -425,10 +427,13 @@ core-scaffold::shadow core-toolbar {
   left: 0;
   padding-bottom: 20px;
   padding-right: 10px;
+  transition: 4s;
 }
 
 .search-modal-disabled {
   z-index: -30;
+  display: none;
+  transition: 2s;
 }
 
 .close-modal {
@@ -436,6 +441,7 @@ core-scaffold::shadow core-toolbar {
   top: 5;
   left: 0;
   z-index: 31;
+  transition: 2s;
 }
 
 
@@ -470,11 +476,6 @@ core-scaffold::shadow core-toolbar {
   @include span-columns(1);
   @include shift(5.5);
   margin-top: 20px;
-}
-
-.side-nav-gift {
-  font-size: 30px;
-  line-height: 70px;
 }
 
 .gift-item {
@@ -531,6 +532,7 @@ core-scaffold::shadow core-toolbar {
 
 core-drawer-panel {
   @include span-columns(12);
+  height: 100vh;
 }
 
 .drawer-panel {
@@ -564,7 +566,6 @@ core-drawer-panel {
 }
 
 .app-header {
-  height: 82px;
   background: linear-gradient($blue-silver, $light-blue);
   //border-bottom: 2px solid white;
   color: white;
@@ -574,13 +575,6 @@ core-drawer-panel {
 
 .app-title-icon {
   font-size: 40px;
-}
-
-.app-search-toggle {
-  float: right;
-  margin-top: 16px;
-  margin-right: 30px;
-  border-radius: 50%;
 }
 
 .accordion-container {
@@ -621,7 +615,8 @@ core-drawer-panel {
 
 .accordion-box {
   overflow-y: scroll;
-  @include span-columns(10.8);
+  @include span-columns(11.8);
+  @include shift(.1);
   height: 93vh;
   border-left: 1px solid silver;
   transition: 2s;
@@ -630,7 +625,8 @@ core-drawer-panel {
 
 .library-box {
   overflow-y: scroll;
-  @include span-columns(11.2);
+  @include span-columns(11.8);
+  @include shift(.1);
   height: 93vh;
   transition: 2s;
   color: $light-blue;
@@ -638,6 +634,7 @@ core-drawer-panel {
   background-size: cover;
   display: block;
   border-left: 1px solid silver;
+  border-right: 1px solid silver;
 }
 
 .library-nav {
@@ -687,11 +684,13 @@ core-drawer-panel {
 .subcat-product-list {
   @include span-columns(12);
   padding-bottom: 5px;
+  transition: 1s;
 }
 
 .subcat-active {
   font-weight: 600;
   text-transform: uppercase;
+  transition: 1s;
 }
 
 .category-product {
@@ -710,16 +709,19 @@ core-drawer-panel {
   @include span-columns(2.4);
   @include omega();
   padding-left: 10px;
+  transition: 1s;
 }
 
 .category-list-active {
   width: 100px;
+  transition: 1s;
 }
 
 .library-category {
   color: $light-blue;
   margin-bottom: 32px;
   font-size: 17px;
+  transition: 1s;
 }
 
 .landing-search-box {
@@ -1085,11 +1087,18 @@ core-drawer-panel {
 
 .side-nav {
   @include span-columns(12);
-  height: 70px;
-  margin-top: 20px;
+  height: 50px;
+  margin-bottom: 7px;
   color: $light-blue;
   transition: 1s;
   text-align: center;
+  line-height: 50px;
+  font-size: 17px;
+}
+
+.side-nav:hover {
+  letter-spacing: 2px;
+  transition: 1s;
 }
 
 
@@ -1100,9 +1109,21 @@ core-drawer-panel {
 }
 
 .side-nav-icon {
-  @include span-columns(12);
+  width: 30px;
   height: 30px;
-  margin-top: 20px;
+  margin-right: 5px;
+}
+
+.side-nav-gift {
+  font-size: 30px;
+  line-height: 50px;
+  margin-right: 5px;
+}
+
+.side-nav-feed {
+  font-size: 28px;
+  line-height: 50px;
+  margin-right: 5px;
 }
 
 .item-information {
@@ -1127,20 +1148,59 @@ core-drawer-panel {
   text-align: left;
 }
 
+.hot-box {
+  @include span-columns(12);
+  background-color: white;
+  height: 300px;
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: 2s;
+  @media screen and (min-width: 400px) {
+    height: 350px;
+  }
+}
+
+.hot-picture-text {
+  @include span-columns(6);
+  height: 300px;
+  text-align: left;
+  float: left;
+  font-size: 25px;
+  line-height: 300px;
+  font-weight: 300;
+  overflow: hidden;
+}
+
+.hot-picture-box {
+  width: 350px;
+  height: 290px;
+  text-align: center;
+  padding: 5px;
+  float: left;
+  margin-left: 10%;
+  margin-right: 5%;
+  @media screen and (min-width: 400px) {
+    margin-left: 5%;
+  }
+}
+
+.hot-picture {
+  max-height: 290px;
+  transition: 5s;
+  margin: 0 auto;
+}
+
 .trending-item {
-  @include span-columns(11.6);
-  @include shift(.2);
-  margin-top: 10px;
+  width: 100px;
+  height: 70px;
   border-radius: 5px;
   background-color: white;
   text-align: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.trending-item-list-add {
-  height: 25px;
-  width: 25px;
+  padding: 5px;
+  margin: 5px;
+  float: left;
+  overflow: hidden;
 }
 
 .drawer-friends {
@@ -1150,4 +1210,6 @@ core-drawer-panel {
 
 .modal-disabled {
   z-index: -30;
+  display: none;
+  transition: 2s;
 }

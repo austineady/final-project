@@ -16,8 +16,8 @@ export default Backbone.View.extend({
   },
 
   activeNav: function() {
-    this.$('.side-nav').removeClass('side-nav-active');
-    this.$('.show-create').addClass('side-nav-active');
+    $('.side-nav').removeClass('side-nav-active');
+    $('.show-create').addClass('side-nav-active');
   },
 
   saveItem: function(e) {
