@@ -71,8 +71,6 @@ img {
   @include outer-container(100vw);
   height: 100vh;
   background-color: rgba(255, 255, 255, 1);
-  overflow-x: hidden;
-  overflow-y: auto;
   padding-bottom: 10px;
 }
 
@@ -515,6 +513,10 @@ core-scaffold::shadow core-toolbar {
   @include span-columns(9);
   @include omega();
   @include shift(.3);
+  @media screen and (width: 400px) {
+    @include span-columns(12);
+    @include shift(0);
+  }
 }
 
 .gift-owner-information {
@@ -535,6 +537,11 @@ core-scaffold::shadow core-toolbar {
   background-color: white;
   border-radius: 5px;
   color: $light-blue;
+  @media screen and (width: 400px) {
+    @include span-columns(4);
+    @include shift(4);
+    padding: 0;
+  }
 }
 
 .gift-options {
@@ -598,7 +605,6 @@ core-drawer-panel {
 .accordion-container {
   @include span-columns(12);
   //background-color: rgba(240, 240, 240, 1);
-  border-left: 1px solid silver;
 }
 
 .home-accordion {
@@ -636,7 +642,6 @@ core-drawer-panel {
   @include span-columns(11.8);
   @include shift(.1);
   height: 93vh;
-  border-left: 1px solid silver;
   transition: 2s;
   padding-left: 10px;
 }
@@ -1269,7 +1274,6 @@ core-drawer-panel {
   @include span-columns(12);
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: rgba(0, 0, 0, 0);
 }
 
 .adventure-container {
@@ -1304,6 +1308,7 @@ core-drawer-panel {
   transition: 2s;
   color: $light-blue;
   font-weight: 100;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, .2);
   @media screen and (width: 400px) {
     height: 400px;
     font-size: 30px;
@@ -1324,6 +1329,7 @@ core-drawer-panel {
   transition: 2s;
   color: $light-blue;
   font-weight: 100;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, .2);
   @media screen and (width: 400px) {
     background-position: 0;
     height: 400px;
@@ -1349,7 +1355,6 @@ core-drawer-panel {
   text-align: center;
   float: left;
   margin: 10px;
-  border: 1px solid silver;
   padding: 5px;
   @media screen and (width: 400px) {
     width: 80px;
@@ -1365,7 +1370,6 @@ core-drawer-panel {
   text-align: center;
   float: left;
   margin: 10px;
-  border: 1px solid silver;
   padding: 5px;
   @media screen and (width: 400px) {
     width: 80px;
@@ -1375,12 +1379,16 @@ core-drawer-panel {
 }
 
 .home-list {
-  @include span-columns(10);
-  @include shift(1);
+  @include span-columns(11);
+  @include shift(.5);
   position: absolute;
-  height: 400px;
-  margin-top: 100px;
-  background-color: white;
+  // background-image: url('http://bodiesthatwork.com/cms/wp-content/uploads/2013/08/an-empty-room.jpg');
+  // background-size: cover;
+  // background-position: 0 -450px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, .2);
+  height: 500px;
+  margin-top: 50px;
   display: block;
   @media screen and (width: 400px) {
     overflow-y: scroll;
@@ -1388,10 +1396,13 @@ core-drawer-panel {
 }
 
 .adventure-list {
-  @include span-columns(10);
-  @include shift(1);
+  @include span-columns(11);
+  @include shift(.5);
+  margin-top: 20px;
+  border-radius: 5px;
   height: 400px;
   background-color: white;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, .2);
   display: block;
   @media screen and (width: 400px) {
     overflow-y: scroll;
