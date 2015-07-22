@@ -17,7 +17,8 @@ export default Backbone.View.extend({
     'click .render-list': 'renderList',
     'click .show-create': 'createItem',
     'click .show-gifts': 'renderGifts',
-    'click .show-library': 'renderLibrary'
+    'click .show-library': 'renderLibrary',
+    'click .log-out': 'logOut'
   },
 
   initialize: function() {
@@ -60,5 +61,10 @@ export default Backbone.View.extend({
   renderLibrary: function() {
     var view = new LibraryView();
     this.$('.accordion-container').html(view.el);
+  },
+
+  logOut: function() {
+    Parse.User.logOut();
+    document.location.reload(true);
   }
 });

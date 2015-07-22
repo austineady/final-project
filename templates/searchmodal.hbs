@@ -1,5 +1,6 @@
 <paper-button class="close-modal"><core-icon icon="close"></core-icon></paper-button>
 <div class="item-information">
+  <h2 class="item-title-information">{{name}}</h2>
   <div class="item-picture-box">
     {{#if largeFrontImage}}
     <img src="{{largeFrontImage}}" class="item-picture-default">
@@ -33,7 +34,6 @@
     <img src="{{spin360Url}}" class="spin-view image-list" height="50">
     {{/if}}
   </div>
-  <h4 class="item-title-information">{{name}}</h4>
   <h4 class="item-price">Price: ${{salePrice}}</h4>
   {{#if customerTopRated}}
     <h4 class="item-top-rated">Customer Top Rated: <i class="fa fa-thumbs-up top-rated-icon"></i></h4>

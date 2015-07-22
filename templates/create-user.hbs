@@ -1,6 +1,14 @@
-<form class="new-user-form">
-  <input type="text" class="new-user-username create-input">
-  <input type="text" class="new-user-password create-input">
-  <input type="email" class="new-user-email create-input">
-  <input type="submit" class="new-user-create-button" value="Submit">
-</form>
+<header class="app-header">
+  <h2 class="landing-title"><core-icon icon="social:share" class="app-icon"></core-icon> Wishbone</h2>
+  <paper-button raised class="app-user"><core-icon icon="social:person"></core-icon> Log In</paper-button>
+</header>
+<div class="landing-box">
+  <div class="login-box  login-hidden">
+    <form class="new-user-form">
+      <input type="text" class="new-user-username landing-input" placeholder="USERNAME">
+      <input type="password" class="new-user-password landing-input" placeholder="PASSWORD">
+      <input type="email" class="new-user-email landing-input" placholder="EMAIL">
+      <paper-button type="submit" class="new-user-create-button landing-button" raised>Log In</paper-button>
+    </form>
+  </div>
+</div>

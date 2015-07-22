@@ -37,8 +37,7 @@ var Router = Backbone.Router.extend({
   newUser: function() {
     var user = new User();
     var view = new CreateUserView({model: user});
-    $('#app').prepend(JST.header);
-    $('.app-header').append(view.el);
+    $('#app').html(view.el);
   },
 
   userHome: function(username) {

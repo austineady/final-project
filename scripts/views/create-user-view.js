@@ -1,10 +1,12 @@
 import config from './../ajax-config';
+import router from './../router';
 
 export default Backbone.View.extend({
   template: JST.newuser,
 
   events: {
-    'submit .new-user-form': 'createUser'
+    'submit .new-user-form': 'createUser',
+    'click .new-user-create-button': 'createUser'
   },
 
   initialize: function() {
@@ -25,12 +27,16 @@ export default Backbone.View.extend({
     user.set("username", username);
     user.set("password", password);
     user.set("email", email);
+    user.set("profilePicture", "http://www.orthopaedicsurgeondirectory.com/admin/uploads/place_holder_Lancast.jpg"),
+    user.set("friends", [{"profilePicture": "http://www.orthopaedicsurgeondirectory.com/admin/uploads/place_holder_Lancast.jpg", "username": "austineady"}])
     user.signUp(null, {
       success: function(user) {
-        console.log('success!');
+        Parse.User.become(user.sessionToken).then(function(user) {
+          router.navigate('', {trigger: true});
+        });
       },
       error: function(user, error) {
-        alert("Error: sign up not successful");
+        alert(user, error);
       }
     });
   }

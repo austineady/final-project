@@ -33,7 +33,7 @@ export default Backbone.View.extend({
       success: function(user) {
         console.log(user);
         Parse.User.become(user.sessionToken).then(function(user) {
-          document.location.reload(true);
+        document.location.reload(true);
         });
       },
       error: function(user) {
