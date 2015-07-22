@@ -109,9 +109,9 @@ core-scaffold::shadow core-toolbar {
   margin-top: 20px;
   padding: 5px;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, .2);
-  // @media screen and (min-width: 400px) {
-  //   margin-left: 50px;
-  // }
+  @media screen and (width: 400px) {
+    margin-left: 50px;
+  }
 }
 
 .log-out {
@@ -181,6 +181,9 @@ core-scaffold::shadow core-toolbar {
   letter-spacing: 2px;
   font-size: 30px;
   margin-bottom: 0;
+  @media screen and (width: 400px) {
+    @include span-columns(7);
+  }
 }
 
 .landing-title {
@@ -314,9 +317,6 @@ core-scaffold::shadow core-toolbar {
   border-bottom-left-radius: 5px;
 }
 
-.friend-item-image {
-}
-
 .friend-item-information {
   @include span-columns(8.55 of 12);
   padding: 5px;
@@ -341,7 +341,6 @@ core-scaffold::shadow core-toolbar {
   @include span-columns(12);
   display: block;
   height: 50px;
-  border: 1px solid red;
 }
 
 .friend-item-add {
@@ -358,6 +357,9 @@ core-scaffold::shadow core-toolbar {
 
 .friend-item-description {
   @include span-columns(7);
+  @media screen and (width: 400px) {
+    @include span-columns(12);
+  }
 }
 
 .drawer-user {
@@ -668,6 +670,7 @@ core-drawer-panel {
 .category-enabled {
   font-weight: 600;
   transition: 1s;
+  text-decoration: underline;
 }
 
 .subcat-box {
@@ -676,6 +679,9 @@ core-drawer-panel {
   height: 93vh;
   overflow-y: scroll;
   padding-left: 10px;
+  @media screen and (width: 400px) {
+    @include span-columns(3.5);
+  }
 }
 
 .subcat-box-inactive {
@@ -685,11 +691,11 @@ core-drawer-panel {
 
 .subcat-box-active {
   width: 100px;
+  height: auto;
 }
 
 .subcat-product-box {
-  // @include span-columns(7.5);
-  // @include omega();
+  @include span-columns(12);
   height: 93vh;
   overflow-y: scroll;
   text-align: center;
@@ -701,6 +707,10 @@ core-drawer-panel {
   @include span-columns(12);
   padding-bottom: 5px;
   transition: 1s;
+}
+
+.subcategory {
+  margin-top: 0;
 }
 
 .subcat-active {
@@ -731,6 +741,7 @@ core-drawer-panel {
 .category-list-active {
   width: 100px;
   transition: 1s;
+  height: auto;
 }
 
 .library-category {
@@ -1176,8 +1187,9 @@ core-drawer-panel {
   margin-bottom: 10px;
   transition: 2s;
   border-bottom: 1px solid $light-blue;
-  @media screen and (min-width: 400px) {
-    height: 350px;
+  @media screen and (width: 400px) {
+    height: 400px;
+    padding-bottom: 0;
   }
 }
 
@@ -1190,6 +1202,13 @@ core-drawer-panel {
   line-height: 300px;
   font-weight: 300;
   overflow: hidden;
+  @media screen and (width: 400px) {
+    @include span-columns(12);
+    font-size: 15px;
+    line-height: 50px;
+    padding-left: 5px;
+    text-align: center;
+  }
 }
 
 .hot-picture-box {
@@ -1200,8 +1219,10 @@ core-drawer-panel {
   float: left;
   margin-left: 10%;
   margin-right: 5%;
-  @media screen and (min-width: 400px) {
-    margin-left: 5%;
+  @media screen and (width: 400px) {
+    @include span-columns(11);
+    @include shift(.5);
+    margin-bottom: 0;
   }
 }
 
@@ -1233,6 +1254,9 @@ core-drawer-panel {
   float: left;
   overflow: hidden;
   border-bottom: 2px solid $light-blue;
+  @media screen and (width: 400px) {
+    width: 110px;
+  }
 }
 
 .trending-item:hover {
@@ -1248,10 +1272,21 @@ core-drawer-panel {
   background-color: rgba(0, 0, 0, 0);
 }
 
+.adventure-container {
+  @include span-columns(12);
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0);
+}
+
 .connected-home {
   @include span-columns(12);
   height: 600px;
-  background-color: silver;
+}
+
+.active-adventurer {
+  @include span-columns(12);
+  height: 600px;
 }
 
 .home-text {
@@ -1269,6 +1304,10 @@ core-drawer-panel {
   transition: 2s;
   color: $light-blue;
   font-weight: 100;
+  @media screen and (width: 400px) {
+    height: 400px;
+    font-size: 30px;
+  }
 }
 
 .adventure-text {
@@ -1285,6 +1324,11 @@ core-drawer-panel {
   transition: 2s;
   color: $light-blue;
   font-weight: 100;
+  @media screen and (width: 400px) {
+    background-position: 0;
+    height: 400px;
+    font-size: 30px;
+  }
 }
 
 .adventure-text:hover {
@@ -1307,6 +1351,11 @@ core-drawer-panel {
   margin: 10px;
   border: 1px solid silver;
   padding: 5px;
+  @media screen and (width: 400px) {
+    width: 80px;
+    height: 80px;
+    border: 0;
+  }
 }
 
 .adventure-item {
@@ -1318,6 +1367,11 @@ core-drawer-panel {
   margin: 10px;
   border: 1px solid silver;
   padding: 5px;
+  @media screen and (width: 400px) {
+    width: 80px;
+    height: 80px;
+    border: 0;
+  }
 }
 
 .home-list {
@@ -1328,6 +1382,9 @@ core-drawer-panel {
   margin-top: 100px;
   background-color: white;
   display: block;
+  @media screen and (width: 400px) {
+    overflow-y: scroll;
+  }
 }
 
 .adventure-list {
@@ -1336,14 +1393,23 @@ core-drawer-panel {
   height: 400px;
   background-color: white;
   display: block;
+  @media screen and (width: 400px) {
+    overflow-y: scroll;
+  }
 }
 
 .adventure-picture {
   height: 100px;
+  @media screen and (width: 400px) {
+    height: 80px;
+  }
 }
 
 .home-picture {
   height: 100px;
+  @media screen and (width: 400px) {
+    height: 80px;
+  }
 }
 
 .drawer-friends {

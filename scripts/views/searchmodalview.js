@@ -70,6 +70,7 @@ export default Backbone.View.extend({
 
   addToList: function() {
     var user = Parse.User.current();
+    console.log(user);
     var Product = Parse.Object.extend('Product');
     var product = new Product();
     product.save({

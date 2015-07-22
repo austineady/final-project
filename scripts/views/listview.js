@@ -5,22 +5,30 @@ export default Backbone.View.extend({
 
   initialize: function() {
     this.model = Parse.User.current();
-    console.log(this.model);
     var Product = Parse.Object.extend('Product');
     var product = new Product();
-    product.fetch().then(function(data) {
-      console.log(data);
-      var list = _.where(data.attributes.results, {owner: this.model.attributes.username});
-      this.render(list);
-    }.bind(this));
+    product.fetch({
+      success: function(data) {
+        console.log(data);
+        var list = _.where(data.attributes.results, {owner: this.model.attributes.username});
+        this.render(list);
+      }.bind(this),
+      error: function(error) {
+        this.render();
+      }.bind(this)
+    });
   },
 
   render: function(list) {
-    this.$el.html(this.template());
-    this.renderChildren(list);
-    $('.side-nav').removeClass('side-nav-active');
-    $('.show-list').addClass('side-nav-active');
-    this.activateGrid();
+    if(list) {
+      this.$el.html(this.template());
+      $('.side-nav').removeClass('side-nav-active');
+      $('.show-list').addClass('side-nav-active');
+      this.renderChildren(list);
+      this.activateGrid();
+    } else {
+      this.$el.html(this.template({error: "You have no items on your list!"}))
+    }
   },
 
   renderChildren: function(list){

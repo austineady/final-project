@@ -1,4 +1,7 @@
 <div class="list-box accordion-box">
+  {{#if this.error}}
+  <h1>{{this.error}}</h1>
+  {{/if}}
   <div class="user-list grid js-masonry" data-masonry-options='{ "columnWidth": 230, "itemSelector": ".grid-item", "gutter": 0, "percentPosition": true}'></div>
   <paper-shadow z="4" class="item-modal modal-disabled"></paper-shadow>
 </div>

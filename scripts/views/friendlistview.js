@@ -10,7 +10,9 @@ export default Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template());
-    this.renderChildren();
+    if(this.collection.length !== 0) {
+      this.renderChildren();
+    }
   },
 
   renderChildren: function(){
