@@ -21,7 +21,7 @@ export default Backbone.View.extend({
   },
 
   showModel: function() {
-    var view = new ModalView({model: this.model});
+    var view = new ModalView({model: this.model, collection: this.collection});
     $('.item-modal').html(view.el);
   }
 });

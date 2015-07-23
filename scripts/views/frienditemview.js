@@ -36,6 +36,7 @@ export default Backbone.View.extend({
       sku: this.model.sku,
       owner: user.attributes.username
     });
+    toastr.success("This item has been added to your list");
     /*user.attributes.list.push(this.model);
     console.log(user.attributes.list);
     user.save();*/
@@ -52,6 +53,6 @@ export default Backbone.View.extend({
       oppositeUser: owner,
       item: item
     });
-    console.log(activity);
+    toastr.success("This item has been added to your Gift List");
   }
 })

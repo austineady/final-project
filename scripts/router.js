@@ -2,6 +2,11 @@ import LandingView from './views/landingview';
 import CreateUserView from './views/create-user-view';
 import UserHomeView from './views/userhomeview';
 import TrendingView from './views/trendingview';
+import LibraryView from './views/libraryview';
+import CreateView from './views/createview';
+import GiftView from './views/giftview';
+import RenderFeedView from './views/renderfeedview';
+import ListView from './views/listview';
 
 
 import {ProductCollection} from './models/productmodel';
@@ -14,7 +19,12 @@ var Router = Backbone.Router.extend({
   routes: {
     '': 'landing',
     'users/create': 'newUser',
-    'users/login': 'UserLogin',
+    'users/login': 'UserLogin'
+    // 'library': 'showLibrary',
+    // 'gifts': 'renderGifts',
+    // 'create': 'renderCreate',
+    // 'list': 'renderList',
+    // 'feed': 'renderFeed'
   },
 
   initialize: function() {
@@ -57,10 +67,40 @@ var Router = Backbone.Router.extend({
     $('#app').html(view.el);
   },
 
-  userHome: function(username) {
+  userHome: function() {
     var view = new UserHomeView();
     $('#app').html(view.el);
   },
+  //
+  // showLibrary: function() {
+  //   // var view = new LibraryView();
+  //   // $('#app').html(JST.home);
+  //   // $('.accordion-container').html(view.el);
+  // },
+  //
+  // renderGifts: function() {
+  //   // var view = new GiftView();
+  //   // $('#app').html(JST.home);
+  //   // $('.accordion-container').html(view.el);
+  // },
+  //
+  // renderCreate: function() {
+  //   // var view = new CreateView();
+  //   // $('#app').html(JST.home);
+  //   // $('.accordion-container').html(view.el);
+  // },
+  //
+  // renderList: function() {
+  //   // var view = new ListView();
+  //   // $('#app').html(JST.home);
+  //   // $('.accordion-container').html(view.el);
+  // },
+  //
+  // renderFeed: function() {
+  //   // var view = new RenderFeedView();
+  //   // $('#app').html(JST.home);
+  //   // $('.accordion-container').html(view.el);
+  // }
 });
 
 var router = new Router();

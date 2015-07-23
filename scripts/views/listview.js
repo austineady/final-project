@@ -5,39 +5,34 @@ export default Backbone.View.extend({
 
   initialize: function() {
     this.model = Parse.User.current();
+    this.render();
+    this.listenTo(this.collection, 'change', this.render);
+  },
+
+  render: function() {
+    $('.side-nav').removeClass('side-nav-active');
+    $('.show-list').addClass('side-nav-active');
     var Product = Parse.Object.extend('Product');
     var product = new Product();
     product.fetch({
       success: function(data) {
-        console.log(data);
-        var list = _.where(data.attributes.results, {owner: this.model.attributes.username});
-        this.render(list);
+        this.collection = _.where(data.attributes.results, {owner: this.model.attributes.username});
+        this.$el.html(this.template());
+        this.renderChildren();
       }.bind(this),
-      error: function(error) {
-        this.render();
+      error: function() {
+        this.$el.html(this.template({error: "You have no items on your list!"}))
       }.bind(this)
     });
   },
 
-  render: function(list) {
-    if(list) {
-      this.$el.html(this.template());
-      $('.side-nav').removeClass('side-nav-active');
-      $('.show-list').addClass('side-nav-active');
-      this.renderChildren(list);
-    } else {
-      this.$el.html(this.template({error: "You have no items on your list!"}))
-    }
-  },
-
-  renderChildren: function(list){
+  renderChildren: function(){
     _.invoke(this.children || [], 'remove');
 
-    console.log(list);
-
-    this.children = list.map(function(child) {
+    this.children = this.collection.map(function(child) {
       var view = new ListItemView({
-        model: child
+        model: child,
+        collection: this.collection
       });
       this.$('.user-list').append(view.el);
       return view;

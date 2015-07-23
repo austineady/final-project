@@ -5,8 +5,11 @@ export default Backbone.View.extend({
 
   className: 'friend-profile',
 
+  events: {
+    'click .unfriend': 'unfriend'
+  },
+
   initialize: function() {
-    console.log('friend is', this.model);
     this.render();
   },
 
@@ -32,5 +35,16 @@ export default Backbone.View.extend({
 remove: function(){
   _.invoke(this.children || [], 'remove');
   Backbone.View.prototype.remove.apply(this, arguments);
-}
+},
+
+  unfriend: function() {
+    var user = Parse.User.current();
+    var userList = user.attributes.friends;
+    var friend = this.model.username;
+    var friendList = _.filter(userList, function(index) {
+      return index.username !== friend;
+    });
+    user.attributes.friends = friendList;
+    user.save();
+  }
 });

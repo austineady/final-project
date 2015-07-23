@@ -5,6 +5,8 @@ import CreateView from './createview';
 import GiftView from './giftview';
 import RenderFeedView from './renderfeedview';
 import LibraryView from './libraryview';
+import router from './../router';
+import UsersListView from './userslistview';
 
 
 export default Backbone.View.extend({
@@ -23,13 +25,13 @@ export default Backbone.View.extend({
 
   initialize: function() {
     this.model = Parse.User.current();
-    console.log(this.model);
     this.render();
   },
 
   render: function() {
     this.$el.html(this.template(this.model));
     this.renderFriends();
+    this.renderUsers();
     this.search();
   },
 
@@ -38,27 +40,37 @@ export default Backbone.View.extend({
     this.$('.drawer-friends').html(view.el);
   },
 
+  renderUsers: function() {
+    var view = new UsersListView();
+    this.$('.users-list').html(view.el);
+  },
+
   search: function() {
+    // router.navigate('feed', {trigger: true});
     var view = new RenderFeedView();
     this.$('.accordion-container').html(view.el);
   },
 
   renderList: function() {
+    // router.navigate('list', {trigger: true});
     var view = new ListView();
     this.$('.accordion-container').html(view.el);
   },
 
   createItem: function() {
+    // router.navigate('create', {trigger: true});
     var view = new CreateView();
     this.$('.accordion-container').html(view.el);
   },
 
   renderGifts: function() {
+    // router.navigate('gifts', {trigger: true});
     var view = new GiftView();
     this.$('.accordion-container').html(view.el);
   },
 
   renderLibrary: function() {
+    // router.navigate('library', {trigger: true});
     var view = new LibraryView();
     this.$('.accordion-container').html(view.el);
   },

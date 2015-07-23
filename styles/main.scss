@@ -114,7 +114,10 @@ core-scaffold::shadow core-toolbar {
 
 .log-out {
   position: absolute;
-  bottom: 5px;
+  top: 5px;
+  color: $light-blue;
+  border: 1px solid $light-blue;
+  right: 5px;
 }
 
 
@@ -184,19 +187,43 @@ core-scaffold::shadow core-toolbar {
   }
 }
 
+.app-name {
+  margin-top: 0;
+  margin-left: 10px;
+  float: left;
+}
+
+.feature-content {
+  @include span-columns(12);
+  display: block;
+  padding-left: 10px;
+}
+
+.feature-box {
+  margin: 5px;
+  width: 340px;
+  height: 250px;
+  border: 1px solid $light-blue;
+  float: left;
+}
+
 .landing-title {
   @include span-columns(12);
+  line-height: 70px;
+  height: 70px;
   font-weight: 100;
   letter-spacing: 2px;
+  text-align: center;
   font-size: 30px;
   margin-bottom: 0;
 }
 
 .app-icon {
-  font-size: 30px;
+  float: left;
+  margin-left: 100px;
   height: 50px;
   width: 50px;
-  margin-top: 0;
+  margin-top: 7px;
 }
 
 .search-item-information {
@@ -432,18 +459,26 @@ core-scaffold::shadow core-toolbar {
 
 .search-item-modal {
   position: fixed;
-  @include span-columns(10);
-  @include shift(1);
+  width: 70%;
+  top: 15%;
+  left: 15%;
   z-index: 30;
   height: 550px;
   background-color: rgba(245, 245, 245, 1);
   border-radius: 5px;
-  top: 15%;
-  left: 0;
   padding-bottom: 20px;
   padding-right: 10px;
   transition: 4s;
   //overflow-y: scroll;
+}
+
+.unfriend {
+  float: right;
+}
+
+.user-list-name {
+  margin-top: 10px;
+  padding-left: 5px;
 }
 
 .search-modal-disabled {
@@ -591,7 +626,7 @@ core-drawer-panel {
 }
 
 .app-header {
-  background: linear-gradient($blue-silver, $light-blue);
+  height: 60px;
   //border-bottom: 2px solid white;
   color: $light-blue;
   padding-left: 5px;
@@ -771,7 +806,18 @@ core-drawer-panel {
   line-height: 30px;
   right: 5px;
   top: 5px;
+  border: 1px solid $light-blue;
 }
+
+// .asset-box {
+//   @include span-columns(10);
+//   @include shift(1);
+//   margin-top: 20px;
+//   height: 500px;
+//   background-image: url("./../assets/asset-1.png");
+//   background-size: cover;
+//   background-position: 0 -100px;
+// }
 
 .landing-form {
   @include span-columns(12);
@@ -830,7 +876,7 @@ core-drawer-panel {
 }
 
 .search-item-image-box {
-  @include span-columns(11.5);
+  max-width: 1400px;
   background-color: white;
   padding: 10px;
 }
@@ -1008,8 +1054,7 @@ core-drawer-panel {
 }
 
 .item-title-information {
-  @include span-columns(11);
-  @include shift(.5);
+  max-width: 1400px;
   text-align: center;
 }
 
@@ -1029,7 +1074,7 @@ core-drawer-panel {
 }
 
 .item-picture-box {
-  @include span-columns(12);
+  max-width: 1400px;
   padding: 10px;
   background-color: white;
   margin-bottom: 10px;
@@ -1067,7 +1112,7 @@ core-drawer-panel {
 }
 
 .image-options {
-  @include span-columns(12);
+  max-width: 1400px;
   margin-bottom: 10px;
 }
 
@@ -1102,8 +1147,7 @@ core-drawer-panel {
 }
 
 .item-description {
-  @include span-columns(11.8);
-  @include shift(.1);
+  max-width: 1400px;
   float: left;
   font-size: 13px;
 }
@@ -1161,8 +1205,7 @@ core-drawer-panel {
 }
 
 .item-information {
-  @include span-columns(11.6);
-  @include shift(.2);
+  max-width: 1400px;
   height: 500px;
   overflow-y: scroll;
   padding: 10px;

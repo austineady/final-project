@@ -22,13 +22,12 @@ export default Backbone.View.extend({
       url: "https://jsonp.afeld.me/?callback=?&url=http://api.bestbuy.com/beta/products/mostViewed?apiKey=e25cp4dyr5m785e27wke6rt3&show=largeImage,largeFrontImage",
       dataType: 'jsonp',
       success: function (data) {
-        console.log(data);
         var trending = new TrendingView({collection: data.results});
         $('.trending-list').html(trending.el);
       },
        error: function(object, error){
         console.log(object, error);
-        console.log('No search results were found, please try again');
+        toastr.error("No search results were found, please refresh the page");
       }
     });
   },
@@ -43,13 +42,12 @@ export default Backbone.View.extend({
       url: "https://jsonp.afeld.me/?callback=?&url=http://api.bestbuy.com/beta/products/connectedHome?apiKey=e25cp4dyr5m785e27wke6rt3",
       dataType: 'jsonp',
       success: function (data) {
-        console.log(data);
         var trending = new ConnectedHomeView({collection: data.results});
         $('.connected-home').html(trending.el);
       },
        error: function(object, error){
         console.log(object, error);
-        console.log('No search results were found, please try again');
+        toastr.error("No search results were found for Connected Home, please refresh the page");
       }
     });
   },
@@ -65,7 +63,7 @@ export default Backbone.View.extend({
       },
        error: function(object, error){
         console.log(object, error);
-        console.log('No search results were found, please try again');
+        toastr.error("No search results were found for Active Adventurer, please refresh the page");
       }
     });
   }

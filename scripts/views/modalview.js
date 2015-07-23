@@ -97,7 +97,6 @@ export default Backbone.View.extend({
   deleteItem: function() {
     var result = confirm('Are you sure you want to delete this item? This action is irreversible');
     if(result) {
-      toastr.success("Your item has been deleted");
       var that = this;
       var Product = Parse.Object.extend("Product");
       var query = new Parse.Query(Product);
@@ -107,8 +106,8 @@ export default Backbone.View.extend({
           product.destroy();
       }
     });
+    toastr.success("Your item has been deleted");
     this.close();
-    document.location.reload(true);
     }
   },
 
