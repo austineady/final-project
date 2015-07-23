@@ -11,6 +11,7 @@ export default Backbone.View.extend({
     'click .user-submit': 'login',
     'click .new-user-button': 'newUser',
     'click .app-user': 'showLogin',
+    'click .login-cancel': 'hideLogin',
     'submit .home-search-form': 'showResults',
     'click .search-backwards': 'pageBackward',
     'click .search-forwards': 'pageForward'
@@ -48,6 +49,10 @@ export default Backbone.View.extend({
 
   showLogin: function() {
     $('.login-box').removeClass('login-hidden');
+  },
+
+  hideLogin: function() {
+    $('.login-box').addClass('login-hidden');
   },
 
   showResults: function(e) {

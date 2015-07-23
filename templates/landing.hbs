@@ -1,10 +1,7 @@
-<header class="app-header">
-  <div class="landing-title"><img src="https://files.slack.com/files-pri/T03FAV5N3-F081X2HHR/logo-sized.png" class="app-icon"><h4 class="app-name">Wishbone</h4></div>
-  <paper-button class="app-user"><core-icon icon="social:person"></core-icon> Log In</paper-button>
-</header>
 <div class="landing-box">
   <div class="login-box  login-hidden">
     <form class="landing-form">
+      <core-icon icon="close" class="login-cancel"></core-icon>
       <input type="text" class="user-username landing-input" placeholder="USERNAME">
       <input type="password" class="user-password landing-input" placeholder="PASSWORD">
       <paper-button type="submit" class="user-submit landing-button" raised>Log In</paper-button>
@@ -12,7 +9,11 @@
     <paper-button raised class="new-user-button landing-button">Don't have an account? Join Us</paper-button>
   </div>
   <div class="landing-picture-box">
-    <div class="landing-picture"></div>
+    <div class="landing-title"><img src="https://files.slack.com/files-pri/T03FAV5N3-F081X2HHR/logo-sized.png" class="app-icon"><h4 class="app-name">Wishbone</h4></div>
+    <paper-button class="app-user">Log In</paper-button>
+    <div class="landing-picture">
+          Manage the items that mean the most
+    </div>
   </div>
   <div class="feature-content">
     <div class="feature-container">Your List<div class="feature-box feature-list"><div class="feature-box-overlay"><h3 class="feature-text"><core-icon icon="list" class="feature-icon"></core-icon> My List</h3>Keep track of the products important to you</div></div></div>

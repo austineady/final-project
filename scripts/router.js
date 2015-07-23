@@ -37,7 +37,7 @@ var Router = Backbone.Router.extend({
   "debug": false,
   "newestOnTop": false,
   "progressBar": false,
-  "positionClass": "toast-bottom-left",
+  "positionClass": "toast-bottom-right",
   "preventDuplicates": false,
   "onclick": null,
   "showDuration": "300",
