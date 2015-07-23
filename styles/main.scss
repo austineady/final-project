@@ -69,7 +69,7 @@ img {
 
 #app {
   @include outer-container(100vw);
-  height: 100vh;
+  height: auto;
   background-color: rgba(255, 255, 255, 1);
   padding-bottom: 10px;
 }
@@ -199,12 +199,63 @@ core-scaffold::shadow core-toolbar {
   padding-left: 10px;
 }
 
-.feature-box {
+.feature-container {
+  width: 340px;
+  height: 300px;
+  float: left;
   margin: 5px;
+  font-size: 30px;
+  text-align: center;
+  color: $light-blue;
+}
+
+.feature-icon {
+  height: 40px;
+  width: 40px;
+}
+
+.landing-instruction {
+  text-align: center;
+}
+
+.feature-box {
   width: 340px;
   height: 250px;
-  border: 1px solid $light-blue;
   float: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  font-size: 30px;
+  text-align: center;
+}
+
+
+.feature-box-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(28, 63, 83, .8);
+  color: rgba(250, 250, 250, 1);
+  font-weight: 100;
+  padding-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+}
+
+.feature-list {
+  background-image: url("https://download.unsplash.com/photo-1416339698674-4f118dd3388b");
+}
+
+.feature-social {
+  background-image: url('https://download.unsplash.com/46/unsplash_52c319226cefb_1.JPG');
+}
+
+.feature-library {
+  background-image: url('https://download.unsplash.com/photo-1431608660976-4fe5bcc2112c');
+}
+
+.feature-hot {
+  background-image: url("https://download.unsplash.com/photo-1422349829867-7587357f2b58");
 }
 
 .landing-title {
@@ -445,31 +496,37 @@ core-scaffold::shadow core-toolbar {
 }
 
 .item-modal {
-  position: fixed;
-  @include span-columns(10);
-  @include shift(1);
-  top: 15%;
-  left: 0;
-  z-index: 30;
-  height: 550px;
-  background-color: rgba(245, 245, 245, 1);
-  border-radius: 5px;
-  padding-right: 10px;
-}
-
-.search-item-modal {
-  position: fixed;
-  width: 70%;
-  top: 15%;
-  left: 15%;
-  z-index: 30;
-  height: 550px;
+  max-width: 900px;
+  z-index: 16;
   background-color: rgba(245, 245, 245, 1);
   border-radius: 5px;
   padding-bottom: 20px;
   padding-right: 10px;
   transition: 4s;
+  margin: 20px auto;
+}
+
+.search-item-modal {
+  max-width: 900px;
+  z-index: 16;
+  background-color: rgba(245, 245, 245, 1);
+  border-radius: 5px;
+  padding-bottom: 20px;
+  padding-right: 10px;
+  transition: 4s;
+  margin: 20px auto;
   //overflow-y: scroll;
+}
+
+.modal-underlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 15;
+  background-color: rgba(0, 0, 0, .7);
 }
 
 .unfriend {
@@ -493,6 +550,7 @@ core-scaffold::shadow core-toolbar {
   left: 0;
   z-index: 31;
   transition: 2s;
+  color: white;
 }
 
 
@@ -900,15 +958,44 @@ core-drawer-panel {
   text-align: left;
 }
 
+.drawer-menu {
+  height: 200px;
+}
+
+.drawer-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  width: 300px;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.drawer-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .7);
+  z-index: 19;
+  transition: 10s;
+}
+
+.drawer-hidden {
+  width: 0;
+  display: none;
+  transition: 10s;
+}
+
 .search-item-list-add {
   position: absolute;
-  bottom: -25px;
+  bottom: 30px;
   left: 47%;
   border: 0;
   background-color: $red;
   font-size: 15px;
-  height: 25px;
-  width: 25px;
 }
 
 .landing-input {

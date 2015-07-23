@@ -20,6 +20,8 @@ export default Backbone.View.extend({
     'click .show-create': 'createItem',
     'click .show-gifts': 'renderGifts',
     'click .show-library': 'renderLibrary',
+    'click .menu-drawer-icon': 'openDrawer',
+    'click .drawer-modal': 'closeDrawer',
     'click .log-out': 'logOut'
   },
 
@@ -73,6 +75,16 @@ export default Backbone.View.extend({
     // router.navigate('library', {trigger: true});
     var view = new LibraryView();
     this.$('.accordion-container').html(view.el);
+  },
+
+  openDrawer: function() {
+    $('.drawer-content').removeClass('drawer-hidden');
+    $('.drawer-modal').removeClass('drawer-hidden');
+  },
+
+  closeDrawer: function() {
+    $('.drawer-content').addClass('drawer-hidden');
+    $('.drawer-modal').addClass('drawer-hidden');
   },
 
   logOut: function() {

@@ -7,7 +7,7 @@ export default Backbone.View.extend({
 
   events: {
     'click .close-modal': 'close',
-    'click .modal-background': 'close',
+    'click .modal-underlay': 'close',
     'click .reviews': 'renderReviews',
     'click .list-item-edit': 'editItem',
     'submit .list-item-edit-form': 'findItem',
@@ -24,7 +24,7 @@ export default Backbone.View.extend({
   },
 
   render: function(item) {
-    $('.modal-background').removeClass('modal-disabled');
+    $('.modal-underlay').removeClass('modal-disabled');
     $('.item-modal').removeClass('modal-disabled');
     this.$el.html(this.template(this.model));
     this.toggleFeatures();
@@ -32,6 +32,7 @@ export default Backbone.View.extend({
 
   close: function() {
     $('.item-modal').addClass('modal-disabled');
+    $('.modal-underlay').addClass('modal-disabled');
   },
 
   renderReviews: function() {

@@ -10,6 +10,7 @@ export default Backbone.View.extend({
   events: {
     'click .search-item-list-add': 'addToList',
     'click .close-modal': 'close',
+    'click .modal-underlay': 'close',
     'click .reviews': 'renderReviews',
     'click .features-head': 'toggleFeatures',
     'click .shipping': 'toggleShipping',
@@ -32,6 +33,7 @@ export default Backbone.View.extend({
       url: "http://api.remix.bestbuy.com/v1/products((sku="+sku+"))?show=name,sku,details.name,includedItemList.includedItem,customerTopRated,bestSellingRank,onSale,regularPrice,priceUpdateDate,alternateViewsImage,angleImage,spin360Url,largeFrontImage,largeImage,freeShipping,inStoreAvailabilityText,onlineAvailabilityText,inStorePickup,orderable,salePrice,url,accessoriesImage,alternateViewsImage,image,backViewImage,leftViewImage,rightViewImage,thumbnailImage,topViewImage,features.feature,shortDescription,color,customerReviewAverage,manufacturer&format=json&apiKey=e25cp4dyr5m785e27wke6rt3",
       success: function (data) {
         $('.search-item-modal').removeClass('search-modal-disabled');
+        $('.modal-underlay').removeClass('search-modal-disabled');
         this.model = data.products[0];
         console.log(this.model);
         this.render(this.model);
@@ -44,6 +46,7 @@ export default Backbone.View.extend({
 
   close: function() {
     $('.search-item-modal').addClass('search-modal-disabled');
+    $('.modal-underlay').addClass('search-modal-disabled');
   },
 
   renderReviews: function() {

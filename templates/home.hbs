@@ -1,6 +1,5 @@
- <core-drawer-panel drawerWidth="300px" responsiveWidth="1500px">
-  <core-header-panel drawer class="drawer-panel">
-    <div class="drawer-content">
+    <div class="drawer-modal drawer-hidden"></div>
+    <div class="drawer-content drawer-hidden">
       <paper-shadow z="1"><div class="drawer-menu">
         <div class="user-information">
           <img src={{this.attributes.profilePicture}} class="drawer-user-picture">
@@ -21,8 +20,6 @@
       </div>
       <paper-button raised class="log-out">Logout</paper-button>
     </div>
-  </core-header-panel>
-  <core-header-panel main mode="scroll">
       <header class="app-header">
         <paper-icon-button icon="menu" class="menu-drawer-icon" core-drawer-toggle></paper-icon-button>
         <h2 class="app-title"><!--<core-icon icon="social:share" class="app-icon"></core-icon>--><img src="https://files.slack.com/files-pri/T03FAV5N3-F081X2HHR/logo-sized.png" class="app-icon"> Wishbone</h2>
@@ -30,5 +27,8 @@
       </header>
     <section class="accordion-container">
     </section>
-  </core-header-panel>
-</core-drawer-panel>
+    <div class="modal-underlay search-modal-disabled">
+      <div class="search-item-modal search-modal-disabled"></div>
+    </div>
+  {{!-- </core-header-panel>
+</core-drawer-panel> --}}
