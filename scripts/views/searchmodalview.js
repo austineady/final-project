@@ -106,10 +106,10 @@ export default Backbone.View.extend({
       angleImage: this.model.angleImage
     }, {
       success: function(product) {
-        console.log('Successfully Saved', product);
+        toastr.success("This item is now on your list");
       },
       error: function(product, error) {
-        console.log(error, product);
+        toastr.error("There was a problem adding this item to your list");
       }
     });
   },

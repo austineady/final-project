@@ -25,7 +25,6 @@ export default Backbone.View.extend({
       $('.side-nav').removeClass('side-nav-active');
       $('.show-list').addClass('side-nav-active');
       this.renderChildren(list);
-      this.activateGrid();
     } else {
       this.$el.html(this.template({error: "You have no items on your list!"}))
     }
@@ -43,7 +42,7 @@ export default Backbone.View.extend({
       this.$('.user-list').append(view.el);
       return view;
     }.bind(this));
-
+    this.activateGrid();
     return this;
   },
 

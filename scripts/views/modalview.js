@@ -89,7 +89,7 @@ export default Backbone.View.extend({
       description: description,
       isEditing: false,
     });
-      console.log(product);
+      toastr.success("Your item has been saved");
       this.close();
       document.location.reload(true);
   },
@@ -97,6 +97,7 @@ export default Backbone.View.extend({
   deleteItem: function() {
     var result = confirm('Are you sure you want to delete this item? This action is irreversible');
     if(result) {
+      toastr.success("Your item has been deleted");
       var that = this;
       var Product = Parse.Object.extend("Product");
       var query = new Parse.Query(Product);
