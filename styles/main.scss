@@ -95,7 +95,7 @@ core-scaffold::shadow core-toolbar {
   margin-top: 20px;
   padding: 5px;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, .2);
-  @media screen and (width: 400px) {
+  @media screen and (max-width: 400px) {
     margin-left: 50px;
   }
 }
@@ -248,7 +248,7 @@ core-scaffold::shadow core-toolbar {
     line-height: 650px;
     color: rgba(240, 240, 240, 1);
   }
-  @media screen and (width: 400px) {
+  @media screen and (max-width: 400px) {
     background-image: url('https://download.unsplash.com/photo-1425315283416-2acc50323ee6');
     background-size: cover;
     background-repeat: no-repeat;
@@ -322,7 +322,7 @@ core-scaffold::shadow core-toolbar {
   height: 50px;
   width: 50px;
   margin-top: 7px;
-  @media screen and (width: 400px) {
+  @media screen and (max-width: 400px) {
     margin-left: 10px;
   }
 }
@@ -486,7 +486,7 @@ core-scaffold::shadow core-toolbar {
 
 .friend-item-description {
   @include span-columns(7);
-  @media screen and (width: 400px) {
+  @media screen and (max-width: 400px) {
     @include span-columns(12);
   }
 }
@@ -669,7 +669,7 @@ core-scaffold::shadow core-toolbar {
   @include span-columns(9);
   @include omega();
   @include shift(.3);
-  @media screen and (width: 400px) {
+  @media screen and (max-width: 400px) {
     @include span-columns(12);
     @include shift(0);
   }
@@ -693,7 +693,7 @@ core-scaffold::shadow core-toolbar {
   background-color: white;
   border-radius: 5px;
   color: $light-blue;
-  @media screen and (width: 400px) {
+  @media screen and (max-width: 400px) {
     @include span-columns(4);
     @include shift(4);
     padding: 0;
@@ -827,7 +827,7 @@ core-drawer-panel {
   height: 93vh;
   overflow-y: scroll;
   padding-left: 10px;
-  @media screen and (width: 400px) {
+  @media screen and (max-width: 400px) {
     @include span-columns(3.5);
   }
 }
@@ -1393,7 +1393,7 @@ core-drawer-panel {
   margin-bottom: 10px;
   transition: 2s;
   border-bottom: 1px solid $light-blue;
-  @media screen and (width: 400px) {
+  @media screen and (max-width: 400px) {
     height: 400px;
     padding-bottom: 0;
   }
@@ -1408,7 +1408,7 @@ core-drawer-panel {
   line-height: 300px;
   font-weight: 300;
   overflow: hidden;
-  @media screen and (width: 400px) {
+  @media screen and (max-width: 400px) {
     @include span-columns(12);
     font-size: 15px;
     line-height: 50px;
@@ -1425,7 +1425,7 @@ core-drawer-panel {
   float: left;
   margin-left: 10%;
   margin-right: 5%;
-  @media screen and (width: 400px) {
+  @media screen and (max-width: 400px) {
     @include span-columns(11);
     @include shift(.5);
     margin-bottom: 0;
@@ -1461,7 +1461,7 @@ core-drawer-panel {
   float: left;
   overflow: hidden;
   border-bottom: 2px solid $light-blue;
-  @media screen and (width: 400px) {
+  @media screen and (max-width: 400px) {
     width: 110px;
   }
 }
@@ -1504,7 +1504,7 @@ core-drawer-panel {
   color: $light-blue;
   font-weight: 100;
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, .2);
-  @media screen and (width: 400px) {
+  @media screen and (max-width: 400px) {
     height: 250px;
     font-size: 30px;
   }
@@ -1525,7 +1525,7 @@ core-drawer-panel {
   color: $light-blue;
   font-weight: 100;
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, .2);
-  @media screen and (width: 400px) {
+  @media screen and (max-width: 400px) {
     background-position: 0;
     height: 250px;
     font-size: 30px;
@@ -1599,14 +1599,14 @@ core-drawer-panel {
 
 .adventure-picture {
   height: 100px;
-  @media screen and (width: 400px) {
+  @media screen and (max-width: 400px) {
     height: 80px;
   }
 }
 
 .home-picture {
   height: 100px;
-  @media screen and (width: 400px) {
+  @media screen and (max-width: 400px) {
     height: 80px;
   }
 }
