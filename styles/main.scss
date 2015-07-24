@@ -560,7 +560,7 @@ core-scaffold::shadow core-toolbar {
 }
 
 .search-item-modal {
-  max-width: 900px;
+  max-width: 800px;
   z-index: 16;
   background-color: rgba(245, 245, 245, 1);
   border-radius: 5px;
@@ -1052,6 +1052,7 @@ core-drawer-panel {
 .search-item-list-add {
   position: absolute;
   bottom: 30px;
+  color: white;
   left: 47%;
   border: 0;
   background-color: $red;
