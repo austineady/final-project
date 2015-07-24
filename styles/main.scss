@@ -226,7 +226,7 @@ core-scaffold::shadow core-toolbar {
   height: 550px;
   margin-bottom: 40px;
   transition: 2s;
-  @media screen and (width: 800px) {
+  @media screen and (max-width: 800px) {
     margin-bottom: 20px;
   }
 }
