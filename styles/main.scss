@@ -400,7 +400,10 @@ core-scaffold::shadow core-toolbar {
 
 .friend-info {
   @include span-columns(12);
+<<<<<<< HEAD
   height: 130px;
+=======
+>>>>>>> ade-features
   border-bottom: 1px solid silver;
   padding: 5px;
   @media screen and (max-width: 400px) {
@@ -560,7 +563,7 @@ core-scaffold::shadow core-toolbar {
 }
 
 .search-item-modal {
-  max-width: 900px;
+  max-width: 750px;
   z-index: 16;
   background-color: rgba(245, 245, 245, 1);
   border-radius: 5px;
@@ -1052,6 +1055,7 @@ core-drawer-panel {
 .search-item-list-add {
   position: absolute;
   bottom: 30px;
+  color: white;
   left: 47%;
   border: 0;
   background-color: $red;

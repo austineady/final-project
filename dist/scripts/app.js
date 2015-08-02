@@ -2405,9 +2405,9 @@ exports['default'] = Backbone.View.extend({
     this.$el.html(this.template());
     this.renderChildren();
     this.startAnimation();
-    // setInterval(function() {
-    //   this.startAnimation()
-    // }.bind(this), 7000);
+    setInterval((function () {
+      this.startAnimation();
+    }).bind(this), 7000);
   },
 
   renderChildren: function renderChildren() {
