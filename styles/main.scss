@@ -400,7 +400,6 @@ core-scaffold::shadow core-toolbar {
 
 .friend-info {
   @include span-columns(12);
-  height: 100px;
   border-bottom: 1px solid silver;
   padding: 5px;
   @media screen and (max-width: 400px) {
@@ -560,7 +559,7 @@ core-scaffold::shadow core-toolbar {
 }
 
 .search-item-modal {
-  max-width: 800px;
+  max-width: 750px;
   z-index: 16;
   background-color: rgba(245, 245, 245, 1);
   border-radius: 5px;
