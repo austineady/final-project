@@ -400,10 +400,7 @@ core-scaffold::shadow core-toolbar {
 
 .friend-info {
   @include span-columns(12);
-<<<<<<< HEAD
   height: 130px;
-=======
->>>>>>> ade-features
   border-bottom: 1px solid silver;
   padding: 5px;
   @media screen and (max-width: 400px) {
@@ -1135,6 +1132,7 @@ core-drawer-panel {
 }
 
 .new-user-button {
+  @include span-columns(7);
   @include shift(2.5);
   margin-bottom: 15px;
   @media screen and (max-width: 400px) {
