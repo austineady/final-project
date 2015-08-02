@@ -1417,6 +1417,7 @@ exports['default'] = Backbone.View.extend({
       gutter: 20,
       percentPosition: true
     });
+    this.render();
   }
 });
 module.exports = exports['default'];
