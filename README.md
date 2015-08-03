@@ -21,4 +21,4 @@
 - Other technologies include: Underscore, jQuery, jQuery UI, Polymer Paper elements, Masonry, SCSS, CSS, HTML, Javascript, Moment, Handlebars, Bourbon and Neat, and Font Awesome.
 - I wanted to create an application that both challenged my knowledge of Backbone and also gave me room to add to the application as I learned more in Front-End. Wishbone let me learn more about and implement CRUD functionality, User Authentication and Authorization, developing an easy to use User Interface, and relations between different types of data such as the User and multiple products.
 
-### This app is live at austineady.github.io/final-project and more information about the project and myself is easily found at austineady.com
+### This app is live at http://austineady.github.io/final-project and more information about the project and myself is easily found at http://austineady.com
