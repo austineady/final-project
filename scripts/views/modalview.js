@@ -7,7 +7,7 @@ export default Backbone.View.extend({
 
   events: {
     'click .close-modal': 'close',
-    'click .modal-underlay': 'close',
+    // 'click .modal-underlay': 'close',
     'click .reviews': 'renderReviews',
     'click .list-item-edit': 'editItem',
     'submit .list-item-edit-form': 'findItem',

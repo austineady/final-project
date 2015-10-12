@@ -1327,7 +1327,7 @@ exports['default'] = Backbone.View.extend({
   template: JST.listitem,
 
   events: {
-    'click .list-card': 'showModel'
+    'click .grid-item': 'showModel'
   },
 
   className: 'list-item',
@@ -1444,7 +1444,7 @@ exports['default'] = Backbone.View.extend({
 
   events: {
     'click .close-modal': 'close',
-    'click .modal-underlay': 'close',
+    // 'click .modal-underlay': 'close',
     'click .reviews': 'renderReviews',
     'click .list-item-edit': 'editItem',
     'submit .list-item-edit-form': 'findItem',

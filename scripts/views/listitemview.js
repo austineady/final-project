@@ -5,7 +5,7 @@ export default Backbone.View.extend({
   template: JST.listitem,
 
   events: {
-    'click .list-card': 'showModel'
+    'click .grid-item': 'showModel'
   },
 
   className: 'list-item',
