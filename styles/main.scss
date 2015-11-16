@@ -515,7 +515,7 @@ core-scaffold::shadow core-toolbar {
 
 .user-information {
   @include span-columns(12);
-  padding: 10px;
+  padding: 7px;
 }
 
 .drawer-user-email {
@@ -541,7 +541,7 @@ core-scaffold::shadow core-toolbar {
 }
 
 .grid {
-  @include span-columns(12);
+  @include span-columns(11);
   @include shift(.5);
 }
 
@@ -730,7 +730,7 @@ core-drawer-panel {
 }
 
 .drawer-menu {
-  height: 109px;
+  height: auto;
   background-image: url('https://download.unsplash.com/photo-1429000263672-1b8b4008d2f7');
   background-size: contain;
   background-repeat: no-repeat;
@@ -1191,12 +1191,12 @@ core-drawer-panel {
 
 .menu-drawer-icon {
   float: left;
-  margin-right: 10px;
+  margin-right: 3%;
   margin-left: 15px;
   height: 50px;
+  line-height: 50px;
   width: 50px;
   margin-top: 10px;
-  padding-top: 15px;
 }
 
 .search-box {
@@ -1311,7 +1311,6 @@ core-drawer-panel {
 
 .item-description {
   max-width: 1400px;
-  float: left;
   font-size: 13px;
 }
 
@@ -1394,13 +1393,13 @@ core-drawer-panel {
   background-color: white;
   min-height: 300px;
   text-align: left;
-  padding-top: 10px;
+  padding-top: 15px;
   padding-bottom: 10px;
   margin-bottom: 10px;
   transition: 2s;
   border-bottom: 1px solid $light-blue;
   @media screen and (max-width: 400px) {
-    height: 400px;
+    min-height: 400px;
     padding-bottom: 0;
   }
 }
@@ -1416,6 +1415,7 @@ core-drawer-panel {
   overflow: hidden;
   @media screen and (max-width: 400px) {
     @include span-columns(12);
+    min-height: 200px;
     font-size: 15px;
     line-height: 50px;
     padding-left: 5px;
@@ -1425,7 +1425,7 @@ core-drawer-panel {
 
 .hot-picture-box {
   width: 350px;
-  height: 290px;
+  min-height: 290px;
   text-align: center;
   padding: 5px;
   float: left;
@@ -1474,19 +1474,16 @@ core-drawer-panel {
 
 .home-container {
   @include span-columns(12);
-  overflow-x: hidden;
 }
 
 .adventure-container {
   @include span-columns(12);
-  overflow-x: hidden;
-  overflow-y: auto;
   background-color: rgba(0, 0, 0, 0);
 }
 
 .connected-home {
   @include span-columns(12);
-  height: 600px;
+  height: auto;
 }
 
 .active-adventurer {
@@ -1538,26 +1535,10 @@ core-drawer-panel {
   }
 }
 
-.adventure-text:hover {
-  background-position: 0 -400px;
-  color: white;
-  transition: 2s;
-  @media screen and (max-width: 400px) {
-    background-position: 0;
-  }
-}
-
-.home-text:hover {
-  height: 350px;
-  transition: 2s;
-  @media screen and (max-width: 400px) {
-    height: 250px;
-  }
-}
-
 .home-item {
   width: 220px;
-  height: 200px;
+  height: auto;
+  max-height: 250px;
   background-color: white;
   text-align: center;
   float: left;
@@ -1572,7 +1553,8 @@ core-drawer-panel {
 
 .adventure-item {
   width: 220px;
-  height: 200px;
+  height: auto;
+  max-height: 250px;
   background-color: white;
   text-align: center;
   float: left;
@@ -1590,17 +1572,19 @@ core-drawer-panel {
   @include shift(.5);
   border-radius: 5px;
   height: 500px;
+  overflow-y: hidden;
   margin-top: 50px;
-  display: block;
+  padding-bottom: 20px;
 }
 
 .adventure-list {
   @include span-columns(11);
   @include shift(.5);
   border-radius: 5px;
+  overflow-y: hidden;
   height: 500px;
   margin-top: 50px;
-  display: block;
+  padding-bottom: 20px;
 }
 
 .adventure-picture {

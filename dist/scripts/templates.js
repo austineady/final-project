@@ -146,11 +146,11 @@ this["JST"]["header"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"m
 this["JST"]["home"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "    <div class=\"drawer-modal drawer-hidden\"></div>\n    <div class=\"drawer-content drawer-hidden\">\n      <paper-shadow z=\"1\"><div class=\"drawer-menu\">\n        <div class=\"user-information\">\n          <img src="
+  return "    <div class=\"drawer-modal drawer-hidden\"></div>\n    <div class=\"drawer-content drawer-hidden\">\n      <div class=\"drawer-menu\">\n        <div class=\"user-information\">\n          <img src="
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.attributes : depth0)) != null ? stack1.profilePicture : stack1), depth0))
     + " class=\"drawer-user-picture\">\n          <h5 class=\"drawer-user\">"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.attributes : depth0)) != null ? stack1.username : stack1), depth0))
-    + "</h5>\n        </div>\n      </div></paper-shadow>\n      <div class=\"side-nav show-search\"><i class=\"fa fa-newspaper-o side-nav-feed\"></i> The Feed</div>\n      <div class=\"side-nav show-list\"><core-icon icon=\"list\" class=\"side-nav-icon\"></core-icon> My List</div>\n      <div class=\"side-nav show-create\"><core-icon icon=\"create\" class=\"side-nav-icon\"></core-icon> Create</div>\n      <div class=\"side-nav show-gifts\"><i class=\"fa fa-gift side-nav-gift\"></i> Gift List</div>\n      <div class=\"side-nav show-library\"><core-icon icon=\"maps:local-library\" class=\"side-nav-icon\"></core-icon> Library</div>\n      <div class=\"drawer-option drawer-friends\">\n\n      </div>\n      <h4 class=\"user-list-header\">Click a name below to add a friend!</h4>\n      <div class=\"users-list\">\n\n      </div>\n      <paper-button raised class=\"log-out\">Logout</paper-button>\n    </div>\n      <header class=\"app-header\">\n        <paper-button class=\"menu-drawer-icon\"><core-icon icon=\"menu\"></core-icon></paper-button>\n        <h2 class=\"app-title\"><!--<core-icon icon=\"social:share\" class=\"app-icon\"></core-icon>--><!--<img src=\"https://files.slack.com/files-pri/T03FAV5N3-F081X2HHR/logo-sized.png\" class=\"app-icon\">--> Wishbone</h2>\n      </header>\n    <section class=\"accordion-container\">\n    </section>\n    <div class=\"modal-underlay search-modal-disabled\">\n      <div class=\"search-item-modal search-modal-disabled\"></div>\n    </div>\n";
+    + "</h5>\n        </div>\n      </div>\n      <div class=\"side-nav show-search\"><i class=\"fa fa-newspaper-o side-nav-feed\"></i> The Feed</div>\n      <div class=\"side-nav show-list\"><core-icon icon=\"list\" class=\"side-nav-icon\"></core-icon> My List</div>\n      <div class=\"side-nav show-create\"><core-icon icon=\"create\" class=\"side-nav-icon\"></core-icon> Create</div>\n      <div class=\"side-nav show-gifts\"><i class=\"fa fa-gift side-nav-gift\"></i> Gift List</div>\n      <div class=\"side-nav show-library\"><core-icon icon=\"maps:local-library\" class=\"side-nav-icon\"></core-icon> Library</div>\n      <div class=\"drawer-option drawer-friends\">\n\n      </div>\n      <h4 class=\"user-list-header\">Click a name below to add a friend!</h4>\n      <div class=\"users-list\">\n\n      </div>\n      <paper-button raised class=\"log-out\">Logout</paper-button>\n    </div>\n      <header class=\"app-header\">\n        <paper-button class=\"menu-drawer-icon\"><core-icon icon=\"menu\"></core-icon></paper-button>\n        <h2 class=\"app-title\"><!--<core-icon icon=\"social:share\" class=\"app-icon\"></core-icon>--><!--<img src=\"https://files.slack.com/files-pri/T03FAV5N3-F081X2HHR/logo-sized.png\" class=\"app-icon\">--> Wishbone</h2>\n      </header>\n    <section class=\"accordion-container\">\n    </section>\n    <div class=\"modal-underlay search-modal-disabled\">\n      <div class=\"search-item-modal search-modal-disabled\"></div>\n    </div>\n";
 },"useData":true});
 this["JST"]["homeitem"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
@@ -373,7 +373,7 @@ this["JST"]["renderlist"] = Handlebars.template({"1":function(depth0,helpers,par
 
   return "<div class=\"list-box accordion-box\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.error : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "  <div class=\"user-list grid js-masonry\"></div>\n  <div class=\"modal-underlay modal-disabled\">\n    <div class=\"item-modal modal-disabled\"></div>\n  </div>\n</div>\n";
+    + "  <div class=\"user-list grid\"></div>\n</div>\n<div class=\"modal-underlay search-modal-disabled\">\n  <div class=\"search-item-modal search-modal-disabled\"></div>\n</div>\n";
 },"useData":true});
 this["JST"]["rendersearch"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"search-box accordion-box\">\n<form class=\"home-search-form\">\n  <input type=text class=\"home-search-bar\" placeholder=\"SEARCH\">\n</form>\n  <section class=\"search-results\">\n\n  </section>\n</div>\n";
@@ -501,9 +501,9 @@ this["JST"]["searchmodal"] = Handlebars.template({"1":function(depth0,helpers,pa
 },"27":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "  <p class=\"item-description\">Description: "
+  return "  <h5 class=\"item-description\">Description: "
     + this.escapeExpression(((helper = (helper = helpers.shortDescription || (depth0 != null ? depth0.shortDescription : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"shortDescription","hash":{},"data":data}) : helper)))
-    + "</p>\n";
+    + "</h5>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 

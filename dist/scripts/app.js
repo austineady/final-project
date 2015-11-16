@@ -1319,9 +1319,9 @@ var _reviewview = require('./reviewview');
 
 var _reviewview2 = _interopRequireDefault(_reviewview);
 
-var _modalview = require('./modalview');
+var _searchmodalview = require('./searchmodalview');
 
-var _modalview2 = _interopRequireDefault(_modalview);
+var _searchmodalview2 = _interopRequireDefault(_searchmodalview);
 
 exports['default'] = Backbone.View.extend({
   template: JST.listitem,
@@ -1343,8 +1343,8 @@ exports['default'] = Backbone.View.extend({
   },
 
   showModel: function showModel() {
-    var view = new _modalview2['default']({ model: this.model, collection: this.collection });
-    $('.item-modal').html(view.el);
+    var view = new _searchmodalview2['default']({ model: this.model, collection: this.collection });
+    $('.search-item-modal').html(view.el);
   }
 });
 module.exports = exports['default'];
@@ -1444,7 +1444,7 @@ exports['default'] = Backbone.View.extend({
 
   events: {
     'click .close-modal': 'close',
-    // 'click .modal-underlay': 'close',
+    'click .modal-underlay': 'close',
     'click .reviews': 'renderReviews',
     'click .list-item-edit': 'editItem',
     'submit .list-item-edit-form': 'findItem',
@@ -1461,8 +1461,8 @@ exports['default'] = Backbone.View.extend({
   },
 
   render: function render(item) {
-    $('.modal-underlay').removeClass('modal-disabled');
     $('.item-modal').removeClass('modal-disabled');
+    $('.modal-underlay').removeClass('modal-disabled');
     this.$el.html(this.template(this.model));
     this.toggleFeatures();
   },
