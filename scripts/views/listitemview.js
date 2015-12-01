@@ -1,5 +1,5 @@
 import ReviewView from './reviewview';
-import SearchModalView from './searchmodalview';
+import ModalView from './modalview';
 
 export default Backbone.View.extend({
   template: JST.listitem,
@@ -21,7 +21,7 @@ export default Backbone.View.extend({
   },
 
   showModel: function() {
-    var view = new SearchModalView({model: this.model, collection: this.collection});
-    $('.search-item-modal').html(view.el);
+    var view = new ModalView({model: this.model, collection: this.collection});
+    $('.item-modal').html(view.el);
   }
 });

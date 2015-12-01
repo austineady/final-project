@@ -164,6 +164,7 @@ core-scaffold::shadow core-toolbar {
   height: 230px;
   padding: 5px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .app-title {
@@ -436,7 +437,7 @@ core-scaffold::shadow core-toolbar {
   @include span-columns(11.6);
   @include shift(.1);
   height: auto;
-  background-color: rgba(250, 250, 250, 1);
+  background-color: rgba(255, 255, 255, 1);
   border-radius: 5px;
   margin-top: 5px;
 }
@@ -599,6 +600,7 @@ core-scaffold::shadow core-toolbar {
 .user-list-name {
   margin-top: 10px;
   padding-left: 5px;
+  cursor: pointer;
 }
 
 .search-modal-disabled {
@@ -747,6 +749,7 @@ core-drawer-panel {
 
 .drawer-friend {
   padding-left: 15px;
+  cursor: pointer;
 }
 
 .app-header {
@@ -862,6 +865,7 @@ core-drawer-panel {
 
 .subcategory {
   margin-top: 0;
+  cursor: pointer;
 }
 
 .subcat-active {
@@ -873,6 +877,7 @@ core-drawer-panel {
 .category-product {
   width: 220px;
   height: 200px;
+  cursor: pointer;
   overflow-y: scroll;
   border: 1px solid $light-blue;
   padding: 15px;
@@ -900,6 +905,7 @@ core-drawer-panel {
   margin-bottom: 32px;
   font-size: 17px;
   transition: 1s;
+  cursor: pointer;
 }
 
 .landing-search-box {
@@ -1454,18 +1460,20 @@ core-drawer-panel {
 }
 
 .trending-list {
-  @include span-columns(12);
+  @include span-columns(11);
+  @include shift(.5);
 }
 
 .trending-item {
-  width: 130px;
-  height: 70px;
+  width: 230px;
+  height: 80px;
   background-color: white;
   text-align: center;
   padding: 5px;
   margin: 5px;
   float: left;
   overflow: hidden;
+  cursor: pointer;
   border-bottom: 2px solid $light-blue;
   @media screen and (max-width: 400px) {
     width: 110px;

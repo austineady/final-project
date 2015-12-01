@@ -799,6 +799,7 @@ exports['default'] = Backbone.View.extend({
     });
     user.attributes.friends = friendList;
     user.save();
+    toastr.success('Your friend has been removed');
   }
 });
 module.exports = exports['default'];
@@ -1319,9 +1320,9 @@ var _reviewview = require('./reviewview');
 
 var _reviewview2 = _interopRequireDefault(_reviewview);
 
-var _searchmodalview = require('./searchmodalview');
+var _modalview = require('./modalview');
 
-var _searchmodalview2 = _interopRequireDefault(_searchmodalview);
+var _modalview2 = _interopRequireDefault(_modalview);
 
 exports['default'] = Backbone.View.extend({
   template: JST.listitem,
@@ -1343,8 +1344,8 @@ exports['default'] = Backbone.View.extend({
   },
 
   showModel: function showModel() {
-    var view = new _searchmodalview2['default']({ model: this.model, collection: this.collection });
-    $('.search-item-modal').html(view.el);
+    var view = new _modalview2['default']({ model: this.model, collection: this.collection });
+    $('.item-modal').html(view.el);
   }
 });
 module.exports = exports['default'];
@@ -1556,16 +1557,10 @@ exports['default'] = Backbone.View.extend({
 
   toggleFeatures: function toggleFeatures() {
     var item = this.model;
-    if ($('.features-head').hasClass('option-active')) {
-      $('.features-head').removeClass('option-active');
-      $('.option-box').removeClass('option-box-active');
-      $('.option-box').html('');
-    } else {
-      $('.option-head').removeClass('option-active');
-      $('.features-head').addClass('option-active');
-      $('.option-box').addClass('option-box-active');
-      $('.option-box').html(JST.features({ model: item }));
-    }
+    this.$('.option-head').removeClass('option-active');
+    this.$('.features-head').addClass('option-active');
+    this.$('.option-box').addClass('option-box-active');
+    this.$('.option-box').html(JST.features({ model: item }));
   },
 
   toggleShipping: function toggleShipping() {

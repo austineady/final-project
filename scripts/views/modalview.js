@@ -119,16 +119,10 @@ export default Backbone.View.extend({
 
   toggleFeatures: function() {
     var item = this.model;
-    if($('.features-head').hasClass('option-active')) {
-      $('.features-head').removeClass('option-active');
-      $('.option-box').removeClass('option-box-active');
-      $('.option-box').html('');
-    } else {
-      $('.option-head').removeClass('option-active');
-      $('.features-head').addClass('option-active');
-      $('.option-box').addClass('option-box-active');
-      $('.option-box').html(JST.features({model: item}));
-    }
+      this.$('.option-head').removeClass('option-active');
+      this.$('.features-head').addClass('option-active');
+      this.$('.option-box').addClass('option-box-active');
+      this.$('.option-box').html(JST.features({model: item}));
   },
 
   toggleShipping: function() {

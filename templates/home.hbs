@@ -2,13 +2,12 @@
     <div class="drawer-content drawer-hidden">
       <div class="drawer-menu">
         <div class="user-information">
-          <img src={{this.attributes.profilePicture}} class="drawer-user-picture">
+          <img src="{{this.attributes.profilePicture}}" class="drawer-user-picture">
           <h5 class="drawer-user">{{this.attributes.username}}</h5>
         </div>
       </div>
       <div class="side-nav show-search"><i class="fa fa-newspaper-o side-nav-feed"></i> The Feed</div>
       <div class="side-nav show-list"><core-icon icon="list" class="side-nav-icon"></core-icon> My List</div>
-      <div class="side-nav show-create"><core-icon icon="create" class="side-nav-icon"></core-icon> Create</div>
       <div class="side-nav show-gifts"><i class="fa fa-gift side-nav-gift"></i> Gift List</div>
       <div class="side-nav show-library"><core-icon icon="maps:local-library" class="side-nav-icon"></core-icon> Library</div>
       <div class="drawer-option drawer-friends">
@@ -28,4 +27,7 @@
     </section>
     <div class="modal-underlay search-modal-disabled">
       <div class="search-item-modal search-modal-disabled"></div>
+    </div>
+    <div class="modal-underlay modal-disabled">
+      <div class="item-modal modal-disabled"></div>
     </div>

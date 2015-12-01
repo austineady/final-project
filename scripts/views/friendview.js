@@ -46,5 +46,6 @@ remove: function(){
     });
     user.attributes.friends = friendList;
     user.save();
+    toastr.success("Your friend has been removed");
   }
 });
