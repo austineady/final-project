@@ -10,8 +10,6 @@ export default Backbone.View.extend({
   },
 
   render: function() {
-    $('.side-nav').removeClass('side-nav-active');
-    $('.show-list').addClass('side-nav-active');
     var Product = Parse.Object.extend('Product');
     var product = new Product();
     product.fetch({

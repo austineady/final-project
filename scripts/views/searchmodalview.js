@@ -72,6 +72,7 @@ export default Backbone.View.extend({
   },
 
   addToList: function() {
+    if(Parse.User.current()) {
     var user = Parse.User.current();
     console.log(user);
     var Product = Parse.Object.extend('Product');
@@ -115,6 +116,9 @@ export default Backbone.View.extend({
         toastr.error("There was a problem adding this item to your list");
       }
     });
+  } else {
+    toastr.error("You must be logged in to add items to your list");
+  }
   },
 
   toggleFeatures: function() {

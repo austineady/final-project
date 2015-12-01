@@ -12,7 +12,6 @@ export default Backbone.View.extend({
   render: function() {
     this.$el.html(this.template());
     this.trending();
-    this.activeNav();
     this.connectedHome();
     this.activeAdventurer();
   },
@@ -30,11 +29,6 @@ export default Backbone.View.extend({
         toastr.error("No search results were found, please refresh the page");
       }
     });
-  },
-
-  activeNav: function() {
-    this.$('.side-nav').removeClass('side-nav-active');
-    this.$('.show-search').addClass('side-nav-active');
   },
 
   connectedHome: function() {

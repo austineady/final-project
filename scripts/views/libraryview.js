@@ -33,12 +33,6 @@ export default Backbone.View.extend({
   render: function() {
     this.$el.html(this.template());
     this.renderChildren();
-    this.activeNav();
-  },
-
-  activeNav: function() {
-    $('.side-nav').removeClass('side-nav-active');
-    $('.show-library').addClass('side-nav-active');
   },
 
   renderChildren: function(){

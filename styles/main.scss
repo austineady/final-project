@@ -152,6 +152,7 @@ core-scaffold::shadow core-toolbar {
   @include span-columns(12);
   background-color: rgba(238, 238, 238, 1);
   height: 75vh;
+  overflow-y: scroll;
 }
 
 .search-results-box {
@@ -572,7 +573,6 @@ core-scaffold::shadow core-toolbar {
   padding-right: 10px;
   transition: 4s;
   margin: 20px auto;
-  //overflow-y: scroll;
 }
 
 .modal-underlay {
@@ -909,7 +909,6 @@ core-drawer-panel {
 }
 
 .landing-search-box {
-  overflow-y: scroll;
   @include span-columns(12);
   transition: 2s;
   margin-top: 10px;

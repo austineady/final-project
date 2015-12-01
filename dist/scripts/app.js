@@ -876,8 +876,6 @@ exports['default'] = Backbone.View.extend({
     console.log(list);
     this.$el.html(this.template());
     this.renderChildren(list);
-    $('.side-nav').removeClass('side-nav-active');
-    $('.show-gifts').addClass('side-nav-active');
   },
 
   renderChildren: function renderChildren(list) {
@@ -990,13 +988,24 @@ module.exports = exports['default'];
 });
 
 require.register("views/landingsearchitemview", function(exports, require, module){
-  "use strict";
+  'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
-exports["default"] = Backbone.View.extend({
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _searchmodalview = require('./searchmodalview');
+
+var _searchmodalview2 = _interopRequireDefault(_searchmodalview);
+
+exports['default'] = Backbone.View.extend({
   template: JST.landingsearchitem,
+
+  events: {
+    'click search-item': 'showModel'
+  },
 
   initialize: function initialize() {
     this.render();
@@ -1004,9 +1013,14 @@ exports["default"] = Backbone.View.extend({
 
   render: function render() {
     this.$el.html(this.template(this.model));
+  },
+
+  showModel: function showModel() {
+    var view = new _searchmodalview2['default']({ model: this.model, collection: this.collection });
+    $('.search-item-modal').html(view.el);
   }
 });
-module.exports = exports["default"];
+module.exports = exports['default'];
   
 });
 
@@ -1244,12 +1258,6 @@ exports['default'] = Backbone.View.extend({
   render: function render() {
     this.$el.html(this.template());
     this.renderChildren();
-    this.activeNav();
-  },
-
-  activeNav: function activeNav() {
-    $('.side-nav').removeClass('side-nav-active');
-    $('.show-library').addClass('side-nav-active');
   },
 
   renderChildren: function renderChildren() {
@@ -1375,8 +1383,6 @@ exports['default'] = Backbone.View.extend({
   },
 
   render: function render() {
-    $('.side-nav').removeClass('side-nav-active');
-    $('.show-list').addClass('side-nav-active');
     var Product = Parse.Object.extend('Product');
     var product = new Product();
     product.fetch({
@@ -1626,7 +1632,6 @@ exports['default'] = Backbone.View.extend({
   render: function render() {
     this.$el.html(this.template());
     this.trending();
-    this.activeNav();
     this.connectedHome();
     this.activeAdventurer();
   },
@@ -1644,11 +1649,6 @@ exports['default'] = Backbone.View.extend({
         toastr.error('No search results were found, please refresh the page');
       }
     });
-  },
-
-  activeNav: function activeNav() {
-    this.$('.side-nav').removeClass('side-nav-active');
-    this.$('.show-search').addClass('side-nav-active');
   },
 
   connectedHome: function connectedHome() {
@@ -1931,49 +1931,53 @@ exports['default'] = Backbone.View.extend({
   },
 
   addToList: function addToList() {
-    var user = Parse.User.current();
-    console.log(user);
-    var Product = Parse.Object.extend('Product');
-    var product = new Product();
-    product.save({
-      color: this.model.color,
-      customerReviewAverage: this.model.customerReviewAverage,
-      features: this.model.features,
-      image: this.model.image,
-      backViewImage: this.model.backViewImage,
-      leftViewImage: this.model.leftViewImage,
-      rightViewImage: this.model.rightViewImage,
-      topViewImage: this.model.topViewImage,
-      thumbnailImage: this.model.thumbnailImage,
-      url: this.model.url,
-      name: this.model.name,
-      salePrice: this.model.salePrice,
-      shortDescription: this.model.shortDescription,
-      sku: this.model.sku,
-      owner: user.attributes.username,
-      details: this.model.details,
-      alternateViewsImage: this.model.alternateViewsImage,
-      bestSellingRank: this.model.bestSellingRank,
-      customerTopRated: this.model.customerTopRated,
-      freeShipping: this.model.freeShipping,
-      inStoreAvailabilityText: this.model.inStoreAvailabilityText,
-      inStorePickup: this.model.inStorePickup,
-      includedItemList: this.model.includedItemList,
-      onSale: this.model.onSale,
-      onlineAvailabilityText: this.model.onlineAvailabilityText,
-      orderable: this.model.orderable,
-      priceUpdateDate: this.model.priceUpdateDate,
-      spin360Url: this.model.spin360Url,
-      largeFrontImage: this.model.largeFrontImage,
-      angleImage: this.model.angleImage
-    }, {
-      success: function success(product) {
-        toastr.success('This item is now on your list');
-      },
-      error: function error(product, _error) {
-        toastr.error('There was a problem adding this item to your list');
-      }
-    });
+    if (Parse.User.current()) {
+      var user = Parse.User.current();
+      console.log(user);
+      var Product = Parse.Object.extend('Product');
+      var product = new Product();
+      product.save({
+        color: this.model.color,
+        customerReviewAverage: this.model.customerReviewAverage,
+        features: this.model.features,
+        image: this.model.image,
+        backViewImage: this.model.backViewImage,
+        leftViewImage: this.model.leftViewImage,
+        rightViewImage: this.model.rightViewImage,
+        topViewImage: this.model.topViewImage,
+        thumbnailImage: this.model.thumbnailImage,
+        url: this.model.url,
+        name: this.model.name,
+        salePrice: this.model.salePrice,
+        shortDescription: this.model.shortDescription,
+        sku: this.model.sku,
+        owner: user.attributes.username,
+        details: this.model.details,
+        alternateViewsImage: this.model.alternateViewsImage,
+        bestSellingRank: this.model.bestSellingRank,
+        customerTopRated: this.model.customerTopRated,
+        freeShipping: this.model.freeShipping,
+        inStoreAvailabilityText: this.model.inStoreAvailabilityText,
+        inStorePickup: this.model.inStorePickup,
+        includedItemList: this.model.includedItemList,
+        onSale: this.model.onSale,
+        onlineAvailabilityText: this.model.onlineAvailabilityText,
+        orderable: this.model.orderable,
+        priceUpdateDate: this.model.priceUpdateDate,
+        spin360Url: this.model.spin360Url,
+        largeFrontImage: this.model.largeFrontImage,
+        angleImage: this.model.angleImage
+      }, {
+        success: function success(product) {
+          toastr.success('This item is now on your list');
+        },
+        error: function error(product, _error) {
+          toastr.error('There was a problem adding this item to your list');
+        }
+      });
+    } else {
+      toastr.error('You must be logged in to add items to your list');
+    }
   },
 
   toggleFeatures: function toggleFeatures() {

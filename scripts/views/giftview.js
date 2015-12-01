@@ -17,8 +17,6 @@ export default Backbone.View.extend({
     console.log(list);
     this.$el.html(this.template());
     this.renderChildren(list);
-    $('.side-nav').removeClass('side-nav-active');
-    $('.show-gifts').addClass('side-nav-active');
   },
 
   renderChildren: function(list){
